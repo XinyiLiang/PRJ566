@@ -19,7 +19,7 @@ class  App extends Component {
             <div className="App">
                 <header className="App-header">
                     <img src={require('./Images/detectiveLogo.png')} className="App-logo" alt="logo" />
-                    <h1 className="App-title">Detective Game</h1>
+                    <h1 className="App-title">Detective Game!</h1>
                 </header>
 
             </div>
