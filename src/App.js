@@ -15,7 +15,10 @@ import './App.css';
 class  App extends Component {
   render(){
     return (
-        <React.Fragment>
+         <React.Fragment>
+               
+
+
             <div className="App">
                 <header className="App-header">
                     <img src={require('./Images/detectiveLogo.png')} className="App-logo" alt="logo" />
@@ -30,7 +33,7 @@ class  App extends Component {
                        <Switch>
                             <Route exact path="/" component={Home} />
                             <Route path="/about" component={About} />
-                            <Route path="/Events" component={Events} />
+                            <Route path="/Events"  component={Events} />
                             <Route path="/Media" component={Media} />
                             <Route path="/Teams" component={Teams} />
                             <Route path="/Account" component={Account} />
@@ -40,7 +43,7 @@ class  App extends Component {
                   
             </Router>
 
-      </React.Fragment>
+       </React.Fragment> 
     );
   }
   }
