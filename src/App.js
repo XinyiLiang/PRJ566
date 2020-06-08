@@ -22,7 +22,7 @@ class  App extends Component {
             <div className="App">
                 <header className="App-header">
                     <img src={require('./Images/detectiveLogo.png')} className="App-logo" alt="logo" />
-                    <h1 className="App-title">Detective Game!</h1>
+                    <h1 className="App-title">Detective Game</h1>
                 </header>
 
             </div>
@@ -32,10 +32,12 @@ class  App extends Component {
                 
                        <Switch>
                             <Route exact path="/" component={Home} />
-                            <Route path="/about" component={About} />
-                            <Route path="/Events"  component={Events} />
+
+                         
+                            <Route path="/Events" component={Events} />
                             <Route path="/Media" component={Media} />
                             <Route path="/Teams" component={Teams} />
+                            <Route path="/about" component={About} />
                             <Route path="/Account" component={Account} />
                             <Route component={NoMatch} />
                         </Switch>
