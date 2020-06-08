@@ -10,7 +10,7 @@ import {NoMatch} from './Pages/NoMatch';
 import { NavBar } from './components/NavBar';
 import './App.css';
 
-//////
+
 
 class  App extends Component {
   render(){
