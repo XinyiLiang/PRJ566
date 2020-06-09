@@ -8,7 +8,9 @@ import { Media } from './Pages/Media';
 import { Account } from './Pages/Account';
 import {NoMatch} from './Pages/NoMatch';
 import { NavBar } from './components/NavBar';
+import {Footer} from './components/Footer';
 import './App.css';
+
 
 
 
@@ -16,9 +18,7 @@ class  App extends Component {
   render(){
     return (
          <React.Fragment>
-               
-
-
+              
             <div className="App">
                 <header className="App-header">
                     <img src={require('./Images/detectiveLogo.png')} className="App-logo" alt="logo" />
@@ -42,8 +42,9 @@ class  App extends Component {
 
                   
             </Router>
-
+           <Footer/>
        </React.Fragment> 
+      
     );
   }
   }
