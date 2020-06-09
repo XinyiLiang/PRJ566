@@ -2,6 +2,41 @@
 [
     {
       "id": 1,
+
+      "name": "Independence Day",
+      "image": "/Images/Game1.png",
+      "time": "19:00",
+      "loc": "Online",
+      "info": "BLA BLA BLA ",
+      "date": "2020-06-08"
+    },
+    {
+      "id": 2,
+      "name": "Tycoon Code",
+      "image": "/Images/Game1.png",
+      "time": "19:00",
+      "loc": "Online",
+      "info": "BLA BLA BLA ",
+      "date": "2020-06-08"
+    },
+    {
+      "id": 3,
+      "name": "Winner Cruise",
+      "image": "/Images/Game1.png",
+      "time": "19:00",
+      "loc": "Online",
+      "info": "BLA BLA BLA ",
+      "date": "2020-06-08"
+    },
+    {
+      "id": 4,
+      "name": "New life",
+      "image": "/Images/Game1.png",
+      "time": "19:00",
+      "loc": "Online",
+      "info": "BLA BLA BLA ",
+      "date": "2020-06-08"
+
       "name": "Gam1",
       "image": "/images/.jpg",
       "desc": "..............",
@@ -27,5 +62,6 @@
       "image": "/images/.jpg",
       "desc": "................",
       "date": 9
+
     }
   ]

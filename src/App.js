@@ -34,8 +34,7 @@ class  App extends Component {
                 
                        <Switch>
                             <Route exact path="/" component={Home} />
-
-                         
+        
                             <Route path="/Events" component={Events} />
                             <Route path="/Media" component={Media} />
                             <Route path="/Teams" component={Teams} />
