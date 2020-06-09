@@ -1,24 +1,35 @@
 import React from 'react';
 
+
 export const Home = () =>(
-        <div className='HomeMain'>
-            <div className="WelcomeDiv">
-               <h1> Start your detective journey</h1>
-                
-            </div>
 
-            <div class="row">
-               <div class="col-md-2">
-                    <h2>Top Players</h2>
-                     <ul>
-                        <li>Player1</li>
-                        <li>Player2</li>
-                         <li>Player3</li>
-                  </ul>
-                 <p><a class="btn btn-default" href="/">More &raquo;</a></p>
-               </div>
-            </div>
+       <div className="HomeMain">
 
-        </div>
+           <div id="HomePic">
+             <img src={require('../Images/HomeDetective.png')} alt="Welcome Detective" width="500" height="600" />
+           </div>
+
+           <div className="WelcomeDiv">
+              <h1> Welcome Back  </h1>
+              <h2>Detective</h2>
+           </div>
+
+           <div className="HomeExplain">
+              <p>
+              We are fighting with the city crime and we need you to help us <br /> 
+              save the city from falling apart. <br /> Following is the next crime case solving announcement.
+              </p>
+           </div>
+             
+           <div className="HelpTool">
+              <h2>Help Tool</h2>
+                 <ul>
+                    <li><a href="/">How to Play</a></li>
+                    <li><a href="/">ScoreBoard</a></li>
+                    <li><a href="/">Contact Us</a></li>
+                 </ul>
+           </div>
+       </div>
+    
     )
 export default Home;
