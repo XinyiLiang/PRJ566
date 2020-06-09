@@ -2,8 +2,12 @@ import React , {Component} from 'react';
 import {Container,Row,Col} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import event from './Data.json';
+
 import {EventCard} from '../components/EventCard';
 
+import {EventCard} from '../components/EventCard'
+import {Confirmation} from '../components/Confirmation'
+ 
 
 
 export function Events() {

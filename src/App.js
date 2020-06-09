@@ -8,14 +8,19 @@ import { Media } from './Pages/Media';
 import { Account } from './Pages/Account';
 import {NoMatch} from './Pages/NoMatch';
 import { NavBar } from './components/NavBar';
+import {Footer} from './components/Footer';
 import './App.css';
 
 
 
+
 class  App extends Component {
+
+
   render(){
     return (
-        <React.Fragment>
+         <React.Fragment>
+              
             <div className="App">
                 <header className="App-header">
                     <img src={require('./Images/detectiveLogo.png')} className="App-logo" alt="logo" />
@@ -29,7 +34,7 @@ class  App extends Component {
                 
                        <Switch>
                             <Route exact path="/" component={Home} />
-                         
+        
                             <Route path="/Events" component={Events} />
                             <Route path="/Media" component={Media} />
                             <Route path="/Teams" component={Teams} />
@@ -40,8 +45,9 @@ class  App extends Component {
 
                   
             </Router>
-
-      </React.Fragment>
+           <Footer/>
+       </React.Fragment> 
+      
     );
   }
   }
