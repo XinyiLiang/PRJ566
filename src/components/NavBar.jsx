@@ -24,12 +24,9 @@ export const NavBar = () => (
 
         <Navbar expand = 'lg'>
             <Navbar.Toggle aria-controls = "basic-navbar-nav"/>
-         
-            <div className="mr-auto">
-                <img src={require('../Images/detectiveLogo.png')} className="App-logo" alt="logo" />
-                <h1 className="App-title">Detective</h1>
-             </div>
-
+        
+                
+            <h1 className="App-title">Detective</h1>
             <Nav className="ml-auto">
                 
                 <Nav.Item><Nav.Link href="./">Home </Nav.Link></Nav.Item>
@@ -37,7 +34,6 @@ export const NavBar = () => (
                 <Nav.Item><Nav.Link href="./Teams">Teams </Nav.Link></Nav.Item>
                 <Nav.Item><Nav.Link href="./Events">Events </Nav.Link></Nav.Item>
                 <Nav.Item><Nav.Link href="./About">About </Nav.Link></Nav.Item>
-                {/* <Nav.Item id="login"><Nav.Link href="./LogIn">Log In </Nav.Link></Nav.Item> */}
                 <Nav.Item ><button type="button" id="loginBtn"  class="btn btn-outline-info btn-rounded waves-effect">Log In</button></Nav.Item>
                 </Nav>
 

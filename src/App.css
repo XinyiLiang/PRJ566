@@ -13,29 +13,20 @@
     margin-left: 20px;
 }
 
-.App-header {
-    background-color: #B1A296;
-    height: 200px;
-    padding: 15px;
-    color: white;
-}
-.App-logo {
-    /*animation: App-logo-spin infinite 20s linear;*/
-    height: 50px;
-    width: 50px; 
-}
 
 
 .App-link {
   color: #61dafb;
 }
 .App-title {
-   
-    display: inline;
-    align-self: center;
-    color:black;
+     
+    
+    text-align: center;
+    color: #bbb;
     font-family: 'Metal Mania', cursive;
-    font-size: 35px;
+    font-size: 48px;
+    padding-top: 10px;
+    padding-left: 20px;
     
 }
 
