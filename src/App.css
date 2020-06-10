@@ -9,6 +9,10 @@
     text-align: center;
 }
 
+#loginBtn{
+    margin-left: 20px;
+}
+
 .App-header {
     background-color: #B1A296;
     height: 200px;
@@ -17,12 +21,8 @@
 }
 .App-logo {
     /*animation: App-logo-spin infinite 20s linear;*/
-    height: 100px;
-    width: 100px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    
+    height: 50px;
+    width: 50px; 
 }
 
 
@@ -30,17 +30,15 @@
   color: #61dafb;
 }
 .App-title {
+   
+    display: inline;
     align-self: center;
     color:black;
+    font-family: 'Metal Mania', cursive;
+    font-size: 35px;
+    
 }
 
-.App-header {
-    align-items: center;
-    background-color: #B1A296;
-    height: 180px;
-    padding: 15px;
-    color: white;
-}
 
 .HomeMain{
     

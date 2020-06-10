@@ -21,13 +21,13 @@ class  App extends Component {
     return (
          <React.Fragment>
               
-            <div className="App">
+            {/* <div className="App">
                 <header className="App-header">
                     <img src={require('./Images/detectiveLogo.png')} className="App-logo" alt="logo" />
                     <h1 className="App-title">Detective Game</h1>
                 </header>
 
-            </div>
+            </div> */}
       <NavBar/>
 
           <Router basename={process.env.PUBLIC_URL}>
