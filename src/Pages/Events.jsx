@@ -9,7 +9,7 @@ import {EventCard} from '../components/EventCard';
 
 
 export function Events() {
-
+///
  return (
   
   <Container>
