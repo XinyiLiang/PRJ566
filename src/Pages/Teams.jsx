@@ -1,7 +1,7 @@
 import React from 'react';
 
 export const Teams = () =>(
-    <div className="HomeMain">
+        <div>
             <h1> Teams Page</h1>
             </div>
     )

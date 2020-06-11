@@ -11,7 +11,7 @@ import {EventCard} from '../components/EventCard';
 export function Events() {
 
  return (
-    <div className="HomeMain">
+  
   <Container>
       <Row>
           {event.map(data =>(
@@ -21,7 +21,6 @@ export function Events() {
           ))}
       </Row>
   </Container>
-  </div>
  )
   
           }

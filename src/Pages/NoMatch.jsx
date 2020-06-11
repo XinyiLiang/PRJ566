@@ -1,7 +1,7 @@
 import React from 'react';
 
 export const NoMatch = () =>(
-    <div className="HomeMain">
+        <div>
             <h1>Page Not Find!!</h1>
         </div>
     )
