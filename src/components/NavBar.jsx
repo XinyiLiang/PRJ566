@@ -30,15 +30,16 @@ export const NavBar = () => (
             <Nav className="ml-auto">
                 
                 <Nav.Item><Nav.Link href="./">Home </Nav.Link></Nav.Item>
-                <Nav.Item><Nav.Link href="./Media">Media </Nav.Link></Nav.Item>
+                <Nav.Item><Nav.Link href="./About">About </Nav.Link></Nav.Item>
                 <Nav.Item><Nav.Link href="./Teams">Teams </Nav.Link></Nav.Item>
                 <Nav.Item><Nav.Link href="./Events">Events </Nav.Link></Nav.Item>
-                <Nav.Item><Nav.Link href="./About">About </Nav.Link></Nav.Item>
-                <Nav.Item ><button type="button" id="loginBtn"  class="btn btn-outline-info btn-rounded waves-effect">Log In</button></Nav.Item>
+                <Nav.Item><button id="loginBtn" type="button" class="btn btn-danger" >Play</button></Nav.Item>
+                <Nav.Item ><button id="loginBtn" type="button" class="btn btn-info btn-rounded">Log In</button></Nav.Item>
                 </Nav>
 
         </Navbar>
       </Styles>
     )
 
+   
 export default NavBar;

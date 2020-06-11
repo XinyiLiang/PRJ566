@@ -1,8 +1,8 @@
 import React from 'react';
 
-export const Teams = () =>(
+export const Play = () =>(
     <div className="HomeMain">
-            <h1> Teams Page</h1>
+            <h1> Play Page</h1>
             </div>
     )
-export default Teams;
+export default Play;
