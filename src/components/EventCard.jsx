@@ -48,9 +48,9 @@ export function EventCard({data,setOrder}){
     <Modal show={LogInModalShow} onHide={() => LogInSetModalShow(false)} size ="mg" aria-labelledby="contained-modal-title-vcenter" >
         <Modal.Header closeButton>
             <Modal.Title id="contained-modal-title-vcenter" >
-
+                
                 <img src={require('../Images/detectiveLogo.png')} className="App-logo" alt="logo "   />
-  
+                
             </Modal.Title>
         </Modal.Header>
         <Modal.Body>
