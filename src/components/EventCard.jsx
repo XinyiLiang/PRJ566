@@ -1,6 +1,7 @@
 
 import React from 'react';
-import {Card , Button, Modal,Col, Row} from 'react-bootstrap';
+
+import {Card , Button, Modal,Col} from 'react-bootstrap';
 import Login from './Login';
 
 
@@ -17,6 +18,7 @@ export function EventCard({data,setOrder}){
         <Card className=" h-100 shadow-sm bg-dark border-warning rounded-lg p-3 " style={{borderWidth:'5px'}}>
            
             <Card.Title className="  mb-0 front-weight-bold text-warning h3">{data.name}</Card.Title>
+
                 <Card.Img src={data.image}/>
                 <Card.Body className = "text-white" > 
                 <Card.Text> <img src={require('../Images/Pin.png')} className="mb-1" alt="Pin" style={{width:"20px", height:"20px"}} />  {data.loc} </Card.Text> 
@@ -70,9 +72,6 @@ export function EventCard({data,setOrder}){
     )
 
    
-
-
-
 
 }
 
