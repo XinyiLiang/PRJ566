@@ -4,43 +4,39 @@
 .App {
   text-align: center;
 }
+.App-logo{
+ 
+  margin-left:170px;
+  height: 100px;
+  width: 100px;
+}
 
 .ml-auto {
     text-align: center;
 }
 
-.App-header {
-    background-color: #B1A296;
-    height: 200px;
-    padding: 15px;
-    color: white;
-}
-.App-logo {
-    /*animation: App-logo-spin infinite 20s linear;*/
-    height: 100px;
-    width: 100px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+#loginBtn{
+    margin-left: 20px;
     
 }
+
 
 
 .App-link {
   color: #61dafb;
 }
 .App-title {
-    align-self: center;
-    color:black;
+     
+    
+    text-align: center;
+    color: #bbb;
+    font-family: 'Metal Mania', cursive;
+    font-size: 48px;
+    padding-top: 10px;
+    padding-left: 20px;
+    
 }
 
-.App-header {
-    align-items: center;
-    background-color: #B1A296;
-    height: 180px;
-    padding: 15px;
-    color: white;
-}
 
 .HomeMain{
     
@@ -117,6 +113,7 @@
     margin: auto;
     padding: 0;
     font: 200 20px/1.5 Helvetica, Verdana, sans-serif;
+    font-weight: bold;
     
 }
 .HelpTool ul li:last-child {
