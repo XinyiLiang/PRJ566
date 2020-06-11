@@ -2,6 +2,7 @@
 [
     {
       "id": 1,
+
       "name": "Independence Day",
       "image": "/Images/Game1.png",
       "time": "19:00",
@@ -35,5 +36,8 @@
       "loc": "Online",
       "info": "BLA BLA BLA ",
       "date": "2020-06-08"
+
     }
+   
+    
   ]
