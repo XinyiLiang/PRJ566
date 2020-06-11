@@ -1,7 +1,9 @@
 
 import React from 'react';
+
 import {Card , Button, Modal,Col} from 'react-bootstrap';
 import Login from './Login';
+
 
 
 export function EventCard({data,setOrder}){
@@ -70,7 +72,6 @@ export function EventCard({data,setOrder}){
     )
 
    
-
 
 }
 

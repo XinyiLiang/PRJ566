@@ -5,8 +5,9 @@ import event from './Data.json';
 
 import {EventCard} from '../components/EventCard';
 
-export function Events() {
 
+export function Events() {
+///
  return (
   
   <Container>
