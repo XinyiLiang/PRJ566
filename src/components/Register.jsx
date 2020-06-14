@@ -100,11 +100,6 @@ var Register = createClass({
     return !_isEmpty(value);
   },
 
-  updateStatesValue: function (value) {
-    this.setState({
-      statesValue: value
-    })
-  },
 
   render: function() {
     return (
@@ -205,4 +200,3 @@ var Register = createClass({
 });
     
 export default Register;
-export default FormPage;
