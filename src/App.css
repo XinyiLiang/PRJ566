@@ -16,18 +16,20 @@
 }
 
 #loginBtn{
-    margin-left: 20px;
-    
+    margin-top:-6px;
+    margin-left: -10px;
 }
-
+#PlayBtn{
+    margin-left: -5px;
+   margin-top:-6px;
+}
 
 
 .App-link {
   color: #61dafb;
 }
 .App-title {
-     
-    
+   
     text-align: center;
     color: #bbb;
     font-family: 'Metal Mania', cursive;
@@ -40,15 +42,35 @@
 
 .HomeMain{
     
-    height: 100vh;
-    background-color: #B1A296;
+    background-color: #c4b5a9;
     
 }
 
 #HomePic {
     position: absolute;
     left:0px;
+    
 }
+
+
+
+#LoginPageLogo
+{
+    position: relative;
+    height: 5em;
+    width: 5em;
+    margin-left: 10em;
+    margin-bottom: 2em;
+}
+
+.LoginPageContainer{
+   height: 30em;
+   width: 30em;
+   position: relative;
+   padding: 2em;
+   margin: 0 auto;
+}
+
 
 .WelcomeDiv{
    

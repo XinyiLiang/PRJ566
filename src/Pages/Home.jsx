@@ -1,6 +1,6 @@
 import React from 'react';
+import {Annoucement} from '../components/Announcement';
 
-//
 export const Home = () =>(
 
        <div className="HomeMain">
@@ -29,6 +29,8 @@ export const Home = () =>(
                     <li><a href="/">Contact Us</a></li>
                  </ul>
            </div>
+
+           <Annoucement />
        </div>
     
     )

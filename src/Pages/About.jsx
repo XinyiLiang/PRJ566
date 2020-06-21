@@ -2,10 +2,7 @@ import React from 'react';
 import { Container, Row,Col} from 'react-bootstrap';
 
 export const About = () =>(
-     
-
-
-    
+   <div className="HomeMain">
     <Container >
         <Row>
             <Col md={{ span: 6, offset: 3 }}>
@@ -47,7 +44,7 @@ export const About = () =>(
             </Col>
         </Row>
     </Container>     
-    
+    </div>
 
 
     )
