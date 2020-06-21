@@ -9,8 +9,8 @@ import {EventCard} from '../components/EventCard';
 export function Events() {
 ///
  return (
-  
-  <Container>
+    <div className="HomeMain">
+  <Container >
       <Row>
           {event.map(data =>(
               <Col xs={3} className="mb-5" key={`${data.id}`}>
@@ -19,6 +19,7 @@ export function Events() {
           ))}
       </Row>
   </Container>
+  </div>
  )
   
           }

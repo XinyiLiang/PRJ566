@@ -5,17 +5,15 @@ import {About} from './Pages/About';
 import {Events} from './Pages/Events';
 import {Teams} from './Pages/Teams';
 import { Play } from './Pages/Play';
+import { LoginPage } from './Pages/LoginPage';
 import {NoMatch} from './Pages/NoMatch';
 import { NavBar } from './components/NavBar';
 import {Footer} from './components/Footer';
 import './App.css';
-import Login from './components/Login';
-
 
 
 
 class  App extends Component {
-
 
   render(){
     return (
@@ -31,13 +29,15 @@ class  App extends Component {
                             <Route path="/Teams" component={Teams} />
                             <Route path="/about" component={About} />
                             <Route path="/Play" component={Play} />
-                            <Route path="/Login" component={Login} />
+                            <Route path="/Login" component={LoginPage} />
                             <Route component={NoMatch} />
                         </Switch>
 
                   
             </Router>
+            
            <Footer/>
+          
        </React.Fragment> 
       
     );
