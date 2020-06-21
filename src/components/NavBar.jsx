@@ -9,13 +9,14 @@ const Styles = styled.div`
     color: white;
   }
 
-  .navbar-nav .nav-link {
+  .navbar-nav .nav-item .nav-link {
     margin-left: 20px;
-    color: white;
+    color: #bbb;
     &:hover {
-      color: grey;}
+      color: white;}
     }
-  
+
+  }
 `;
 
 export const NavBar = () => (
