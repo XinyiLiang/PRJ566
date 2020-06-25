@@ -47,7 +47,7 @@
 }
 
 #HomePic {
-    position: absolute;
+    
     left:0px;
     
 }
@@ -75,9 +75,8 @@
 .WelcomeDiv{
    
     position: relative;
-    left: 25em;
-    top:4em;
-   
+    
+    top:6em;
     width:780px;
     
 }
@@ -97,26 +96,31 @@
 }
 .HomeExplain{
     position: relative;
-    left: 24em;
-    top:4em;
+   
+    top:6em;
     font-family: 'Lucida Sans Unicode';
     font-size: 17px;
     height: 100px;
     width: 700px;
 }
 
+.HomeSecondPart{
+    background-color:#ebebeb ;
+    
+}
+
 .HelpTool{
     text-align: center;
-    position: relative;
-    left: 58em;
-    top:-11em;
+     margin: 0 auto;
+     margin-top:5em;
     font-family: 'Lucida Sans Unicode';
     font-size: 17px;
     border-radius: 18px;
-    background:#557A95;
+    background:#658baa;
     padding: 0px;
     width: 200px;
     height: 220px;
+    border: 4px solid rgb(9, 1, 80);
     
 }
 .HelpTool h2{
@@ -152,19 +156,20 @@
     -ms-transition: font-size 0.3s ease, background-color 0.3s ease;
     transition: font-size 0.3s ease, background-color 0.3s ease;
     display: block;
-    width: 200px;
+    width: 192px;
   }
   
 .HelpTool ul li a:hover {
     font-size: 25px;
     background: #29648a;
-    color:rgb(195, 195, 196);
+    color:#ebebeb;
   }
   
 
 .footer  {
-    background-color: #dadada;
-    color: #616161 ;
+    background-color: #4b4a4f;;
+    color: #faf9f9 ;
+    font-style: bold;
     position: relative;
     bottom: 0;
     width: 100%;
@@ -174,3 +179,5 @@
     padding: 10px 50px 10px 100px;
    
 }
+
+
