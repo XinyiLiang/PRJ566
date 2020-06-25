@@ -2,12 +2,14 @@ import React  from 'react';
 import {Container,Row,Col} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import event from './Data.json';
+import PhoneBook from '../components/PhoneBook'
 
 import {EventCard} from '../components/EventCard';
 
 
 export function Events() {
-///
+///   
+
  return (
   
   <Container>
@@ -17,10 +19,15 @@ export function Events() {
                   <EventCard data={data}/>
               </Col>
           ))}
-      </Row>
+      </Row>   
+
+    
+<PhoneBook/>
+
   </Container>
+ 
  )
   
-          }
+ }
 export default Events;
 
