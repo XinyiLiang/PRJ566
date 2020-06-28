@@ -7,6 +7,7 @@ import {Teams} from './Pages/Teams';
 import { Play } from './Pages/Play';
 import { LoginPage } from './Pages/LoginPage';
 import {NoMatch} from './Pages/NoMatch';
+import {ContactUs} from './Pages/ContactUs';
 import { NavBar } from './components/NavBar';
 import {Footer} from './components/Footer';
 import './App.css';
@@ -30,6 +31,7 @@ class  App extends Component {
                             <Route path="/about" component={About} />
                             <Route path="/Play" component={Play} />
                             <Route path="/Login" component={LoginPage} />
+                            <Route path="/ContactUs" component={ContactUs} />
                             <Route component={NoMatch} />
                         </Switch>
 

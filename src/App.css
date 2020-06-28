@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Metal+Mania&display=swap');
 
 
+
 .App {
   text-align: center;
 }
@@ -75,9 +76,8 @@
 .WelcomeDiv{
    
     position: relative;
-    
     top:6em;
-    width:780px;
+    
     
 }
 .WelcomeDiv h1
@@ -101,11 +101,11 @@
     font-family: 'Lucida Sans Unicode';
     font-size: 17px;
     height: 100px;
-    width: 700px;
+    
 }
 
 .HomeSecondPart{
-    background-color:#ebebeb ;
+    background-color:#d8d8d7 ;
     
 }
 
@@ -116,7 +116,7 @@
     font-family: 'Lucida Sans Unicode';
     font-size: 17px;
     border-radius: 18px;
-    background:#658baa;
+    background:#73a2c9;
     padding: 0px;
     width: 200px;
     height: 220px;
