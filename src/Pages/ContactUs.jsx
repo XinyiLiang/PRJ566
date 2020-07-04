@@ -12,8 +12,9 @@ const Styles = styled.div`
 }
 
 .section-content{
+  
+  
   padding-top:10em;
-  padding-right:14em;
   text-align: left; 
   
 
@@ -40,6 +41,7 @@ const Styles = styled.div`
   
   .form-line{
     border-right: 1px solid #B29999;
+    padding-right:3em;
   }
   
   .form-group{
@@ -74,17 +76,16 @@ export const ContactUs = () =>(
 
 <div id="contact">
    
-        
-			<div class="section-content float-right">
-				<h1 class="section-header">Get in <span class="content-header wow fadeIn " data-wow-delay="0.2s" data-wow-duration="2s"> Touch with us</span></h1>
-				<h3>Let us know how you feel on our game today!</h3>
-			</div>
-			<div class="contact-section">
-			<div class="container">
+    <div class="container"> 
+    <div class="row">
+			
+      
+      <div class="contact-section col-6">
+			{/*  */}
               
 				<form >
                 
-					<div class="col-md-6 form-line">
+					<div class=" form-line">
 			  			<div class="form-group">
 			  				<label for="exampleInputUsername">Your name</label>
 					    	<input type="text" class="form-control" id="" placeholder=" Enter Name"/>
@@ -112,10 +113,14 @@ export const ContactUs = () =>(
 				</form>
 			</div>
 
-           
+      <div class="section-content col-6">
+				<h1 class="section-header">Get in <span class="content-header wow fadeIn " data-wow-delay="0.2s" data-wow-duration="2s"> Touch with us</span></h1>
+				<h3>Let us know how you feel on our game today!</h3>
+			</div>
+
 
             </div>
-           
+            </div>
 		</div>
    
  </Styles>

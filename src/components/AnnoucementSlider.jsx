@@ -19,6 +19,12 @@ h2{
 
 }
 
+.textStyle{
+  font-family: 'Playfair Display SC', cursive;
+  font-weight: bold;
+  color:#fcc500;
+  font-size: 25px;
+}
 
 `;
 
@@ -38,7 +44,7 @@ export const AnnoucementSlider = () => (
     <div class="carousel-item active">
     <img src={require('../Images/slice1.png')} alt="slice1" className="slice"  />
       <div class="carousel-caption d-none d-md-block" >
-        <h5 class="text-left text-black">New Event: City homicide</h5>
+        <h5 class="text-left text-black textStyle">New Event: City homicide</h5>
         <h6 class="text-left">Start: June 26, 2020 19:00 PM</h6>
         <br />
         <p class="text-left">In a new case of homicide, Two young men were murdered on a rainy night..</p>
@@ -51,7 +57,7 @@ export const AnnoucementSlider = () => (
     
       <div class="carousel-caption d-none d-md-block " >
       
-        <h5 class="text-left">Score Post</h5>
+        <h5 class="text-left textStyle">Score Post</h5>
         <h6 class="text-left">On: June 30, 2020 23:00 PM</h6>
         <br />
         <br />
@@ -63,7 +69,7 @@ export const AnnoucementSlider = () => (
     <div class="carousel-item">
     <img src={require('../Images/slice3.png')} alt="slice1" className="slice" />
       <div class="carousel-caption d-none d-md-block">
-        <h5 class="text-left">System Update</h5>
+        <h5 class="text-left textStyle">System Update</h5>
         <h6 class="text-left">Time: July 1, 2020 00:00 AM - July 1, 2020 04:00 AM </h6>
         <br />
         <p class="text-left">During system update period, some features might not be available.</p>
