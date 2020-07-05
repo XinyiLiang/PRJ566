@@ -11,11 +11,17 @@ const Styles = styled.div`
     
 }
 .Main{
-    background-color: #bfbfbf;
+    background: #ded9ca; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to top, #ded9ca , #c4b5a9); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to top, #ded9ca , #c4b5a9); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     padding:3em;
-    margin: auto;
+    margin: 0 auto;
+    display: inline-block;
+
     
 }
+
+
 .score{
     padding-right:20px;
 }
@@ -28,14 +34,12 @@ const Styles = styled.div`
         width: 100%;
         max-height: 100%;
         display: block;
-        margin: 1em;
+        margin: 0 auto;
+        padding-top: 1em;
 }
 .CaseMain{
     margin: 3em;
     height:100%;
-    background: #a3a3a3; /* fallback for old browsers */
-    background: -webkit-linear-gradient(to top, #6e6e6e , #a3a3a3); /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to top, #6e6e6e , #a3a3a3); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
       color : #fff;    
 }
 
@@ -51,36 +55,56 @@ const Styles = styled.div`
     color:#383838;
 }
 
+.fixedTop{
+    position: -webkit-sticky; /* Safari */  
+    position: sticky;
+    top: 10px;
+    z-index:1;
+    padding:10px;
+    background: #ebeae8; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to top, #fff9ed ,#ebeae8); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to top, #fff9ed , #ebeae8); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    border: 5px solid #995200;
+    border-radius: 25px;
+    margin: 0 auto;
+}
+
 `;
 
 export const Play = () =>(
 
     <Styles>
-    <div className="HomeMain">
-
-
-           <div class="Container Main text-center ">
+    <div class="Main">
+          
+               
+          <div class="fixedTop">
                <div class="row">
-               <div  class="col-md-4" >
+               <div  class="col-4 text-center" >
                <p class="font-weight-bold GroupName">Team: D-squad </p>
                </div>
                </div>
             <div class="row ">
 
-            <div  class="col-md-5 text-center" >
+            <div  class="col text-center " >
                 <div class="d-inline font-weight-bold score">Step: 00</div>
                 <div class="d-inline font-weight-bold score">Score: 00</div>
                 <div class="d-inline font-weight-bold score">Timer: 00:00:00</div>
                
             </div>
 
-                <div class="col-md-7  help-section">
+                <div class="col help-section ">
                   <a href="/play" class="btn btn-outline-info font-weight-bold">Phone Book &nbsp;<BsBookHalf /></a>&nbsp;&nbsp;
                   <a href="/play" class="btn btn-outline-info font-weight-bold">Question&nbsp;<BsCardText /></a>&nbsp;&nbsp;
                   <a href="/play" class="btn btn-outline-info font-weight-bold">Clues&nbsp;<BsFillInfoCircleFill /></a> &nbsp;&nbsp;
                 </div>
 
             </div>
+         </div>
+              
+         
+
+           <div class="Container text-center">
+           
 
              <div class="row ">
                  <div class="col-md-6">
@@ -94,7 +118,7 @@ export const Play = () =>(
       
             <div class="row">
             <div class="col CaseMain"> 
-                 <h2>Case overview</h2>
+                 <h2 class="text-center">Case overview</h2>
                  <br />
 
                  <p class="text-left">Alan Madison was an actor, and he was doing well. 
@@ -140,14 +164,17 @@ export const Play = () =>(
                     siphon, as well as a broken bottle of whiskey “Morrisson's,” which Owen received
                      on the forehead, we will return to this a little later).
                  <br />
+                 <br />   
                   Madison was seriously injured by the blow, but remained alive for some time. 
                      Weasley drove the victim to the bridge in order to simulate a car accident.
+                     <br />   
                      <br />   
                      Upon reaching the bridge, Wesley got out of the car and poured a lot of
                       alcohol into Madison's mouth (that Madison didn’t get drunk on his own 
                       can be understood from the autopsy report: the coroner indicated a large
                       amount of alcohol in his stomach, but the ppm in the blood was strikingly less.)
                       <br />  
+                      <br />   
                       It was at this time that <strong>Richard Owen</strong>, an ordinary hard worker returning home, 
                       rode across the bridge from the night shift. Being a kind and sympathetic person
                        (what they tell you at Owen’s place of work - at the Twin Electro factory), Owen
@@ -158,6 +185,7 @@ export const Play = () =>(
                           by reading the autopsy report, which mentions fragments of glass around the
                            forehead - whereas the windshield of Owen’s car is intact).
                            <br /> 
+                           <br />   
                            
                            Wesley put both victims in cars and directed the transport in such a 
                            way that it looked like a car accident. In the penalty parking lot, you 
