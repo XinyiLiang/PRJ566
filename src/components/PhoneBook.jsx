@@ -1,6 +1,7 @@
 import React from "react";
 import { Button, Modal,ListGroup} from 'react-bootstrap';
 import people from './PhoneBookData.json';
+import {BsBookHalf} from 'react-icons/bs';
 
 
 
@@ -14,10 +15,10 @@ function PhoneBook() {
 
     return (
       <>
-        <Button variant="primary" onClick={handleShow}>
-          Phone Book
+        <Button  variant="outline-info font-weight-bold" onClick={handleShow}>
+          Phone Book <BsBookHalf />
         </Button>
-  
+      
         <Modal
           show={show}
           onHide={handleClose}
