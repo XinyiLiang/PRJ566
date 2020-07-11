@@ -2,7 +2,7 @@
 PRJ566 Peoject for group 10 - Detective Game Web Application  
 
 # Live URL
-https://prj666g10.herokuapp.com/Events
+https://prj666g10.herokuapp.com
 
 # Prerequisites
 Install Node JS    
