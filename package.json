@@ -8,6 +8,7 @@
     "bootstrap-icons": "^1.0.0-alpha5",
     "react": "^16.9.0",
     "react-bootstrap": "^1.0.0-beta.11",
+    "react-dev-utils": "^10.2.1",
     "react-dom": "^16.9.0",
     "react-icons": "^3.10.0",
     "react-items-carousel": "^2.8.0",
