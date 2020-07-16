@@ -17,7 +17,7 @@ export const Home = () =>(
 
       <div class="col-6">
               <div className="WelcomeDiv" >
-                 <h1> Welcome Back  </h1>
+                 <h1> Welcome Back0  </h1>
                  <h2>Detective</h2>
               </div>
 
