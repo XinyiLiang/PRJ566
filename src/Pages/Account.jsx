@@ -2,7 +2,7 @@ import React from 'react';
 
 export const Account = () =>(
         <div>
-             <RegisterForm/>
+            <h1> Account Page</h1>
             </div>
     )
 export default Account;

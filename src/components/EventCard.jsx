@@ -41,7 +41,7 @@ export function EventCard({data,setOrder}){
           <p> {data.info}</p>
         </Modal.Body>
         <Modal.Footer>
-        <Button variant="success" onClick={() =>{infoSetModalShow(false); LogInSetModalShow(true)} }>Apply</Button>
+        <Button variant="success" onClick={() =>{infoSetModalShow(false); LogInSetModalShow(true)} }>Join Game</Button>
         <Button onClick={() => infoSetModalShow(false)}>Close</Button>
            
         </Modal.Footer>

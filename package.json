@@ -3,13 +3,15 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "antd": "^4.4.1",
     "bootstrap": "^4.3.1",
     "react": "^16.9.0",
     "react-bootstrap": "^1.0.0-beta.11",
     "react-dom": "^16.9.0",
+    "react-icons": "^3.10.0",
     "react-native-leaderboard": "^1.0.6",
     "react-router-dom": "^5.0.1",
-    "react-scripts": "3.1.1",
+    "react-scripts": "^3.4.1",
     "styled-components": "^4.3.2"
   },
   "scripts": {
@@ -32,5 +34,10 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "description": "PRJ566 Peoject for group 10 - Detective Game Web Application",
+  "main": "index.js",
+  "devDependencies": {},
+  "author": "group10",
+  "license": "ISC"
 }

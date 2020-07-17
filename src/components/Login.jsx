@@ -14,6 +14,9 @@ export function Login() {
     event.preventDefault();
   }
 
+
+
+
   return (
     <div className="Login">
       <form onSubmit={handleSubmit}>
@@ -35,9 +38,18 @@ export function Login() {
           />
         </FormGroup>
         <Button block bsSize="large" disabled={!validateForm() } variant="success" type="submit">Login</Button>
+   
+    
       </form>
+      <p className="register-link">
+                    No account? <a href="Register">sign up</a>
+                </p>
     </div>
   );
 }
+
+
+
+
 
 export default Login;
