@@ -1,33 +1,15 @@
 import React from 'react';
 import {Nav, Navbar} from 'react-bootstrap';
-import styled from 'styled-components';
-
-
-const Styles = styled.div`
-  .navbar {
-    background-color :  #4b4a4f;
-    color: white;
-  }
-
-  .navbar-nav .nav-item .nav-link {
-    margin-left: 20px;
-    color: #bbb;
-    &:hover {
-      color: white;}
-    }
-
-  }
-`;
 
 export const NavBar = () => (
 
-    <Styles>
-  
-        <Navbar expand = 'lg'>
-            <Navbar.Toggle aria-controls = "basic-navbar-nav"/>
-
-            <h1 className="App-title">Detective</h1>
-            <Nav className="ml-auto">
+    
+        <Navbar expand = 'lg' >
+           <Navbar.Toggle   data-toggle="collapse" data-target="#navbarNav"   /> 
+            
+           <h1 className="App-title">Detective</h1>
+            <div class="collapse navbar-collapse navItemStyle" id="navbarNav" >
+            <Nav className="  ml-auto"  >
                 
                 <Nav.Item><Nav.Link href="./">Home </Nav.Link></Nav.Item>
                 <Nav.Item><Nav.Link href="./About">About </Nav.Link></Nav.Item>
@@ -36,9 +18,9 @@ export const NavBar = () => (
                 <Nav.Item><Nav.Link href="./Play"><button id="PlayBtn"  class="btn btn-danger" >Play</button></Nav.Link></Nav.Item>
                 <Nav.Item><Nav.Link href="./Login"><button id="loginBtn" type="button" class="btn btn-info btn-rounded">Log In</button></Nav.Link></Nav.Item>
                 </Nav>
-
+                </div>
         </Navbar>
-      </Styles>
+     
     )
 
 export default NavBar;
