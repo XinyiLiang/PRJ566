@@ -1,101 +1,41 @@
 import React from 'react';
-import styled from 'styled-components';
 import { BsFillInfoCircleFill } from "react-icons/bs";
 import {BsCardText}  from 'react-icons/bs';
-
+import {Container,Row,Col} from 'react-bootstrap';
 import PhoneBook from '../components/PhoneBook'
 
-const Styles = styled.div`
-  
-.help-section{
-    display: inline;
-    float:left;
-    
-}
-.Main{
-    background: #ded9ca; /* fallback for old browsers */
-    background: -webkit-linear-gradient(to top, #ded9ca , #c4b5a9); /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to top, #ded9ca , #c4b5a9); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    padding:3em;
-    margin: 0 auto;
-    display: inline-block;
-}
-.score{
-    padding-right:20px;
-}
-.GroupName{
-    font-family: 'Playfair Display SC';
-    font-size:1.5em;
-    color:#102169;
-}
-.SecondRowImg{
-        width: 100%;
-        max-height: 100%;
-        display: block;
-        margin: 0 auto;
-        padding-top: 1em;
-}
-.CaseMain{
-    margin: 3em;
-    height:100%;
-      color : #fff;    
-}
 
-.CaseMain h2{
-    font-family: 'Kalam', cursive;
-    font-size:50px;
-    color:#383838;
-}
-.CaseMain p{
-    font-family: 'Kalam', regular;
-    font-size:18px;
-    color:#383838;
-}
-
-.fixedTop{
-    position: -webkit-sticky; /* Safari */  
-    position: sticky;
-    top: 10px;
-    z-index:1;
-    padding:10px;
-    background: #ebeae8; /* fallback for old browsers */
-    background: -webkit-linear-gradient(to top, #fff9ed ,#ebeae8); /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to top, #fff9ed , #ebeae8); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    border: 5px solid #995200;
-    border-radius: 25px;
-    margin: 0 auto;
-}
-`;
 
 export const Play = () =>(
 
-    <Styles>
+    
     <div class="Main">
              
             <div class="fixedTop">
-               <div class="row">
-               <div  class="col-4 text-center" >
+                <Container>
+               <Row>
+               <Col md={12} xs={12} lg={12}  class="text-center" >
                <p class="font-weight-bold GroupName">Team: D-squad </p>
-               </div>
-               </div>
-            <div class="row ">
+               </Col>
+               </Row>
+            <Row>
 
-            <div  class="col text-center " >
-                <div class="d-inline font-weight-bold score">Step: 00</div>
-                <div class="d-inline font-weight-bold score">Score: 00</div>
-                <div class="d-inline font-weight-bold score">Timer: 00:00:00</div>
+            <Col md={12} xs={12} lg={6}  class="text-center" >
+                <div class="d-inline font-weight-bold score ">Step: 00</div>
+                <div class="d-inline font-weight-bold score ">Score: 00</div>
+                <div class="d-inline font-weight-bold score ">Timer: 00:00:00</div>
                
-            </div>
+            </Col>
 
-                <div class="col help-section ">
+            <Col md={12} xs={12} lg={6} class="help-section">
                   <PhoneBook/>&nbsp;&nbsp;
-                  <a href="/play" class="btn btn-outline-info font-weight-bold">Question&nbsp;<BsCardText /></a>&nbsp;&nbsp;
+                  <a href="/play" class="btn btn-outline-info font-weight-bold ">Question&nbsp;<BsCardText /></a>&nbsp;&nbsp;
                   <a href="/play" class="btn btn-outline-info font-weight-bold">Clues&nbsp;<BsFillInfoCircleFill /></a> &nbsp;&nbsp;
-                </div>
+                </Col>
 
-            </div>
-         </div>
-              
+            </Row>
+         </Container>
+        </div>
          
 
            <div class="Container text-center">
@@ -202,7 +142,7 @@ export const Play = () =>(
             </div>
     
     
-      </Styles>
+     
     )
 
 export default Play;
