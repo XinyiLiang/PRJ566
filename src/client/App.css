@@ -1,0 +1,360 @@
+@import url('https://fonts.googleapis.com/css2?family=Metal+Mania&display=swap');
+
+
+/* nav component css */
+.navbar {
+    background-color :  #4b4a4f;
+    color: white;
+    
+  }
+
+  .navbar-nav .nav-item .nav-link {
+    margin-left: 15px;
+    color: #bbb;
+    font-size: 1.3em;
+    
+    }
+
+    .navbar-nav .nav-item .nav-link:hover{
+        color: white;
+    }
+    .App-title {
+   
+        text-align: center;
+        color: #bbb;
+        font-family: 'Metal Mania', cursive;
+        font-size: 3em;
+        padding-top: 10px;
+        padding-left: 20px;
+        
+    }
+    .navItemStyle {
+        padding-top: 10px;
+        padding-right: 10px;
+        text-align: center;
+        
+    }
+/* end of nav component css */
+.App {
+  text-align: center;
+}
+.App-logo{
+ 
+  margin-left:170px;
+  height: 100px;
+  width: 100px;
+}
+
+
+
+#loginBtn{
+    margin-top:-6px;
+    margin-left: -10px;
+}
+#PlayBtn{
+    margin-left: -5px;
+   margin-top:-6px;
+}
+
+
+.App-link {
+  color: #61dafb;
+}
+
+
+
+.HomeMain{
+    
+    background-color: #c4b5a9;
+    
+}
+
+#HomePic {
+    
+    left:0px;
+    
+}
+.IMGtest{
+        width:30vw;
+        height: 100%;
+        display: block;
+        margin: 0 auto;
+}
+
+
+#LoginPageLogo
+{
+    position: relative;
+    height: 5em;
+    width: 5em;
+    margin-left: 10em;
+    margin-bottom: 2em;
+}
+
+.LoginPageContainer{
+   height: 30em;
+   width: 30em;
+   position: relative;
+   padding: 2em;
+   margin: 0 auto;
+}
+
+
+.WelcomeDiv{
+   
+    position: relative;
+    top: 3em;
+    
+        
+}
+.WelcomeDiv h1
+{
+    font-family: 'Metal Mania', cursive;
+    font-size: 4vw;
+}
+.WelcomeDiv h2
+{
+    font-family: 'Metal Mania', cursive;
+    font-size: 8vw;
+    margin-top: -0.2em;
+}
+.HomeExplain{
+    position: relative;
+    top:4em;
+    font-family: 'Lucida Sans Unicode';
+    font-size: 1.5vw;
+    height: 100%;
+    
+}
+
+.HomeSecondPart{
+    background-color:#d8d8d7 ;
+    
+}
+
+.HelpTool{
+    text-align: center;
+     margin: 0 auto;
+     margin-top:5em;
+     margin-bottom: 2em;
+    border-radius: 18px;
+    background:#73a2c9;
+    padding: 0px;
+    width: 13em;
+    height: 14em;
+    border: 0.4em solid rgb(9, 1, 80);
+    
+}
+.HelpTool h2{
+    padding-top: 20px;
+    padding-bottom: 15px;
+    font-family: 'Lucida Sans Unicode';
+    font-size: 2em;
+}
+
+.HelpTool ul {
+    list-style-type: none;
+    margin: auto;
+    padding: 0;
+}
+.HelpTool ul li{
+    margin: auto;
+    padding: 0;
+    font: 200 1.2em/1.5 Helvetica, Verdana, sans-serif;
+    font-weight: bold;
+    
+}
+.HelpTool ul li:last-child {
+    border: none;
+  }
+
+.HelpTool ul li a {
+    text-decoration: none;
+    color: #000;
+    -webkit-transition: font-size 0.3s ease, background-color 0.3s ease;
+    -moz-transition: font-size 0.3s ease, background-color 0.3s ease;
+    -o-transition: font-size 0.3s ease, background-color 0.3s ease;
+    -ms-transition: font-size 0.3s ease, background-color 0.3s ease;
+    transition: font-size 0.3s ease, background-color 0.3s ease;
+    display: block;
+    width: 195px;
+  }
+  
+.HelpTool ul li a:hover {
+    font-size: 1.5em;
+    background: #29648a;
+    color:#ebebeb;
+  }
+  
+
+.footer  {
+    background-color: #4b4a4f;;
+    color: #faf9f9 ;
+    font-style: bold;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+.footerdiv {
+    padding: 10px 50px 10px 100px;
+   
+}
+
+
+.second-part{
+  margin-top: 0.5em;
+ 
+}
+/* Announcement slice css */
+.MainSlice{
+    margin: 2em;
+  }
+  .slice{
+    height:15em;
+    width:45em;
+  }
+  h2{
+      font-family: 'Playfair Display SC', serif;
+      font-size:4em;
+     }
+  .textAlign{
+    text-align: left;
+  
+  }
+  
+  .textStyle{
+    font-family: 'Playfair Display SC', cursive;
+    font-weight: bold;
+    color:#fcc500;
+    font-size: 1.3em;
+  }
+  .AnnoucementDetails{
+      font-size: 1em;
+  }
+/* end of Annoucement slice css */
+
+
+/* Play Page  css */
+.help-section{
+    display: inline;
+   
+    
+}
+.Main{
+    background: #ded9ca; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to top, #ded9ca , #c4b5a9); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to top, #ded9ca , #c4b5a9); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    padding:3em;
+    margin: 0 auto;
+    display: inline-block;
+}
+.score{
+    padding-right:20px;
+}
+.GroupName{
+    font-family: 'Playfair Display SC';
+    font-size:1.5em;
+    color:#102169;
+}
+.SecondRowImg{
+        width: 100%;
+        max-height: 100%;
+        display: block;
+        margin: 0 auto;
+        padding-top: 1em;
+}
+.CaseMain{
+    margin: 3em;
+    height:100%;
+      color : #fff;    
+}
+
+.CaseMain h2{
+    font-family: 'Kalam', cursive;
+    font-size:50px;
+    color:#383838;
+}
+.CaseMain p{
+    font-family: 'Kalam', regular;
+    font-size:18px;
+    color:#383838;
+}
+
+.fixedTop{
+    position: -webkit-sticky; /* Safari */  
+    position: sticky;
+    top: 10px;
+    z-index:1;
+    padding:10px;
+    background: #ebeae8; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to top, #fff9ed ,#ebeae8); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to top, #fff9ed , #ebeae8); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    border: 5px solid #995200;
+    border-radius: 25px;
+    margin: 0 auto;
+}
+
+
+/* end of Play Page css */
+
+/* Contact Us Page css */
+.content-header{
+    font-family: 'Oleo Script', cursive;
+    color:#fcc500;
+    font-size: 45px;
+  }
+  
+  .section-content{
+    padding-top:10em;
+    text-align: left; 
+    
+  
+  }
+  #contact{
+      
+    font-family: 'Teko', sans-serif;
+    padding-top: 3em;
+    padding-bottom: 1.5em;
+    
+    height: 100%;
+    
+    background: #3a6186; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to left, #3a6186 , #55b5b3); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to left, #3a6186 , #55b5b3); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+      color : #fff;    
+  }
+  .contact-section{
+    padding-top: 40px;
+    margin-bottom: 3em;
+  }
+  .contact-section .col-md-6{
+      width: 100%;
+    }
+    
+    
+    
+    .form-group{
+      margin-top: 10px;
+    }
+    label{
+      font-size: 1.3em;
+      line-height: 1em;
+      font-weight: normal;
+    }
+    .form-control{
+      font-size: 1.3em;
+      color: #080808;
+    }
+    textarea.form-control {
+        height: 135px;
+       /* margin-top: px;*/
+    }
+    .submit{
+      font-size: 1.1em;
+      float: right;
+      width: 10em;
+      background-color: transparent;
+      color: #fff;
+    }
+/* end of Contact Us Page css */
