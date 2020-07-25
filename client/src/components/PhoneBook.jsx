@@ -1,6 +1,6 @@
-import React from "react";
+import React, { Component, useEffect, useState } from "react";
 import { Button, Modal,ListGroup} from 'react-bootstrap';
-import people from './PhoneBookData.json';
+
 import {BsBookHalf} from 'react-icons/bs';
 
 
@@ -12,9 +12,22 @@ function PhoneBook() {
 
     const handleShow = () => setShow(true);
 
+    const [NPC, dataSet] = useState([])
 
+    useEffect(() => {
+      async function fetchMyAPI() {
+        let response = await fetch('/api/get/getAllNpc')
+        response = await response.json()
+        dataSet(response)
+      }
+  
+      fetchMyAPI()
+      
+    }, [])
+  
     return (
       <>
+      
         <Button  variant="outline-info font-weight-bold" onClick={handleShow}>
           Phone Book <BsBookHalf />
         </Button>
@@ -29,15 +42,15 @@ function PhoneBook() {
           <Modal.Header  closeButton>
             <Modal.Title>Phone Book</Modal.Title>
           </Modal.Header>
-                    
-
-        <ListGroup>
-        {people.map(data =>(
-              <ListGroup.Item action onClick={alert}  key={`${data.id}`}>
-                  {data.name}
-              </ListGroup.Item>
-          ))}
-           </ListGroup>
+       
+            
+              <ListGroup>
+              {NPC.map(data =>(
+                    <ListGroup.Item action onClick={alert}  key={data.NPC_ID}>
+                       {data.NAME}
+                    </ListGroup.Item>
+              ))}
+                </ListGroup> 
        
           <Modal.Footer>
             <Button variant="secondary" onClick={handleClose}>
@@ -50,7 +63,9 @@ function PhoneBook() {
     );
 
 
-  }
+ }
+
+
   
   export default PhoneBook;      
 
