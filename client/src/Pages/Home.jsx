@@ -2,7 +2,7 @@ import React from 'react';
 import AnnoucementSlider from '../components/AnnoucementSlider';
 import {Container,Row,Col} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import axios from 'axios';
+//import axios from 'axios';
 
 export const Home = () =>(
     <div>

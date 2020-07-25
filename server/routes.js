@@ -62,7 +62,8 @@ router.get('/api/get/getAllNpc', (req, res, next ) => {
                     res.json(q_res.rows)
     })
   })
-  
+
+ 
   router.get('/api/get/NPC', (req, res, next) => {
     const npc_id = req.query.npc_id
   
@@ -111,6 +112,8 @@ router.get('/api/get/getAllNpc', (req, res, next ) => {
                   console.log(q_err)
          })
   })
-
+  router.get('/', function(req, res, next) {
+    res.send('API is working properly');
+});
 
 module.exports = router
