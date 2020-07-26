@@ -1,6 +1,7 @@
 import React from 'react';
-import { Container, Row,Col} from 'react-bootstrap';
-import FinalScoreBoard from '../components/FinalScoreBoard';
+import { Container, Row,Col} from 'react-bootstrap'; 
+
+
 
 export const Teams = () =>(
 
@@ -8,8 +9,8 @@ export const Teams = () =>(
             <Container >
                   <Row>
                        <Col md={{ span: 6, offset: 3 }}>
-                             <h2> Teams Page</h2>
-                             <FinalScoreBoard/>
+                             <h2> Teams page</h2>
+                           
 
                         </Col>
                     </Row>

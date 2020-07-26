@@ -79,6 +79,16 @@
    margin: 0 auto;
 }
 
+
+.ChangeProfileContainer{
+    height:42em;
+    width: 30em;
+   position: relative;
+   padding: 2em;
+   margin: 0 auto;
+}
+
+
 .WelcomeDiv{
    
     position: relative;

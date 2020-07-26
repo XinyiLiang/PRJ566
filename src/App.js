@@ -3,9 +3,11 @@ import {BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import {Home} from './Pages/Home';
 import {About} from './Pages/About';
 import {Events} from './Pages/Events';
-import {Teams} from './Pages/Teams';
+import {ScoreBoard} from './Pages/ScoreBoardPage';
 import Team from './Pages/TeamPage';
+import Teams from './Pages/Teams';
 import Register from './Pages/RegisterPage';
+import ChangeProfile from './Pages/ChangeProfilePage';
 import { Play } from './Pages/Play';
 import { LoginPage } from './Pages/LoginPage';
 import {NoMatch} from './Pages/NoMatch';
@@ -30,8 +32,10 @@ class  App extends Component {
                             <Route exact path="/" component={Home} />
                             <Route path="/Events" component={Events} />
                             <Route path="/Teams" component={Teams} />
+                            <Route path="/ScoreBoardPage" component={ScoreBoard} />
                             <Route path="/Team" component={Team} />
                             <Route path="/Register" component={Register} />
+                            <Route path="/ChangeProfile" component={ChangeProfile} />
                             <Route path="/about" component={About} />
                             <Route path="/Play" component={Play} />
                             <Route path="/Login" component={LoginPage} />
