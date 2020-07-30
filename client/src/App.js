@@ -10,6 +10,9 @@ import {NoMatch} from './Pages/NoMatch';
 import {ContactUs} from './Pages/ContactUs';
 import { NavBar } from './components/NavBar';
 import {Footer} from './components/Footer';
+import {Account} from './Pages/RegisterPage'
+import {ProfilePage} from './Pages/Profile'
+import {ChangeProfilePage} from './Pages/ChangeProfilePage'
 import './App.css';
 
 
@@ -46,6 +49,9 @@ componentWillMount() {
                             <Route path="/Play" component={Play} />
                             <Route path="/Login" component={LoginPage} />
                             <Route path="/ContactUs" component={ContactUs} />
+                            <Route path="/Register" component={Account} />
+                            <Route path="/Profile" component={ProfilePage} />
+                            <Route path="/ProfileChange" component={ChangeProfilePage} />
                             <Route component={NoMatch} />
                         </Switch>
 
