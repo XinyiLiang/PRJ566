@@ -6,7 +6,7 @@ import Login from './Login';
 
 
 
-export function EventCard({data,setOrder}){
+ export function EventCard({data,setOrder}){
 
 
     const[infoModalShow,infoSetModalShow] = React.useState(false);
