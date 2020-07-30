@@ -3,14 +3,18 @@ import { BsFillInfoCircleFill } from "react-icons/bs";
 import {BsCardText}  from 'react-icons/bs';
 import {Container,Row,Col} from 'react-bootstrap';
 import PhoneBook from '../components/PhoneBook'
+import Questions from '../components/Questions'
+import Timer from '../components/Timer'
 
 
-
+  
 export const Play = () =>(
 
     
+
+
     <div class="Main">
-             
+         
             <div class="fixedTop">
                 <Container>
                <Row>
@@ -23,18 +27,19 @@ export const Play = () =>(
             <Col md={12} xs={12} lg={6}  class="text-center" >
                 <div class="d-inline font-weight-bold score ">Step: 00</div>
                 <div class="d-inline font-weight-bold score ">Score: 00</div>
-                <div class="d-inline font-weight-bold score ">Timer: 00:00:00</div>
+                <div class="d-inline font-weight-bold score ">Timer:<Timer/></div>
                
             </Col>
 
             <Col md={12} xs={12} lg={6} class="help-section">
                   <PhoneBook/>&nbsp;&nbsp;
-                  <a href="/play" class="btn btn-outline-info font-weight-bold ">Question&nbsp;<BsCardText /></a>&nbsp;&nbsp;
+                  <Questions/>&nbsp;&nbsp;
                   <a href="/play" class="btn btn-outline-info font-weight-bold">Clues&nbsp;<BsFillInfoCircleFill /></a> &nbsp;&nbsp;
                 </Col>
 
             </Row>
          </Container>
+
         </div>
          
 
