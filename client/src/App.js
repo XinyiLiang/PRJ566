@@ -51,7 +51,7 @@ componentWillMount() {
                             <Route path="/ContactUs" component={ContactUs} />
                             <Route path="/Register" component={Account} />
                             <Route path="/Profile" component={ProfilePage} />
-                            <Route path="/ProfileChange" component={ChangeProfilePage} />
+                            <Route path="/ChangeProfile" component={ChangeProfilePage} />
                             <Route component={NoMatch} />
                         </Switch>
 
