@@ -245,7 +245,7 @@
     background: #ded9ca; /* fallback for old browsers */
     background: -webkit-linear-gradient(to top, #ded9ca , #c4b5a9); /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to top, #ded9ca , #c4b5a9); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    padding:3em;
+ padding:3em;
     margin: 0 auto;
     display: inline-block;
 }
@@ -363,4 +363,11 @@
 
   
   min-width: 50vw;
+}
+.ChangeProfileContainer{
+  height:42em;
+  width: 30em;
+ position: relative;
+ padding: 2em;
+ margin: 0 auto;
 }

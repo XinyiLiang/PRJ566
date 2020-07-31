@@ -1,30 +1,57 @@
 import React from "react";
-import { MDBContainer, MDBRow, MDBCol, MDBBtn, MDBInput } from 'mdbreact';
+import { useForm } from "react-hook-form";
+import { Form, Field } from 'react-advanced-form'
+import { Input, Button } from 'react-advanced-form-addons'
+import { Component } from "react";
 
 const FormPage = () => {
-return (
-<MDBContainer>
-  <MDBRow>
-    <MDBCol md="6">
-      <form>
-        <p className="h5 text-center mb-4">Sign up</p>
-        <div className="grey-text">
-          <MDBInput label="Your name" icon="user" group type="text" validate error="wrong"
-            success="right" />
-          <MDBInput label="Your email" icon="envelope" group type="email" validate error="wrong"
-            success="right" />
-          <MDBInput label="Confirm your email" icon="exclamation-triangle" group type="text" validate
-            error="wrong" success="right" />
-          <MDBInput label="Your password" icon="lock" group type="password" validate />
-        </div>
-        <div className="text-center">
-          <MDBBtn color="indigo">Register</MDBBtn>
-        </div>
-      </form>
-    </MDBCol>
-  </MDBRow>
-</MDBContainer>
-);
-};
+  const registerUser = ({ serialized, fields, form }) => {
+    return fetch('https://backend.dev', {
+      body: JSON.stringify(serialized)
+    })
+  }
+  return (
 
+<Form  
+        action={registerUser}
+  >
+        <Field.Group name="primaryInfo">
+          <Input
+            name="userEmail"
+            type="email"
+            label="E-mail"
+            required />
+        </Field.Group>
+
+        <Input
+          name="userPassword"
+          type="password"
+          label="Password"
+          required />
+        <Input
+          name="confirmPassword"
+          type="password"
+          label="Confirm password"
+          required
+          skip />
+
+        <Field.Group name="primaryInfo">
+          <Input
+            name="firstName"
+            label="First name"
+            required={({ get }) => {
+              return !!get(['primaryInfo', 'lastName', 'value'])
+            }} />
+          <Input
+            name="lastName"
+            label="Last name"
+            required={({ get }) => {
+              return !!get(['primaryInfo', 'firstName', 'value'])
+            }} />
+        </Field.Group>
+
+        <Button primary>Register</Button>
+      </Form>
+  );
+};
 export default FormPage;
