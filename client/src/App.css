@@ -66,7 +66,7 @@
 .HomeMain{
     
     background-color: #c4b5a9;
-    
+    height: 100%;
 }
 
 #HomePic {
@@ -358,3 +358,9 @@
       color: #fff;
     }
 /* end of Contact Us Page css */
+
+.NPCcall{
+
+  
+  min-width: 50vw;
+}

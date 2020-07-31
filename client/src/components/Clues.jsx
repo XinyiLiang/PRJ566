@@ -1,20 +1,17 @@
 import React, { useEffect, useState } from "react";
 import { Button, Modal,ListGroup} from 'react-bootstrap';
-
-import {BsBookHalf} from 'react-icons/bs';
-
-//import NPCcall from './NPCcall';
+import { BsFillInfoCircleFill } from "react-icons/bs";
 
 
-function PhoneBook() {
+function Clues() {
 
    // const [show, setShow] = React.useState(false);
 
-     const [PBModal, setPBShow] = React.useState(false);
-     const ClosePB = () => setPBShow(false);
-     const OpenPB = () => setPBShow(true);
+     const [CluesModal, setShow] = React.useState(false);
+     const Close = () => setShow(false);
+     const Open = () => setShow(true);
 
-    const [NPC, dataSet] = useState([])
+    const [Clues, dataSet] = useState([])
    
 
     useEffect(() => {
@@ -31,33 +28,33 @@ function PhoneBook() {
     return (
       <>
       
-        <Button  variant="outline-info font-weight-bold" onClick={OpenPB}>
-          Phone Book <BsBookHalf />
+        <Button  variant="outline-info font-weight-bold" onClick={Open}>
+          Clues <BsFillInfoCircleFill />
         </Button>
       
         <Modal
-          show={PBModal}
-          onHide={ClosePB}
+          show={CluesModal}
+          onHide={Close}
          
           aria-labelledby="contained-modal-title-vcenter"
           centered
           
         >
           <Modal.Header  closeButton>
-            <Modal.Title>Phone Book</Modal.Title>
+            <Modal.Title>Clues</Modal.Title>
           </Modal.Header>
        
             
               <ListGroup>
-              {NPC.map(data =>(
-                   <ListGroup.Item action onClick={ClosePB}  key={data.NPC_ID}>
-                       {data.NAME}
+              {Clues.map(data =>(
+                   <ListGroup.Item action onClick={Close}  key={data.NPC_ID}  >
+                       {data.clue}
                     </ListGroup.Item>
               ))}
                 </ListGroup> 
        
           <Modal.Footer>
-            <Button variant="secondary" onClick={ClosePB}>
+            <Button variant="secondary" onClick={Close}>
               Close
             </Button>
          
@@ -71,7 +68,7 @@ function PhoneBook() {
 
 
   
-  export default PhoneBook;      
+  export default Clues;      
 
  
 
