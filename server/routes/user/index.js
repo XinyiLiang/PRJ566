@@ -1,6 +1,6 @@
 var express = require('express')
 var router = express.Router()
-var pool = require('../main/db')
+var pool = require('../../main/db')
 
 
   //create new user

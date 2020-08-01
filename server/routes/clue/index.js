@@ -1,6 +1,5 @@
-var express = require('express')
-var router = express.Router()
-var pool = require('../main/db')
+var router = require('express').Router();
+var pool = require('../../main/db')
 
 //get clues for particular npc
 router.get('/api/get/getAllNpcClues', (req, res, next ) => {

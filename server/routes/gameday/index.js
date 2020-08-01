@@ -1,6 +1,6 @@
 var express = require('express')
 var router = express.Router()
-var pool = require('../main/db')
+var pool = require('../../main/db')
 
 //get all the gamedays from database ordered by date (closest first)
 router.get('/api/get/getAllGamedays', (req, res, next ) => {

@@ -1,6 +1,5 @@
-var express = require('express')
-var router = express.Router()
-var pool = require('../main/db')
+var router = require('express').Router();
+var pool = require('../../main/db')
 
 
 router.get('/api/get/getTeams', async (req, res) => {
