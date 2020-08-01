@@ -1,14 +1,14 @@
 import React from 'react';
-import Register from '../components/Register';
+import Account from '../components/Register';
 
 
-export const Account = () =>(
+export const RegisterPage = () =>(
     <div className="HomeMain">
    
                 
-                <img id="LoginPageLogo" src={"../images/detectiveLogo.png"} alt="loginLogo" />       
-            <Register/>
+            <img id="LoginPageLogo" src={"../images/detectiveLogo.png"} alt="loginLogo" />       
+            <Account/>
  
 </div>
     )
-export default Account;
+export default RegisterPage;

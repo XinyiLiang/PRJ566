@@ -4,7 +4,7 @@ import { Form, Field } from 'react-advanced-form'
 import { Input, Button } from 'react-advanced-form-addons'
 import { Component } from "react";
 
-const FormPage = () => {
+const Account = () => {
   const registerUser = ({ serialized, fields, form }) => {
     return fetch('https://backend.dev', {
       body: JSON.stringify(serialized)
@@ -54,4 +54,4 @@ const FormPage = () => {
       </Form>
   );
 };
-export default FormPage;
+export default Account;

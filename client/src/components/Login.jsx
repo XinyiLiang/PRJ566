@@ -35,6 +35,7 @@ export function Login() {
           />
         </FormGroup>
         <Button block bsSize="large" disabled={!validateForm() } variant="success" type="submit">Login</Button>
+        <a class="btn btn-primary  btn-block" href="/Register" role="button">Register</a>
       </form>
     </div>
   );
