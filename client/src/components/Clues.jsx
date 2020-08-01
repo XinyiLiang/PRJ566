@@ -16,7 +16,7 @@ function Clues() {
 
     useEffect(() => {
       async function fetchMyAPI() {
-        let response = await fetch('/api/get/getAllNpc')
+        let response = await fetch('/api/get/getAllNpcClues')
         response = await response.json()
         dataSet(response)
       }
@@ -47,8 +47,8 @@ function Clues() {
             
               <ListGroup>
               {Clues.map(data =>(
-                   <ListGroup.Item action onClick={Close}  key={data.NPC_ID}  >
-                       {data.clue}
+                   <ListGroup.Item action onClick={Close}  key={data.clue_id}  >
+                       {data.description}
                     </ListGroup.Item>
               ))}
                 </ListGroup> 

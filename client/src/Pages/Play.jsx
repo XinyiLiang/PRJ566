@@ -1,6 +1,5 @@
 import React from 'react';
 
-import {BsCardText}  from 'react-icons/bs';
 import {Container,Row,Col} from 'react-bootstrap';
 import PhoneBook from '../components/PhoneBook'
 import Clues from '../components/Clues'
@@ -33,11 +32,9 @@ export const Play = () =>(
             </Col>
 
             <Col md={12} xs={12} lg={6} class="help-section">
-                  <PhoneBook/>&nbsp;&nbsp;
-                  <a href="/play" class="btn btn-outline-info font-weight-bold ">Question&nbsp;<BsCardText /></a>&nbsp;&nbsp;
-                  <Clues/> &nbsp;&nbsp;
+                  <PhoneBook/>&nbsp;&nbsp;                 
                   <Questions/>&nbsp;&nbsp;
-                  <a href="/play" class="btn btn-outline-info font-weight-bold">Clues&nbsp;<BsFillInfoCircleFill /></a> &nbsp;&nbsp;
+                  <Clues/> &nbsp;&nbsp;
                 </Col>
 
             </Row>

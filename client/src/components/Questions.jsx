@@ -1,4 +1,4 @@
-import React, { Component, useEffect, useState } from "react";
+import React, {  useEffect, useState } from "react";
 import { Button, Modal,ListGroup,Form} from 'react-bootstrap';
 
 import {BsBookHalf} from 'react-icons/bs';

@@ -8,7 +8,8 @@ import { Play } from './Pages/Play';
 import { LoginPage } from './Pages/LoginPage';
 import {NoMatch} from './Pages/NoMatch';
 import {ContactUs} from './Pages/ContactUs';
-import { NavBar } from './components/NavBar';
+import { NavBar } from './components/NavBar_LoggedIn';
+import { NavBarLoggedOut } from './components/NavBar_LoggedOut';
 import {Footer} from './components/Footer';
 import {Account} from './Pages/RegisterPage'
 import {ProfilePage} from './Pages/Profile'
@@ -38,7 +39,7 @@ componentWillMount() {
          <React.Fragment>
               
       <NavBar/>
-         
+      <NavBarLoggedOut />  
           <Router basename={process.env.PUBLIC_URL}>
                 
                        <Switch>
