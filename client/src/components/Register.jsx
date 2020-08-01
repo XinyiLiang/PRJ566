@@ -1,8 +1,7 @@
 import React from "react";
-import { useForm } from "react-hook-form";
 import { Form, Field } from 'react-advanced-form'
 import { Input, Button } from 'react-advanced-form-addons'
-import { Component } from "react";
+
 
 const FormPage = () => {
   const registerUser = ({ serialized, fields, form }) => {
@@ -17,10 +16,12 @@ const FormPage = () => {
   >
         <Field.Group name="primaryInfo">
           <Input
+            
             name="userEmail"
             type="email"
             label="E-mail"
-            required />
+            required
+           />
         </Field.Group>
 
         <Input
@@ -50,7 +51,7 @@ const FormPage = () => {
             }} />
         </Field.Group>
 
-        <Button primary>Register</Button>
+        <Button id="registerButton" primary>Register</Button>
       </Form>
   );
 };
