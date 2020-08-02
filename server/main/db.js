@@ -9,9 +9,4 @@ const pool = new Pool({
 })
 
 
-pool.query('SELECT * FROM public."TEAMS"', (err, res) => {
-  console.log(err, res)
-  //pool.end()
-})
-
 module.exports=pool

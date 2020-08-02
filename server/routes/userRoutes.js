@@ -5,31 +5,44 @@ var pool = require('../main/db')
 
   //create new user
   router.post('/api/user/posttodb', (req, res, next) => {
-    const values = [ req.body.first_name,
-                     req.body.last_name,
-                     req.body.birthdate,
-                     req.body.username,
+    const values = [ req.body.primaryInfo.first_name,
+                     req.body.primaryInfo.last_name,
+                    //req.body.birthdate,
+                   // req.body.username,
                      req.body.password,
-                     req.body.email,
-                     req.body.phonenumber,
-                     req.body.team_id]
-    pool.query(`INSERT INTO public."PLAYER"(FIRST_NAME, LAST_NAME, BIRTHDATE, USERNAME, PASSWORD, EMAIL, PHONENUMBER, TEAM_ID)
-                VALUES($1, $2, $3, $4, $5, $6, $7, $8)`,
+                     req.body.primaryInfo.email,
+                   // req.body.phonenumber,
+                   // req.body.team_id
+                  ]
+                  
+                   
+    console.log(req.body);              
+    pool.query(`INSERT INTO public."PLAYER"("FIRST_NAME", "LAST_NAME", "BIRTHDATE", "USERNAME", "PASSWORD", "EMAIL", "PHONENUMBER", "TEAM_ID")
+                VALUES($1, $2, NULL, 'bob', $3, $4, '5', '1')`,
              values, (q_err, q_res) => {
             if(q_err) return next(q_err);
             res.json(q_res.rows)
-      })
+      });
   })
 
 //get player (using email)
 router.get('/api/get/getPlayer', (req, res, next ) => {
     const email = req.body.email
-    pool.query(`SELECT * FROM public."PLAYER" WHERE EMAIL = $1`, [ email ],
+    pool.query(`SELECT * FROM public."PLAYER" WHERE EMAIL = $1 `, [ email ],
               (q_err, q_res) => {
                     res.json(q_res.rows)
     })
   })
-
+//player login(using email)
+router.post('/api/get/PlayerLogin', (req, res, next ) => {
+  const email = req.body.undefined.email;
+  const password = req.body.undefined.password;
+  pool.query(`SELECT * FROM public."PLAYER" WHERE "EMAIL" = $1 and "PASSWORD" = $2`, [ email,password ],
+            (q_err, q_res) => {
+                  if(q_err) return next(q_err);
+                  res.json(q_res.rows);
+  });
+})
 //get players for particular team
 router.get('/api/get/getAllTeamPlayers', (req, res, next ) => {
     const team_id = req.body.team_id
