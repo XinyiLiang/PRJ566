@@ -12,7 +12,7 @@ import { FormProvider } from 'react-advanced-form'
                 <FormProvider rules={rules} messages={messages}>
             
                 <div className="flex">
-                <img id="RegisterLogo" src={"../images/detectiveLogo.png"} alt="loginLogo" />   
+                <img id="RegisterLogo" src={"../images/detectiveLogo.png"} alt="loginLogo" /> <span className="LogoBesidesText">Register</span>
                   <Register //onSubmitStart={this.handleSubmitStart} 
                   />
                     </div>

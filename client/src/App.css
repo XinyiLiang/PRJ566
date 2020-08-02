@@ -7,8 +7,8 @@
 #RegisterLogo
 {
     position: relative;
-    height: 7em;
-    width: 7em;
+    height: 6em;
+    width: 6em;
     margin-bottom: 1em;
     margin-top: 1em;
 }
@@ -102,7 +102,7 @@
     position: relative;
     height: 5em;
     width: 5em;
-    margin-left: 10em;
+    margin-left: 7em;
     margin-bottom: 2em;
 }
 
@@ -112,6 +112,8 @@
    position: relative;
    padding: 2em;
    margin: 0 auto;
+ 
+  
 }
 
 
@@ -385,4 +387,26 @@
  position: relative;
  padding: 2em;
  margin: 0 auto;
+}
+
+.HowToPlayTitle{
+  font-family: 'Playfair Display SC', serif;
+  font-size: 3em;
+  
+}
+
+.HowToPlayTitleGname{
+  font-family: 'Metal Mania', cursive;
+  font-size: 2em;
+  
+}
+
+.HomeMain h3{
+  border-bottom: black 1px solid;
+}
+
+.LogoBesidesText{
+  font-family: 'Lucida Sans Unicode';
+  font-size: 3em;
+  
 }
