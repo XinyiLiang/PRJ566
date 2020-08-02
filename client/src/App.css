@@ -1,6 +1,21 @@
 @import url('https://fonts.googleapis.com/css2?family=Metal+Mania&display=swap');
 
-
+/*REgister*/
+.flex{
+  text-align: center;
+}
+#RegisterLogo
+{
+    position: relative;
+    height: 7em;
+    width: 7em;
+    margin-bottom: 1em;
+    margin-top: 1em;
+}
+#registerButton{
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
 /* nav component css */
 .navbar {
     background-color :  #4b4a4f;

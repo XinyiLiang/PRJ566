@@ -11,7 +11,7 @@ import {ContactUs} from './Pages/ContactUs';
 import { NavBar } from './components/NavBar_LoggedIn';
 import { NavBarLoggedOut } from './components/NavBar_LoggedOut';
 import {Footer} from './components/Footer';
-import {RegisterPage} from './Pages/RegisterPage'
+import {Account} from './Pages/RegisterPage'
 import {ProfilePage} from './Pages/Profile'
 import {ChangeProfilePage} from './Pages/ChangeProfilePage'
 import './App.css';
@@ -50,7 +50,7 @@ componentWillMount() {
                             <Route path="/Play" component={Play} />
                             <Route path="/Login" component={LoginPage} />
                             <Route path="/ContactUs" component={ContactUs} />
-                            <Route path="/Register" component={RegisterPage} />
+                            <Route path="/Register" component={Account} />
                             <Route path="/Profile" component={ProfilePage} />
                             <Route path="/ChangeProfile" component={ChangeProfilePage} />
                             <Route component={NoMatch} />

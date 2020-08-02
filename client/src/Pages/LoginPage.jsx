@@ -7,7 +7,7 @@ export const LoginPage = () =>(
            <div className="LoginPageContainer">
                <img id="LoginPageLogo" src={"../images/detectiveLogo.png"} alt="loginLogo" />
             <Login />
-           
+            
             </div>
 
       

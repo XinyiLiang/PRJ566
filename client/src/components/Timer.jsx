@@ -4,6 +4,8 @@ import React from "react";
 import Countdown from 'react-countdown-now';
 function Timer() {
 
+    const time = 1596317327013;
+
     // Renderer callback with condition
 const renderer = ({ hours, minutes, seconds, completed }) => {
     if (completed) {
@@ -17,8 +19,9 @@ const renderer = ({ hours, minutes, seconds, completed }) => {
  
     return (
         <Countdown
-    date={Date.now() + 7200000}
+    date={time + 7200000}
     renderer={renderer}/>
+   
     );
 
 

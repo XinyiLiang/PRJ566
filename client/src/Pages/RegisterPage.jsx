@@ -1,14 +1,23 @@
 import React from 'react';
-import Account from '../components/Register';
+import Register from '../components/Register';
+import rules from '../ValidationRules'
+import messages from '../ValidationMessages'
+import { FormProvider } from 'react-advanced-form'
 
-
-export const RegisterPage = () =>(
+ export const Account = () =>(
     <div className="HomeMain">
    
-                
-            <img id="LoginPageLogo" src={"../images/detectiveLogo.png"} alt="loginLogo" />       
-            <Account/>
+  
+              
+                <FormProvider rules={rules} messages={messages}>
+            
+                <div className="flex">
+                <img id="RegisterLogo" src={"../images/detectiveLogo.png"} alt="loginLogo" />   
+                  <Register //onSubmitStart={this.handleSubmitStart} 
+                  />
+                    </div>
+              </FormProvider>
  
-</div>
+    </div>
     )
-export default RegisterPage;
+    export default Account;
