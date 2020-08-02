@@ -19,7 +19,7 @@ const renderer = ({ hours, minutes, seconds, completed }) => {
  
     return (
         <Countdown
-    date={time + 7200000}
+    date={Date.now() + 7200000}
     renderer={renderer}/>
    
     );
