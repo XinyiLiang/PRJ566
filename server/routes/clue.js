@@ -4,12 +4,23 @@ var pool = require('../main/db')
 
 //get clues for particular npc
 router.get('/api/get/getAllNpcClues', (req, res, next ) => {
-    const id = req.body.npc_id
+    const id = req.query.npc_id
     pool.query(`SELECT * FROM public."CLUES" WHERE NPC_ID = $1`, [ id ],
               (q_err, q_res) => {
                     res.json(q_res.rows)
     })
   })
+
+  //get collected clues for particular team
+router.get('/api/get/getAllTeamClues', (req, res, next ) => {
+  const values = [ req.query.team_id,
+                   req.query.game_id]
+  pool.query(`SELECT DESCRIPTION FROM public."CLUES" c JOIN public."TEAM_SCORE" t ON c.CLUE_ID=t.CLUE_ID WHERE t.TEAM_ID = $1 AND
+  t.GAME_ID=$2 `, values,
+            (q_err, q_res) => {
+                  res.json(q_res.rows)
+  })
+})
   
   //save new clue to db
   router.post('/api/clue/posttodb', (req, res, next) => {
