@@ -131,7 +131,7 @@ function PhoneBook() {
          
        
           <Modal.Footer>
-          < Questions />
+         
             <Button variant="secondary" onClick={CloseNPC}>
             End Call
             </Button>

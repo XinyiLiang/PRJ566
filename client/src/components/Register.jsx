@@ -16,8 +16,26 @@ const Account = () => {
       'Content-Type': 'application/json'
       // 'Content-Type': 'application/x-www-form-urlencoded',
       }
+    }).then(res => res.json()).then(data => {
+      if (data.length == 1) {
+  
+          console.log('user exists');
+          sessionStorage.setItem("auth", "true");
+          sessionStorage.setItem("email",data[0].EMAIL)
+          sessionStorage.setItem("name",data[0].FIRST_NAME)
+          sessionStorage.setItem("team",data[0].TEAM_ID)
+   
+        
+      //history.push('/');
+      window.location.reload();
+        
+    
+      } else {
+          console.log("user doesn't exist");
+      }
     });
-  }
+  };
+  
   return (
 
 <Form  

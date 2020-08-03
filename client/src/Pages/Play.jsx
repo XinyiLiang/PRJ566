@@ -5,6 +5,7 @@ import PhoneBook from '../components/PhoneBook'
 import Clues from '../components/Clues'
 import Questions from '../components/Questions'
 import Timer from '../components/Timer'
+import {NavBar} from '../components/NavBar';
 
 
   
@@ -13,8 +14,8 @@ export const Play = () =>(
     
 
 
-    <div class="Main">
-         
+    <div class="HomeMain">
+             <NavBar/>
             <div class="fixedTop">
                 <Container>
                <Row>

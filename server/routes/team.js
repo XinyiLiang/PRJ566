@@ -11,8 +11,8 @@ router.get('/api/get/getTeams', async (req, res) => {
 
   
   router.get('/api/get/team/:id', async (req, res) => {
-    const { id } = req.params
-    const { rows } = await pool.query('SELECT * FROM public."TEAMS"  WHERE TEAM_ID=$1', [id])
+    const  id  = req.params.id
+    const { rows } = await pool.query('SELECT * FROM public."TEAMS"  WHERE "TEAM_ID"=$1', [id])
     res.send(rows[0])
   })
     

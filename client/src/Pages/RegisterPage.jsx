@@ -1,14 +1,15 @@
 import React from 'react';
 import Register from '../components/Register';
-import rules from '../ValidationRules'
-import messages from '../ValidationMessages'
-import { FormProvider } from 'react-advanced-form'
+import rules from '../ValidationRules';
+import messages from '../ValidationMessages';
+import { FormProvider } from 'react-advanced-form';
+import {NavBar} from '../components/NavBar';
 
  export const Account = () =>(
     <div className="HomeMain">
    
   
-              
+   <NavBar/>
                 <FormProvider rules={rules} messages={messages}>
             
                 <div className="flex">
