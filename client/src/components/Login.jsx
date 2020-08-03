@@ -31,7 +31,7 @@ const loginUser = ({ serialized, fields, form }) => {
  
  
       
-    history.push('/');
+    //history.push('/');
     //location.reload();
       
   
@@ -72,13 +72,13 @@ const loginUser = ({ serialized, fields, form }) => {
         onChange={e => setPassword(e.value)} />
         </Field.Group>
         <Button bsSize="large" variant="success" type="submit" primary>Login</Button>
-        <Button id="registerButton" block bsSize="large" variant="danger" type="Register" href="/Register" secondary >Register</Button>
+        <Button id="registerButton" bsSize="large" variant="danger" type="Register" onClick={e=> history.push('/Register')}  >Register</Button>
       </Form>
-      
+     
     </div>
   );
 }
-       //
+       
 export default Login;
 
 
