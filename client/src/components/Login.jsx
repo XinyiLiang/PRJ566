@@ -32,10 +32,10 @@ const loginUser = ({ serialized, fields, form }) => {
 
     
     //location.reload();
-      
-  
+
     } else {
-        console.log("user doesn't exist");
+        //console.log("user doesn't exist");
+        alert("user doesn't exist!!");
     }
     history.push('/');
     window.location.reload(true);
@@ -49,12 +49,11 @@ const loginUser = ({ serialized, fields, form }) => {
 
 
     
-    <div className="Login">
+    <div id="Logintest">
        
       <Form action={loginUser}>
       <Field.Group >
         <Input
-          
           name="email"
           type="email"
           label="E-mail"
@@ -72,10 +71,13 @@ const loginUser = ({ serialized, fields, form }) => {
         required
         onChange={e => setPassword(e.value)} />
         </Field.Group>
-        <Button bsSize="large" variant="success" type="submit" primary >Login</Button>
-        <Button id="registerButton" block bsSize="large" variant="danger" type="Register" href="/Register" secondary >Register</Button>
+        
+        <Button bsSize="large" variant="success" type="submit" primary  >Login</Button>
+       
       </Form>
-      
+      <div className="registerLink">
+      <span>New to Detective?</span>&nbsp;&nbsp;<a href='./register'>Register</a>
+      </div>
     </div>
   );
 }

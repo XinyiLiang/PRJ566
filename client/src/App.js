@@ -34,13 +34,16 @@ callAPI() {
 
 componentWillMount() {
     this.callAPI();
+   
 }
   render(){
     return (
-         <React.Fragment>
+     
+         <React.Fragment >
           
           
-      <NavBar/>
+      <NavBar />
+      
           <Router basename={process.env.PUBLIC_URL}>
                 
                        <Switch>
@@ -61,11 +64,11 @@ componentWillMount() {
 
                   
             </Router>
-            
+           
            <Footer/>
           
        </React.Fragment> 
-      
+     
     );
   }
   }

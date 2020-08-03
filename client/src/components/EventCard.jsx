@@ -47,13 +47,18 @@ import Login from './Login';
         </Modal.Footer>
     </Modal>
 
-    <Modal show={LogInModalShow} onHide={() => LogInSetModalShow(false)} size ="mg" aria-labelledby="contained-modal-title-vcenter" >
+    <Modal show={LogInModalShow} 
+    onHide={() => LogInSetModalShow(false)} 
+    size ="mg" 
+    aria-labelledby="contained-modal-title-vcenter"  
+    >
+       
         <Modal.Header closeButton>
            
              
-                <Col ><img src={require('../Images/detectiveLogo.png')} className="App-logo" alt="logo "   /></Col>
+                {/* <Col ><img src={require('../Images/detectiveLogo.png')} className="App-logo" alt="logo "   /></Col> */}
                 
-  
+           <h3 >Log in to your account</h3>
            
         </Modal.Header>
         <Modal.Body>

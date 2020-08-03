@@ -4,9 +4,10 @@ import TeamInfo from '../components/TeamInfo';
 
 export const Team = () =>(
     <div className="HomeMain">
+       
          <h3>Team Score</h3>
-    <TeamInfo/>
-
+         <TeamInfo/>
+        
     </div>
 )
 export default Team;

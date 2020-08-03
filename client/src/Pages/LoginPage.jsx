@@ -3,9 +3,13 @@ import Login from '../components/Login';
 
 
 export const LoginPage = () =>(
-    <div className="HomeMain">
-           <div className="LoginPageContainer">
-               <img id="LoginPageLogo" src={"../images/detectiveLogo.png"} alt="loginLogo" /><span className="LogoBesidesText">Log In</span>
+    <div className="LoginPageContainer">
+           <div className="LoginComponent">
+              
+              <h2>Detective</h2>
+           
+               <h1 >Log in to your account</h1>
+
             <Login />
             
             </div>
