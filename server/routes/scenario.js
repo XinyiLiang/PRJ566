@@ -13,22 +13,20 @@ router.get('/api/get/getAllScenarios', (req, res, next ) => {
   //get scenario for particular gameday (for events schedule)
 router.get('/api/get/scenarioGame', (req, res, next) => {
     const game_id = req.query.gameday_id
+
     pool.query(`SELECT * FROM public."SCENARIO"
-                WHERE GAMEDAY_ID=$1`,[ game_id ],
+                WHERE "GAMEDAY_ID"=$1`,[ game_id ],
               (q_err, q_res) => {
                   res.json(q_res.rows)
         })
   } )
 
-    //get one scenario
-router.get('/api/get/scenario', (req, res, next) => {
-    const scenario_id = req.query.scenario_id
-    pool.query(`SELECT * FROM public."SCENARIO"
-                WHERE SCENARIO_ID=$1`,[ scenario_id ],
-              (q_err, q_res) => {
-                  res.json(q_res.rows)
-        })
-  } )
+  router.get('/api/get/scenario_game/:id', async (req, res) => {
+    const game_id  = req.params.id
+    console.log(game_id);
+    const { rows } = await pool.query('SELECT * FROM public."SCENARIO"  WHERE "GAMEDAY_ID"=$1', [game_id])
+    res.send(rows[0])
+  })
   
   //save new scenario to db
   router.post('/api/scenario/posttodb', (req, res, next) => {

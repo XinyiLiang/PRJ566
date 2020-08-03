@@ -39,7 +39,7 @@ componentWillMount() {
          <React.Fragment>
           
           
-      <NavBar/>
+  
           <Router basename={process.env.PUBLIC_URL}>
                 
                        <Switch>

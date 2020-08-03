@@ -1,10 +1,11 @@
 import React from 'react';
 import { Container, Row,Col} from 'react-bootstrap';
 import FinalScoreBoard from '../components/FinalScoreBoard';
-
+import {NavBar} from '../components/NavBar';
 export const Teams = () =>(
 
         <div className="HomeMain">
+                <NavBar/>
             <Container >
                   <Row>
                        <Col md={{ span: 6, offset: 3 }}>

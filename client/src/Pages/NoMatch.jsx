@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-
+import {NavBar} from '../components/NavBar';
 
 const Styles = styled.div`
   
@@ -16,6 +16,7 @@ const Styles = styled.div`
 `;
 export const NoMatch = () =>(
     <Styles>
+            <NavBar/>
         <div class="PageNotFound ">
             
             <img src={require('../Images/PageNotFound.png')}  alt="PageNotFound" />
