@@ -2,13 +2,13 @@ import React from 'react';
 import { Container, Row,Col} from 'react-bootstrap';
 import FinalScoreBoard from '../components/FinalScoreBoard';
 
-export const Teams = () =>(
+export const ScoreBoard = () =>(
 
         <div className="HomeMain">
             <Container >
                   <Row>
                        <Col md={{ span: 6, offset: 3 }}>
-                             <h2> Teams Page</h2>
+                             <h2> ScoreBoard</h2>
                              <FinalScoreBoard/>
 
                         </Col>
@@ -17,4 +17,4 @@ export const Teams = () =>(
             
          </div>
     )
-export default Teams;
+export default ScoreBoard;
