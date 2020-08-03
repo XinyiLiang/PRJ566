@@ -22,21 +22,12 @@ var trophys = require('../routes/trophy');
 router.use(clues);
 router.use(npc);
  router.use(gameday);
-<<<<<<< HEAD
-router.use(npm_Scenario);
- router.use(questions);
- router.use(score);
- router.use(team_answer);
- router.use(team_score);
- router.use(team_Trophy);
-=======
  router.use(npm_Scenario);
 router.use(questions);
  router.use(score);
  router.use(team_answer);
  router.use(team_score);
 router.use(team_Trophy);
->>>>>>> 9dc0f523b0d9e0fe296311dba3472c9b23d5e4fe
 router.use(team);
  router.use(user);
  router.use(scenario);

@@ -29,15 +29,16 @@ const loginUser = ({ serialized, fields, form }) => {
         sessionStorage.setItem("email",data[0].EMAIL)
         sessionStorage.setItem("name",data[0].FIRST_NAME)
  
- 
-      
-    history.push('/');
+
+    
     //location.reload();
       
   
     } else {
         console.log("user doesn't exist");
     }
+    history.push('/');
+    window.location.reload(true);
   });
 }
 
@@ -58,7 +59,7 @@ const loginUser = ({ serialized, fields, form }) => {
           type="email"
           label="E-mail"
           required
-          value="alex@gmail.com"
+          defaultValue={email} 
           onChange={e => setEmail(e.value)}
          />
       </Field.Group>
@@ -67,11 +68,11 @@ const loginUser = ({ serialized, fields, form }) => {
         name="password"
         type="password"
         label="Password"
-        value="QWE123"
+        defaultValue={password} 
         required
         onChange={e => setPassword(e.value)} />
         </Field.Group>
-        <Button bsSize="large" variant="success" type="submit" primary>Login</Button>
+        <Button bsSize="large" variant="success" type="submit" primary >Login</Button>
         <Button id="registerButton" block bsSize="large" variant="danger" type="Register" href="/Register" secondary >Register</Button>
       </Form>
       
