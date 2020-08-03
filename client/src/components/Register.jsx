@@ -4,7 +4,7 @@ import { Input, Button } from 'react-advanced-form-addons'
 // import { post } from "../../../server/routes/userRoutes";
 
 
-const FormPage = () => {
+const Account = () => {
   const registerUser = ({ serialized, fields, form }) => {
     return fetch('/api/user/posttodb', {
       body: JSON.stringify(serialized),
@@ -69,4 +69,4 @@ const FormPage = () => {
       </Form>
   );
 };
-export default FormPage;
+export default Account;

@@ -4,7 +4,7 @@ import ChangePro from '../components/ChangeProfile';
 export const ChangeProfilePage = () =>(
     <div className="HomeMain">
            <div className="ChangeProfileContainer">
-           <h3>Change User Profile</h3>
+           <h1>Change User Profile</h1>
     <ChangePro/>
 </div>
     </div>

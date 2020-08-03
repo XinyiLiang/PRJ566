@@ -5,7 +5,7 @@ import Profile from '../components/Profile';
 export const ProfilePage = () =>(
     <div className="HomeMain">
            <div className="ProfileContainer">
-           <h3>Profile Info</h3>
+           <h1>Profile Info</h1>
             <Profile />
             </div>
 

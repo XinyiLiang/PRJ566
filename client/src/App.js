@@ -14,6 +14,7 @@ import {Footer} from './components/Footer';
 import {Account} from './Pages/RegisterPage'
 import {ProfilePage} from './Pages/Profile'
 import {ChangeProfilePage} from './Pages/ChangeProfilePage'
+import {HowToPlay} from './Pages/HowToPlay'
 import './App.css';
 
 
@@ -53,6 +54,7 @@ componentWillMount() {
                             <Route path="/Register" component={Account} />
                             <Route path="/Profile" component={ProfilePage} />
                             <Route path="/ChangeProfile" component={ChangeProfilePage} />
+                            <Route path="/HowToPlay" component={HowToPlay} />
                             <Route component={NoMatch} />
                         </Switch>
 
