@@ -43,8 +43,8 @@ export const Home = () =>(
                  <div className="HelpTool">
                      <h2>Help Tool</h2>
                       <ul>
-                        <li><a href="/">How to Play</a></li>
-                        <li><a href="/">ScoreBoard</a></li>
+                        <li><a href="/HowToPlay">How to Play</a></li>
+                        <li><a href="/Teams">ScoreBoard</a></li>
                         <li><a href="/ContactUs">Contact Us</a></li>
                       </ul>
                   </div>
