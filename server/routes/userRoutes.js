@@ -18,7 +18,7 @@ var pool = require('../main/db')
                    
     console.log(req.body);              
     pool.query(`INSERT INTO public."PLAYER"("FIRST_NAME", "LAST_NAME", "BIRTHDATE", "USERNAME", "PASSWORD", "EMAIL", "PHONENUMBER", "TEAM_ID")
-                VALUES($1, $2, NULL, 'bob', $3, $4, '5', '1')`,
+                VALUES($1, $2, NULL, 'bob2', $3, $4, '5', '1')`,
              values, (q_err, q_res) => {
             if(q_err) return next(q_err);
             res.json(q_res.rows)
@@ -28,7 +28,7 @@ var pool = require('../main/db')
 //get player (using email)
 router.get('/api/get/getPlayer', (req, res, next ) => {
     const email = req.body.email
-    pool.query(`SELECT * FROM public."PLAYER" WHERE EMAIL = $1 `, [ email ],
+    pool.query(`SELECT * FROM public."PLAYER" WHERE "EMAIL" = $1 `, [ email ],
               (q_err, q_res) => {
                     res.json(q_res.rows)
     })

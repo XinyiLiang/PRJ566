@@ -1,12 +1,15 @@
 import React, { useState } from "react";
 import { Form, Field } from 'react-advanced-form'
 import { Input, Button } from 'react-advanced-form-addons'
-
+import { useHistory } from "react-router-dom";
 
 export function Login() {
 
 
-  
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  let history = useHistory();
+ 
 const loginUser = ({ serialized, fields, form }) => {
   return fetch('/api/get/PlayerLogin', {
     body: JSON.stringify(serialized),
@@ -20,28 +23,33 @@ const loginUser = ({ serialized, fields, form }) => {
     }
   }).then(res => res.json()).then(data => {
     if (data.length == 1) {
+
         console.log('user exists');
         sessionStorage.setItem("auth", "true");
+        sessionStorage.setItem("email",data[0].EMAIL)
+        sessionStorage.setItem("name",data[0].FIRST_NAME)
+ 
+ 
+      
+    history.push('/');
+    //location.reload();
+      
+  
     } else {
         console.log("user doesn't exist");
     }
   });
 }
 
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
 
-  function validateForm() {
-    return email.length > 0 && password.length > 0;
-  }
 
-  function handleSubmit(event) {
-    //loginUser()
-    console.log(event);
-  }
 
   return (
+
+
+    
     <div className="Login">
+       
       <Form action={loginUser}>
       <Field.Group >
         <Input
@@ -63,14 +71,14 @@ const loginUser = ({ serialized, fields, form }) => {
         required
         onChange={e => setPassword(e.value)} />
         </Field.Group>
-        <Button bsSize="large"  variant="success" type="submit" primary>Login</Button>
+        <Button bsSize="large" variant="success" type="submit" primary>Login</Button>
         <Button id="registerButton" block bsSize="large" variant="danger" type="Register" href="/Register" secondary >Register</Button>
       </Form>
       
     </div>
   );
 }
-       //disabled={!validateForm() }
+       //
 export default Login;
 
 

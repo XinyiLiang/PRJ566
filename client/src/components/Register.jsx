@@ -30,7 +30,13 @@ const Account = () => {
             type="email"
             label="E-mail"
             required
-            value="alex@gmail.com"
+           />
+            <Input
+            
+            name="username"
+            type="username"
+            label="Username"
+            required
            />
         </Field.Group>
 
@@ -38,13 +44,11 @@ const Account = () => {
           name="password"
           type="password"
           label="Password"
-          value="QWE123"
           required />
         <Input
           name="confirmPassword"
           type="password"
           label="Confirm password"
-          value="QWE123"
           required
           skip />
 
@@ -52,14 +56,12 @@ const Account = () => {
           <Input
             name="first_name"
             label="First name"
-            value="A"
             required={({ get }) => {
               return !!get(['primaryInfo', 'lastName', 'value'])
             }} />
           <Input
             name="last_name"
             label="Last name"
-            value="A"
             required={({ get }) => {
               return !!get(['primaryInfo', 'firstName', 'value'])
             }} />

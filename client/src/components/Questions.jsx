@@ -5,7 +5,7 @@ import {BsBookHalf} from 'react-icons/bs';
 
 
 
-function PhoneBook() {
+function Questions() {
     const [show, setShow] = React.useState(false);
   
     const handleClose = () => setShow(false);
@@ -71,7 +71,7 @@ function PhoneBook() {
 
 
   
-  export default PhoneBook;      
+  export default Questions;      
 
  
 
