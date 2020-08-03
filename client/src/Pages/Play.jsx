@@ -33,8 +33,11 @@ export const Play = () =>(
 
             <Col md={12} xs={12} lg={6} class="help-section">
                   <PhoneBook/>&nbsp;&nbsp;                 
+
                  {/* <Questions/>&nbsp;&nbsp;
                   <Clues/> &nbsp;&nbsp; */}
+
+
                 </Col>
 
             </Row>
