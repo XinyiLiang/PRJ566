@@ -1,16 +1,18 @@
 import React, { useEffect, useState } from "react";
-import { Button, Modal,ListGroup,Form} from 'react-bootstrap';
+import { Button, Modal,ListGroup} from 'react-bootstrap';
 import { BsFillInfoCircleFill } from "react-icons/bs";
 
 
-function PhoneBook() {
-    const [show, setShow] = React.useState(false);
-  
-    const handleClose = () => setShow(false);
+function Clues() {
 
-    const handleShow = () => setShow(true);
+   // const [show, setShow] = React.useState(false);
 
-    const [CLUES, dataSet] = useState([])
+     const [CluesModal, setShow] = React.useState(false);
+     const Close = () => setShow(false);
+     const Open = () => setShow(true);
+
+    const [Clues, dataSet] = useState([])
+   
 
     useEffect(() => {
       async function fetchMyAPI() {
@@ -22,40 +24,37 @@ function PhoneBook() {
       fetchMyAPI()
       
     }, [])
-  
+ 
     return (
       <>
       
-        <Button  variant="outline-info font-weight-bold" onClick={handleShow}>
-        Clues <BsFillInfoCircleFill  />
+        <Button  variant="outline-info font-weight-bold" onClick={Open}>
+          Clues <BsFillInfoCircleFill />
         </Button>
       
         <Modal
-          show={show}
-          onHide={handleClose}
+          show={CluesModal}
+          onHide={Close}
          
           aria-labelledby="contained-modal-title-vcenter"
           centered
+          
         >
           <Modal.Header  closeButton>
             <Modal.Title>Clues</Modal.Title>
           </Modal.Header>
        
-                
-
-            <Form.Group>
-            {CLUES.map(data =>(
-                    <ListGroup.Item action onClick={alert}  key={data.clue_ID}>
-                       {data.NAME}
-                       <Form.Control type="text" placeholder="Normal text" />
+            
+              <ListGroup>
+              {Clues.map(data =>(
+                   <ListGroup.Item action onClick={Close}  key={data.clue_id}  >
+                       {data.description}
                     </ListGroup.Item>
               ))}
-             
-              
-            </Form.Group>
-                
+                </ListGroup> 
+       
           <Modal.Footer>
-            <Button variant="secondary" onClick={handleClose}>
+            <Button variant="secondary" onClick={Close}>
               Close
             </Button>
          
@@ -69,9 +68,8 @@ function PhoneBook() {
 
 
   
-  export default PhoneBook;      
+  export default Clues;      
 
  
-
 
 
