@@ -1,21 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Metal+Mania&display=swap');
 
-/*REgister*/
-.flex{
-  text-align: center;
-}
-#RegisterLogo
-{
-    position: relative;
-    height: 6em;
-    width: 6em;
-    margin-bottom: 1em;
-    margin-top: 1em;
-}
-#registerButton{
-  margin-top: 1em;
-  margin-bottom: 1em;
-}
 
 
 
@@ -101,13 +85,14 @@
 .LoginPageContainer{ 
  position: absolute;
  z-Index: 100;
-top:0;
-bottom: 0;
-right:0;
-left:0;
-background-color: rgb(95, 88, 68);
-
-margin: auto;
+ top:0;
+ bottom: 0;
+ right:0;
+ left:0;
+ background-color: rgb(95, 88, 68);
+ margin: auto;
+ height: auto;
+ overflow: auto;
 }
 
 .LoginComponent{
@@ -118,29 +103,32 @@ margin: auto;
   margin: auto;
   height: 35em;
   width: 40em;
-  
   background-color: #f0f0f0;
-  padding: 5em;
   
+ 
 }
 
 .LoginComponent h1{
   color:rgb(65, 60, 47);
-  position: relative;;
- 
+  position: relative;
   
+
 }
 
 
-.LoginComponent h2{
+.LoginComponent h2 a{
   font-family:  'Metal Mania', cursive;
   font-size: 43px;
   color:rgb(65, 60, 47);
   position: relative;
   margin: 0 auto;
   width: 160px;
-  height: 60px;
-
+  height: 10px;
+ 
+}
+.login-Title{
+  text-align: center;
+  padding-top:2em;
 }
 
 
@@ -149,13 +137,7 @@ margin: auto;
   margin: 0 auto;
   
 }
-/* #LoginBtn {
-  
-  width: 30%;
-  color:white;
-  font-weight: bold;
-  margin: 0 auto;
-} */
+
 
 .registerLink{
   margin-top: 10px;
@@ -465,14 +447,19 @@ margin: auto;
   border-radius: 18px;
   outline: 0;
 }
-/* **********************************************/
-  
-label.sc-bwzfXH.dybocD{
+/* **************end********************************/
+
+/* re-define login component's style*/
+label.sc-bwzfXH.dybocD {
   font-size: 15px;
   color:black;
   font-weight: bold;
 }
-
+label.sc-bwzfXH.dmclXh{
+  font-size: 15px;
+  color:black;
+  font-weight: bold;
+}
 div.sc-bxivhb.eTopIC{
   padding-top: 15px;
   width: 250px;
@@ -486,3 +473,72 @@ div.sc-bxivhb.eTopIC{
   text-align: center;
   
 } 
+
+/************end*****************************/
+/*REgister*/
+.flex{
+  width: 100%;
+  padding-top: 3em;
+}
+
+#registerButton{
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+.RegisterTitle{
+  text-align: center;
+  padding: 2em;
+  font-size: 1em;
+  position: relative;;
+  top:1em;
+}
+.RegisterTitle h2{
+  font-size: 60px;
+  font-family:'Teko', sans-serif;
+  color: white;
+  font-weight: normal;
+}
+.RegisterTitle h2 a{
+  font-family:  'Metal Mania', cursive;
+  font-size: 60px;
+  color: white;
+  font-weight: normal;
+}
+
+.RegisterContent{
+  border-radius: 18px;
+  border: 2px solid rgb(65, 60, 47);
+  position:relative;
+  top: 2em; bottom: 0; left: 0; right: 0;
+  margin: auto;
+  
+  max-width: fit-content;
+  min-height: unset;
+  margin-bottom: 3em;
+  padding: 1em 3em;
+  background-color: #e2dfd2;
+  
+}
+
+.row-content{
+  width: 100%;
+  position: relative;
+  margin: 0 auto;
+  font-family: 'Lucida Sans Unicode';
+  padding-top: 2em;
+  text-align: center;
+  font-size: 17px;
+  font-weight: bold;
+}
+.row-content2{
+  width: 100%;
+  position: relative;
+  margin: 0 auto;
+  font-family: 'Lucida Sans Unicode';
+  padding-top: 3em;
+  text-align: center;
+}
+div.col-lg-7.col-md-12.col-12{
+  margin: auto 0;
+}
