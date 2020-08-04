@@ -2,7 +2,8 @@ import React, { useEffect, useState } from "react";
 import { Button, Modal,ListGroup,Form} from 'react-bootstrap';
 import {Container,Row,Col} from 'react-bootstrap';
 import {BsBookHalf} from 'react-icons/bs';
-import Questions from '../components/Questions'
+import {Call} from '../components/Call'
+import Login from '../components/Login'
 
 
 function PhoneBook() {
@@ -16,26 +17,36 @@ function PhoneBook() {
      const [NPCModal, setNPCShow] = React.useState(false);
      const CloseNPC = () => setNPCShow(false);
     
-     const OpenNPC = () => {
-                   setNPCShow(true);
+     const OpenNPC = () => { setNPCShow(true);
                   
      }
-
+  
+     const [NPCCall, setState] = useState([]) ;
+     const [NPC, dataSet] = useState([])
      
-
-    const [NPC, dataSet] = useState([])
-    
-
     useEffect(() => {
       async function fetchMyAPI() {
         let response = await fetch('/api/get/getAllNpc')
         response = await response.json()
         dataSet(response)
+       
       }
   
       fetchMyAPI()
-      
+    
     }, [])
+
+    
+    function CallNPC(data){
+      console.log(data);
+      setState(data);
+      return(
+   
+        OpenNPC()
+      )
+    }
+    
+
  
     return (
       <>
@@ -59,7 +70,7 @@ function PhoneBook() {
             
               <ListGroup>
               {NPC.map(data =>(
-                   <ListGroup.Item action onClick={() => OpenNPC(data.NAME)}  key={data.NPC_ID}>
+                   <ListGroup.Item action onClick={()=>CallNPC(data) }  key={data.NPC_ID}>
                        {data.NAME}
                     </ListGroup.Item>
               ))}
@@ -76,8 +87,7 @@ function PhoneBook() {
 
           
        
-      {/* N P C call */}
-        
+      {/* N P C call*/}
       <Modal
           show={NPCModal}
           onHide={CloseNPC}
@@ -96,26 +106,21 @@ function PhoneBook() {
              <Container>
                 <Row>
                    <Col xs={12} md={4} lg={3}>
-                   <img src={require('../Images/Police.jpg')} alt="police" style={{width:"8vw", height:"8vw"}} />
+                   <img src={(NPCCall.IMAGE)} alt="police" style={{width:"8vw", height:"8vw"}} />
                    </Col>
                    
                    <Col xs={12} md={8} lg={9}>
                    <Form>
-                   <h4>Hi, here is Police Station. What can I help you?</h4>
+                   <h4>Hi, this is {NPCCall.NAME}. What can I help you?</h4>
                    
 
                    <Form.Check
                          type="radio"
-                         label="Show evidence list"
+                         label= {NPCCall.ANSWER}
                          name="formHorizontalRadios"
                          id="Option1"
                          />
-                     <Form.Check
-                        type="radio"
-                        label="Show the suspect's confession"
-                        name="formHorizontalRadios"
-                        id="Option2"
-                      />
+                   
 
                     </Form> 
                    </Col>

@@ -26,10 +26,10 @@ var pool = require('../main/db')
 //get player (using email)
   router.get('/api/get/getPlayer/:email', async (req, res) => {
     const email  = req.params.email
-    console.log(email);
     const { rows } = await pool.query('SELECT * FROM public."PLAYER" WHERE "EMAIL" = $1 ', [email])
     res.send(rows[0])
   })
+ 
 
 //player login(using email)
 router.post('/api/get/PlayerLogin', (req, res, next ) => {

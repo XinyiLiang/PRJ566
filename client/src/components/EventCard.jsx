@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-
+import { useHistory } from "react-router-dom";
 import {Card , Button, Modal,Col} from 'react-bootstrap';
 import Login from './Login';
 
@@ -7,7 +7,7 @@ import Login from './Login';
 
  export function EventCard({data,setOrder}){
 
-
+    let history = useHistory();
     const [Game, dataSet] = useState([])
   
       useEffect(() => {
@@ -38,7 +38,7 @@ import Login from './Login';
         if(sessionStorage.getItem("auth") == "true"){
             
         
-            
+            history.push("/Play")
             
     
 

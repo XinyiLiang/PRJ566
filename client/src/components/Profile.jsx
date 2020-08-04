@@ -23,11 +23,8 @@ export function Profile() {
                         
                     dataSet(data);
                 
-                })
-               
-               
+                })               
             }
-           
             async function fetchMyTEam() {
                 let teamname = await fetch(`/api/get/team/${sessionStorage.getItem("team")}`, {
                     method:'GET'

@@ -3,14 +3,19 @@ var router = express.Router()
 var pool = require('../main/db')
 
 //get all the questions for particular scenario
-router.get('/api/get/getAllQuestions', (req, res, next ) => {
-    const scenario_id = req.query.scenario_id
-    pool.query(`SELECT * FROM public."QUESTION" WHERE SCENARIO_ID = $1`, [ scenario_id ],
-              (q_err, q_res) => {
-                    res.json(q_res.rows)
-    })
+  router.get('/api/get/getAllQuestionsby/:id', async (req, res) => {
+    const  scenario_id  = req.params.id
+    const { rows } = await pool.query('SELECT * FROM public."QUESTION"  WHERE "SCENARIO_ID"=$1', [scenario_id])
+    res.send(rows)
   })
-  
+
+  //get all the questions for particular scenario
+  router.get('/api/get/getAllQuestions', async (req, res) => {
+    const { rows } = await pool.query('SELECT * FROM public."QUESTION" ')
+    res.send(rows)
+  })
+
+
   //get one question
 router.get('/api/get/question', (req, res, next) => {
     const question_id = req.query.question_id

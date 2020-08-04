@@ -60,7 +60,7 @@ const loginUser = ({ serialized, fields, form }) => {
           type="email"
           label="E-mail"
           required
-          value="alex@gmail.com"
+         
           onChange={e => setEmail(e.value)}
          />
       </Field.Group>
@@ -69,7 +69,6 @@ const loginUser = ({ serialized, fields, form }) => {
         name="password"
         type="password"
         label="Password"
-        value="QWE123"
         required
         onChange={e => setPassword(e.value)} />
         </Field.Group>
