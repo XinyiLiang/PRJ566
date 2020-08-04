@@ -28,17 +28,19 @@ const loginUser = ({ serialized, fields, form }) => {
         sessionStorage.setItem("auth", "true");
         sessionStorage.setItem("email",data[0].EMAIL)
         sessionStorage.setItem("name",data[0].FIRST_NAME)
+        sessionStorage.setItem("team",data[0].TEAM_ID)
  
-
-    
-    //location.reload();
-
+        
+        history.push({ 
+          pathname: '/',
+        })
+    //window.location.reload();
+      
+  
     } else {
         //console.log("user doesn't exist");
         alert("user doesn't exist!!");
     }
-    history.push('/');
-    window.location.reload(true);
   });
 }
 
@@ -58,7 +60,7 @@ const loginUser = ({ serialized, fields, form }) => {
           type="email"
           label="E-mail"
           required
-          defaultValue={email} 
+          value="alex@gmail.com"
           onChange={e => setEmail(e.value)}
          />
       </Field.Group>
@@ -67,7 +69,7 @@ const loginUser = ({ serialized, fields, form }) => {
         name="password"
         type="password"
         label="Password"
-        defaultValue={password} 
+        value="QWE123"
         required
         onChange={e => setPassword(e.value)} />
         </Field.Group>
@@ -81,7 +83,7 @@ const loginUser = ({ serialized, fields, form }) => {
     </div>
   );
 }
-       //
+       
 export default Login;
 
 

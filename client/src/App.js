@@ -9,7 +9,6 @@ import { LoginPage } from './Pages/LoginPage';
 import {NoMatch} from './Pages/NoMatch';
 import {ContactUs} from './Pages/ContactUs';
 import  {Team} from './Pages/TeamPage';
-import { NavBar } from './components/NavBar';
 import {Footer} from './components/Footer';
 import {Account} from './Pages/RegisterPage'
 import {ProfilePage} from './Pages/Profile'
@@ -42,8 +41,7 @@ componentWillMount() {
          <React.Fragment >
           
           
-      <NavBar />
-      
+  
           <Router basename={process.env.PUBLIC_URL}>
                 
                        <Switch>

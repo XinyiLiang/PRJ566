@@ -3,12 +3,12 @@ var router = express.Router()
 var pool = require('../main/db')
 
 //get all the gamedays from database ordered by date (closest first)
-router.get('/api/get/getAllGamedays', (req, res, next ) => {
-    pool.query(`SELECT * FROM public."GAMEDAY" ORDER BY DATE ASC`, 
-              (q_err, q_res) => {
-                    res.json(q_res.rows)
+router.get('/api/get/getAllGamedays', async (req, res) => {
+  const { rows } = await pool.query('SELECT * FROM public."GAMEDAY" ORDER BY "DATE" ASC') 
+              
+                    res.send(rows)
     })
-  })
+
   
   //get one gameday
 router.get('/api/get/gameday', (req, res, next) => {

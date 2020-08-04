@@ -5,6 +5,7 @@ import FinalScoreBoard from '../components/FinalScoreBoard';
 export const ScoreBoard = () =>(
 
         <div className="HomeMain">
+                <NavBar/>
             <Container >
                   <Row>
                        <Col md={{ span: 6, offset: 3 }}>

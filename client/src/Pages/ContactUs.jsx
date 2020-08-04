@@ -1,11 +1,12 @@
 import React from 'react';
 import {Container,Row,Col} from 'react-bootstrap';
+import {NavBar} from '../components/NavBar';
 export const ContactUs = () =>(
 
    
 
 <div id="contact">
-   
+<NavBar/>
     <Container> 
     <Row>
 			

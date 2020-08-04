@@ -1,5 +1,6 @@
 import React from 'react';
 import { Container, Row,Col} from 'react-bootstrap';
+import {NavBar} from '../components/NavBar';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 export const HowToPlay = () =>(

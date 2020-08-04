@@ -2,12 +2,13 @@ import React from 'react';
 import AnnoucementSlider from '../components/AnnoucementSlider';
 import {Container,Row,Col} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import {NavBar} from '../components/NavBar';
 //import axios from 'axios';
 
 export const Home = () =>(
     <div>
         <div className="HomeMain">
-
+        <NavBar/>
 <Container >
    <Row >
 

@@ -12,7 +12,17 @@ var pool = require('../main/db')
             res.json(q_res.rows)
       })
   })
-  
+  router.post('/api/team_score_game/posttodb', (req, res, next) => {
+    const team_id = req.query.team_id
+    const game_id = req.body.game_id
+    pool.query(`INSERT INTO public."TEAM_SCORE"("GAME_ID")
+                VALUES($2) WHERE "TEAM_ID"=$1`, [team_id, game_id],
+             (q_err, q_res) => {
+            if(q_err) return next(q_err);
+            res.json(q_res.rows)
+      })
+  })
+
   router.get('/', function(req, res, next) {
     res.send('API is working properly');
 });
