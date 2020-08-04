@@ -6,8 +6,8 @@ export const Team = () =>(
     <div className="HomeMain">
             <NavBar/>
          <h3>Team Score</h3>
-    <TeamInfo/>
-
+         <TeamInfo/>
+        
     </div>
 )
 export default Team;

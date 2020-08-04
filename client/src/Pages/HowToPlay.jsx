@@ -5,6 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 export const HowToPlay = () =>(
    <div className="HomeMain">
+      < NavBar/>
     <Container >
         <Row>
             <Col md={{ span: 8, offset: 3 }}>

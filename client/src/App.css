@@ -1,21 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Metal+Mania&display=swap');
 
-/*REgister*/
-.flex{
-  text-align: center;
-}
-#RegisterLogo
-{
-    position: relative;
-    height: 6em;
-    width: 6em;
-    margin-bottom: 1em;
-    margin-top: 1em;
-}
-#registerButton{
-  margin-top: 1em;
-  margin-bottom: 1em;
-}
+
+
+
 /* nav component css */
 .navbar {
     background-color :  #4b4a4f;
@@ -79,9 +66,8 @@
 
 
 .HomeMain{
-    
     background-color: #c4b5a9;
-    height: 100%;
+    height:100%;
 }
 
 #HomePic {
@@ -96,26 +82,69 @@
         margin: 0 auto;
 }
 
-
-#LoginPageLogo
-{
-    position: relative;
-    height: 5em;
-    width: 5em;
-    margin-left: 7em;
-    margin-bottom: 2em;
+.LoginPageContainer{ 
+ position: absolute;
+ z-Index: 100;
+ top:0;
+ bottom: 0;
+ right:0;
+ left:0;
+ background-color: rgb(95, 88, 68);
+ margin: auto;
+ height: auto;
+ overflow: auto;
 }
 
-.LoginPageContainer{
-   height: 30em;
-   width: 30em;
-   position: relative;
-   padding: 2em;
-   margin: 0 auto;
+.LoginComponent{
+  border-radius: 18px;
+  border: 2px solid rgb(65, 60, 47);
+  position:absolute;
+  top: 0; bottom: 0; left: 0; right: 0;
+  margin: auto;
+  height: 35em;
+  width: 40em;
+  background-color: #f0f0f0;
+  
  
+}
+
+.LoginComponent h1{
+  color:rgb(65, 60, 47);
+  position: relative;
+  
+
+}
+
+
+.LoginComponent h2 a{
+  font-family:  'Metal Mania', cursive;
+  font-size: 43px;
+  color:rgb(65, 60, 47);
+  position: relative;
+  margin: 0 auto;
+  width: 160px;
+  height: 10px;
+ 
+}
+.login-Title{
+  text-align: center;
+  padding-top:2em;
+}
+
+
+
+#Logintest{
+  margin: 0 auto;
   
 }
 
+
+.registerLink{
+  margin-top: 10px;
+  font-size: 17px;
+  font-weight: bold;
+  text-align: center;
+}
 
 .WelcomeDiv{
    
@@ -330,17 +359,19 @@
   }
   #contact{
       
-    font-family: 'Teko', sans-serif;
-    padding-top: 3em;
-    padding-bottom: 1.5em;
-    
-    height: 100%;
+   
+    height: auto;
+    overflow: auto;
     
     background: #3a6186; /* fallback for old browsers */
     background: -webkit-linear-gradient(to left, #3a6186 , #55b5b3); /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to left, #3a6186 , #55b5b3); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-      color : #fff;    
+      color : #fff;   
+      
   }
+
+
+
   .contact-section{
     padding-top: 40px;
     margin-bottom: 3em;
@@ -405,8 +436,111 @@
   border-bottom: black 1px solid;
 }
 
-.LogoBesidesText{
-  font-family: 'Lucida Sans Unicode';
-  font-size: 3em;
+/* this css re-define the modal prompt up window only for background-color, border style*/
+.modal-content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  pointer-events: auto;
+  background-color: #f0f0f0;
+  background-clip: padding-box;
+  border: 2px solid rgb(65, 60, 47);
+  border-radius: 18px;
+  outline: 0;
+}
+/* **************end********************************/
+
+/* re-define login component's style*/
+label.sc-bwzfXH.dybocD {
+  font-size: 15px;
+  color:black;
+  font-weight: bold;
+}
+label.sc-bwzfXH.dmclXh{
+  font-size: 15px;
+  color:black;
+  font-weight: bold;
+}
+div.sc-bxivhb.eTopIC{
+  padding-top: 15px;
+  width: 250px;
+  margin: 0 auto;
+}
+ button.sc-fjdhpX.hBVJt{
+ 
+  margin: 20px auto;
+  display: flex;
+  align-items: center;
+  text-align: center;
   
+} 
+
+/************end*****************************/
+/*REgister*/
+.flex{
+  width: 100%;
+  padding-top: 3em;
+}
+
+#registerButton{
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+.RegisterTitle{
+  text-align: center;
+  padding: 2em;
+  font-size: 1em;
+  position: relative;;
+  top:1em;
+}
+.RegisterTitle h2{
+  font-size: 60px;
+  font-family:'Teko', sans-serif;
+  color: white;
+  font-weight: normal;
+}
+.RegisterTitle h2 a{
+  font-family:  'Metal Mania', cursive;
+  font-size: 60px;
+  color: white;
+  font-weight: normal;
+}
+
+.RegisterContent{
+  border-radius: 18px;
+  border: 2px solid rgb(65, 60, 47);
+  position:relative;
+  top: 2em; bottom: 0; left: 0; right: 0;
+  margin: auto;
+  
+  max-width: fit-content;
+  min-height: unset;
+  margin-bottom: 3em;
+  padding: 1em 3em;
+  background-color: #e2dfd2;
+  
+}
+
+.row-content{
+  width: 100%;
+  position: relative;
+  margin: 0 auto;
+  font-family: 'Lucida Sans Unicode';
+  padding-top: 2em;
+  text-align: center;
+  font-size: 17px;
+  font-weight: bold;
+}
+.row-content2{
+  width: 100%;
+  position: relative;
+  margin: 0 auto;
+  font-family: 'Lucida Sans Unicode';
+  padding-top: 3em;
+  text-align: center;
+}
+div.col-lg-7.col-md-12.col-12{
+  margin: auto 0;
 }

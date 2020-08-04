@@ -45,7 +45,7 @@ export const Home = () =>(
                      <h2>Help Tool</h2>
                       <ul>
                         <li><a href="/HowToPlay">How to Play</a></li>
-                        <li><a href="/Teams">ScoreBoard</a></li>
+                        <li><a href="/ScoreBoard">ScoreBoard</a></li>
                         <li><a href="/ContactUs">Contact Us</a></li>
                       </ul>
                   </div>

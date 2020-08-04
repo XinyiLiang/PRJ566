@@ -3,12 +3,12 @@ import {BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import {Home} from './Pages/Home';
 import {About} from './Pages/About';
 import {Events} from './Pages/Events';
-import {Teams} from './Pages/Teams';
+import {ScoreBoard} from './Pages/ScoreBoard';
 import { Play } from './Pages/Play';
 import { LoginPage } from './Pages/LoginPage';
 import {NoMatch} from './Pages/NoMatch';
 import {ContactUs} from './Pages/ContactUs';
-import { NavBar } from './components/NavBar';
+import  {Team} from './Pages/TeamPage';
 import {Footer} from './components/Footer';
 import {Account} from './Pages/RegisterPage'
 import {ProfilePage} from './Pages/Profile'
@@ -33,10 +33,12 @@ callAPI() {
 
 componentWillMount() {
     this.callAPI();
+   
 }
   render(){
     return (
-         <React.Fragment>
+     
+         <React.Fragment >
           
           
   
@@ -45,8 +47,9 @@ componentWillMount() {
                        <Switch>
                             <Route exact path="/" component={Home} />
                             <Route path="/Events" component={Events} />
-                            <Route path="/Teams" component={Teams} />
+                            <Route path="/ScoreBoard" component={ScoreBoard} />
                             <Route path="/about" component={About} />
+                            <Route path="/Teams" component={Team} />
                             <Route path="/Play" component={Play} />
                             <Route path="/Login" component={LoginPage} />
                             <Route path="/ContactUs" component={ContactUs} />
@@ -59,11 +62,11 @@ componentWillMount() {
 
                   
             </Router>
-            
+           
            <Footer/>
           
        </React.Fragment> 
-      
+     
     );
   }
   }

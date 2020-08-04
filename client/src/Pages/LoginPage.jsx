@@ -4,10 +4,12 @@ import {NavBar} from '../components/NavBar';
 
 
 export const LoginPage = () =>(
-    <div className="HomeMain">
-         <NavBar/>
-           <div className="LoginPageContainer">
-               <img id="LoginPageLogo" src={"../images/detectiveLogo.png"} alt="loginLogo" /><span className="LogoBesidesText">Log In</span>
+    <div className="LoginPageContainer">
+           <div className="LoginComponent">
+              <div className="login-Title">
+              <h2 ><a href="/">Detective</a></h2>
+               <h1 >Log in to your account</h1>
+               </div>
             <Login />
             
             </div>
