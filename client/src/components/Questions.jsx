@@ -1,73 +1,75 @@
 import React, {  useEffect, useState } from "react";
-import { Button, Modal,ListGroup,Form} from 'react-bootstrap';
-
+import { Button, Modal,ListGroup} from 'react-bootstrap';
+import { Input} from 'react-advanced-form-addons'
+import { Form, Field } from 'react-advanced-form'
 import {BsBookHalf} from 'react-icons/bs';
 
 
 
-function Questions() {
-    const [show, setShow] = React.useState(false);
-  
-    const handleClose = () => setShow(false);
+export function Questions() {
 
-    const handleShow = () => setShow(true);
+  const[infoModalShow,infoSetModalShow] = React.useState(false);
 
     const [Quest, dataSet] = useState([])
+ 
 
-    useEffect(() => {
-      async function fetchMyAPI() {
-        let response = await fetch('/api/get/getAllQuestions')
-        response = await response.json()
-        dataSet(response)
-      }
+  const auth = sessionStorage.getItem("auth");
   
-      fetchMyAPI()
-      
-    }, [])
+  useEffect(() => {
+    async function fetchMyAPI() {
+      let response = await fetch(`/api/get/getAllQuestionsby/${10}`)
+      response = await response.json()
+      dataSet(response)
   
+    }
+
+    fetchMyAPI()
+  
+  }, [])
+
     return (
       <>
-      
-        <Button  variant="outline-info font-weight-bold" onClick={handleShow}>
-        Questions <BsBookHalf />
-        </Button>
-      
-        <Modal
-          show={show}
-          onHide={handleClose}
-         
-          aria-labelledby="contained-modal-title-vcenter"
-          centered
-        >
-          <Modal.Header  closeButton>
-            <Modal.Title>Questions</Modal.Title>
-          </Modal.Header>
-       
-                
+      <Button  variant="outline-info font-weight-bold" onClick={ ()=>infoSetModalShow(true)}>
+      Questions <BsBookHalf />
+      </Button>
 
-            <Form.Group>
-            {Quest.map(data =>(
-                    <ListGroup.Item action onClick={alert}  key={data.Quest_ID}>
-                       {data.NAME}
-                       <Form.Control type="text" placeholder="Normal text" />
+      <Modal show={infoModalShow} size ="lg" aria-labelledby="contained-modal-title-vcenter" centered>
+      <Modal.Header closeButton>
+          <Modal.Title id="contained-modal-title-vcenter">
+          Questions
+          </Modal.Title>
+      </Modal.Header>
+
+      <Modal.Body>
+    
+      <Form>
+              {Quest.map(data =>(
+                   <ListGroup.Item action  key={data.QUESTION_ID}>
+                     
+                      {data.DESCRIPTION}
                     </ListGroup.Item>
               ))}
-             
+           </Form>  
               
-            </Form.Group>
-                
-          <Modal.Footer>
-            <Button variant="secondary" onClick={handleClose}>
-              Close
-            </Button>
+      </Modal.Body>
+
+
+      <Modal.Footer>
+      <Button variant="success" onClick={  ()=>infoSetModalShow }>Join Game</Button>
+      <Button onClick={() => infoSetModalShow(false)}>Close</Button>
          
-          </Modal.Footer>
-        </Modal>
+      </Modal.Footer>
+      </Modal>
+
+     
       </>
+       
+     
     );
 
 
- }
+  }
+ 
 
 
   
