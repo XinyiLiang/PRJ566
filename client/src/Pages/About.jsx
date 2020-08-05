@@ -6,7 +6,7 @@ export const About = () =>(
     
    <div className="HomeMain">
         <NavBar/>
-    <Container >
+    <Container id="about">
         <Row>
             <Col md={{ span: 6, offset: 3 }}>
             <h2> Game Detective</h2>
