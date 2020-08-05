@@ -72,4 +72,17 @@ router.get('/api/get/getAllTeamPlayers', (req, res, next ) => {
     res.send('API is working properly');
 });
 
+
+//get players for particular team - added by Xinyi Liang
+router.get('/api/get/GetAllTeamInfo', (req, res, next ) => {
+  pool.query(`SELECT t."TEAM_ID",t."NAME",t."PASSWORD",t."TYPE",
+  count(p."TEAM_ID") as "TEAM_MEMBER_COUNT"
+  from public."PLAYER" p, public."TEAMS" t
+  where p."TEAM_ID" = t."TEAM_ID"
+  group by t."TEAM_ID"`, 
+            (q_err, q_res) => {
+                   res.json(q_res.rows)
+  })
+})
+
 module.exports = router
