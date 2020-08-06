@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState,Prompt } from "react";
 import {BsFillLockFill} from "react-icons/bs";
 import { Form, Field } from 'react-advanced-form'
@@ -9,15 +10,18 @@ function TeamInfo() {
 
 
   
+
   const [Teams, dataSet] = useState([]);
   const [password, setPassword] = useState("");
   const[infoModalShow,infoSetModalShow] = React.useState(false);
+
 
   useEffect(() => {
     async function fetchMyAPI() {
       let response = await fetch('api/get/GetAllTeamInfo')
       response = await response.json()
       dataSet(response)
+
       console.log(response);
     }
   
@@ -68,6 +72,7 @@ function TeamInfo() {
   }
 
 
+
     return(
       <>
 <div class="TeamList rounded">
@@ -90,13 +95,16 @@ function TeamInfo() {
         
              if(data.TYPE === 'public'){
               return(
+
                  <div class="row TeamDetailsRow" key={`${data.TEAM_ID}`}> 
+
                       <div class="col"> 
                       <span class="col-6 TeamName"> {data.NAME} </span>
                         </div>
                         <div class="col mu-auto TeamCol"> 
                          {data.TEAM_MEMBER_COUNT}
                         </div>
+
                         <div class="col md-auto text-right"> <button type="button" class="btn btn-outline-success btn-sm"
                          onClick={()=>{ checkPlayer(data) }}
                          >Join</button> </div>
@@ -104,6 +112,7 @@ function TeamInfo() {
               )}
               return(
                 <div class="row TeamDetailsRow" key={`${data.TEAM_ID}`}> 
+
                       <div class="col"> 
                       <span class="col-6 TeamName">  {data.NAME}&nbsp;<BsFillLockFill/> </span>
                         </div>
@@ -112,11 +121,16 @@ function TeamInfo() {
                         </div>
                         <div class="col md-auto text-right"> 
                         <button type="button" class="btn btn-outline-success btn-sm" 
+
                                 onClick={()=>{checkPlayer(data) }}
+
+
+
                         >
                                   Join
                         </button> 
                         </div>
+
 
                   <Modal show={infoModalShow} onHide={() => infoSetModalShow(false)} size ="sm" aria-labelledby="contained-modal-title-vcenter" centered>
                   <Modal.Header closeButton>
@@ -143,15 +157,12 @@ function TeamInfo() {
 
                  </div> 
 
-
-
               )
             }
               )}
            
 
-        
-        
+
       
        
        </div>
