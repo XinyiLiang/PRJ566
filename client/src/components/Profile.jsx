@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
+import "../Profile.css";
 
 
 export function Profile() {
@@ -45,17 +46,17 @@ export function Profile() {
 
    
         return (
-            <div className="container">
+            <div className="profile">
                 <div className="row">
 
                     <div className="col-sm-12 col-md-4 col-lg-12">
 
-                        <ul class="list-group list-group-bg-info text-black">
-                            <li class="list-group-item list-group-item-info">User Name: {user.USERNAME}</li>
-                            <li class="list-group-item list-group-item-info">Team Name:{team.NAME}</li>
-                            <li class="list-group-item list-group-item-info">Name:{user.FIRST_NAME} {user.LAST_NAME}</li>
-                            <li class="list-group-item list-group-item-info">Phone Number:{user.PHONENUMBER}</li>
-                            <li class="list-group-item list-group-item-info">Email:{user.EMAIL}</li>
+                        <ul class="list-group">
+                            <li class="list-item">User Name: {user.USERNAME}</li>
+                            <li class="list-item">Team Name:{team.NAME}</li>
+                            <li class="list-item">Name:{user.FIRST_NAME} {user.LAST_NAME}</li>
+                            <li class="list-item">Phone Number:{user.PHONENUMBER}</li>
+                            <li class="list-item">Email:{user.EMAIL}</li>
 
                         </ul>
                         <div class="btn-group p-3 col-lg-5 pull-right">

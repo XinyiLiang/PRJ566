@@ -1,0 +1,20 @@
+.profile {
+    margin: 50px;
+    padding: 10px;
+    border:1px solid #bbb;
+    background:url(./Images/frontImg5.jpg);
+  
+  height:32em;
+  width:60em;
+ position: relative;
+ padding: 3em;
+ margin: 0 auto;
+
+}
+
+li.list-item{
+    line-height:50px;
+    color:white;
+    font-size: 1.6em;
+    list-style-type:none;
+}
