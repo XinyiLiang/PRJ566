@@ -15,6 +15,7 @@ var npc  = require('../routes/npc');
 var user = require('../routes/userRoutes');
  var scenario = require('../routes/scenario');
 var trophys = require('../routes/trophy');
+var answers = require('../routes/correct_answers');
 
 
 
@@ -32,6 +33,7 @@ router.use(team);
  router.use(user);
  router.use(scenario);
  router.use(trophys);
+ router.use(answers);
 
 
 module.exports = router;
