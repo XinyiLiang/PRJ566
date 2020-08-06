@@ -544,3 +544,57 @@ div.sc-bxivhb.eTopIC{
 div.col-lg-7.col-md-12.col-12{
   margin: auto 0;
 }
+
+
+/* Team Page Css */
+.TeamPageTitle span{
+  font-family:  'Metal Mania', cursive;
+  font-size: 1.5em;
+  color:rgb(65, 60, 47);
+}
+.TeamPageTitle {
+        font-family: Georgia, "Times New Roman", Times, serif;
+        font-size:2em;
+        text-align: center;
+        font-weight: normal;
+        color: rgb(48, 46, 38);
+        border-bottom: 2px rgb(48, 46, 38) solid;
+        width: 50%;
+        margin: 0 auto;
+        margin-top: 5px;
+}
+.TeamList{
+  width: 60%;
+  margin: 0 auto;
+  margin-top: 1em;
+  padding: 4em;
+}
+.TeamListHeader{
+ background-color: #a79180;
+ padding: 1em;
+ font-size: 1.2em;
+}
+.TeamName{
+  font-size: 1.1em;
+  font-weight: bold;
+  color: #423327;
+  margin: auto;
+  
+}
+.TeamDetailsRow{
+ height: 5em;
+ background-color: rgb(238, 229, 213);
+ padding: 1em;
+ border-bottom: gray 1.5px dotted;
+}
+.TeamListContainer{
+  background-color: rgb(238, 229, 213);
+  padding-bottom: 3em;
+  
+}
+
+.TeamCol{
+  text-align: right;
+  right: 1em;
+}
+/* end of Team Page css */

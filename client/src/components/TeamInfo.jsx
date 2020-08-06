@@ -1,95 +1,92 @@
-import React from 'react';
-import 'antd/dist/antd.css';
+import React, { useEffect, useState } from "react";
+import {BsFillLockFill} from "react-icons/bs";
 
-import { Table, Typography } from 'antd';
 
-const { Text } = Typography;
+function TeamInfo() {
 
-const columns = [
-  {
-    title: 'Event Name',
-    dataIndex: 'eventName',
-  },
-  {
-    title: 'Date',
-    dataIndex: 'date',
-  },
-  {
-    title: 'Score',
-    dataIndex: 'score',
-  },
-  {
-    title: 'Ranking',
-    dataIndex: 'ranking',
-  },
-];
 
-const data = [
-  {
-    key: '1',
-    eventName: 'Indenpendence Day',
-    date: 'June 15',
-    score: 7500,
-    ranking: 3,
-  },
-  {
-    key: '2',
-    eventName: 'Tycoon Code',
-    date: 'June 22',
-    score:  10000,
-    ranking: 3,
-  },
-  {
-    key: '3',
-    eventName: 'Winner Cruise',
-    date: 'June 30',
-    score:  17500,
-    ranking: 1,
-  },
-  {
-    key: '4',
-    eventName: 'New Life',
-    date: 'July 6',
-    score:  12500,
-    ranking: 2,
-  },
-];
+  
+  const [Teams, dataSet] = useState([])
 
-class TeamInfo extends React.Component {
-  render() {
+  useEffect(() => {
+    async function fetchMyAPI() {
+      let response = await fetch('api/get/GetAllTeamInfo')
+      response = await response.json()
+      dataSet(response)
+    }
+    fetchMyAPI()
+    
+  }, [])
+
+
+
     return(
-<Table
-      columns={columns}
-      dataSource={data}
-      pagination={false}
-      bordered
-      summary={pageData => {
-        let totalScore = 0;
-        let totalRanking = 0;
+      <>
+<div class="TeamList rounded">
+        
+    <div class="container rounded-top TeamListContainer">
+        <div class="row rounded-top TeamListHeader"> 
+                 <div class="col-6">
+                    <span class="font-weight-bold">Team Name</span>
+                 </div>
+                 <div class="col col-mu-auto">
+                    <span class="font-weight-bold">Member#</span>
+                 </div>
+                <div class="col col-md-auto">
+                    <span class="font-weight-bold"></span>
+                </div>
+                
+       </div>
+   
+       {Teams.map(data =>{
+        
+             if(data.TYPE === 'public'){
+              return(
+                 <div class="row TeamDetailsRow"> 
+                      <div class="col"> 
+                      <span class="col-6 TeamName"> {data.NAME} </span>
+                        </div>
+                        <div class="col mu-auto TeamCol"> 
+                         {data.TEAM_MEMBER_COUNT}
+                        </div>
+                        <div class="col md-auto text-right"> <button type="button" class="btn btn-outline-success btn-sm">Join</button> </div>
+                 </div> 
+              )}
+              return(
+                <div class="row TeamDetailsRow"> 
+                      <div class="col"> 
+                      <span class="col-6 TeamName">  {data.NAME}&nbsp;<BsFillLockFill/> </span>
+                        </div>
+                        <div class="col mu-auto TeamCol"> 
+                        {data.TEAM_MEMBER_COUNT}
+                        </div>
+                        <div class="col md-auto text-right"> 
+                        <button type="button" class="btn btn-outline-success btn-sm" 
+                                onClick={()=>{ alert('It is a private team, need password!'); }}
+                        >
+                                  Join
+                        </button> 
+                        </div>
+                 </div> 
+              )
+            }
+              )}
+           
 
-        pageData.forEach(({ score, ranking }) => {
-          totalScore += score;
-        });
+        
 
-        return (
-          <>
-            <Table.Summary.Row>
-              <Table.Summary.Cell>Total</Table.Summary.Cell>
-              <Table.Summary.Cell></Table.Summary.Cell>
-              <Table.Summary.Cell>
-                <Text type="danger">{totalScore}</Text>
-              </Table.Summary.Cell>
-              <Table.Summary.Cell>
-                <Text>{totalRanking}</Text>
-              </Table.Summary.Cell>
-            </Table.Summary.Row>
-          </>
-        );
-      }}
-    />
-    );
+
+
+      
+       
+       </div>
+    </div>
+   
+    </>
+   );
+
+
   }
-}
 
- 
+
 export default TeamInfo;
