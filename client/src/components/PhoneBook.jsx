@@ -2,8 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Button, Modal,ListGroup,Form} from 'react-bootstrap';
 import {Container,Row,Col} from 'react-bootstrap';
 import {BsBookHalf} from 'react-icons/bs';
-import {Call} from '../components/Call'
-import Login from '../components/Login'
+
 
 
 function PhoneBook() {
@@ -24,19 +23,22 @@ function PhoneBook() {
      const [NPCCall, setState] = useState([]) ;
      const [NPC, dataSet] = useState([])
      
-    useEffect(() => {
-      async function fetchMyAPI() {
-        let response = await fetch('/api/get/getAllNpc')
-        response = await response.json()
-        dataSet(response)
-       
-      }
-  
-      fetchMyAPI()
-    
-    }, [])
+    const id = sessionStorage.getItem("team")
+
 
     
+        useEffect(() => {
+        
+          async function fetchMyAPI() {
+            let response = await fetch('/api/get/getAllNpc')
+            response = await response.json()
+            dataSet(response)
+        }
+           
+           
+            fetchMyAPI();
+          }, [])
+
     function CallNPC(data){
       console.log(data);
       setState(data);
