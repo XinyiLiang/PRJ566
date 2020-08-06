@@ -8,7 +8,7 @@ const { Text } = Typography;
 
 const columns = [
   {
-    title: 'Event Name',
+    title: '',
     dataIndex: 'eventName',
     className:'column',
   },
@@ -70,24 +70,14 @@ class TeamInfo extends React.Component {
       pagination={false}
       bordered
       summary={pageData => {
-        let totalScore = 0;
-        let totalRanking = 0;
-
-        pageData.forEach(({ score, ranking }) => {
-          totalScore += score;
-        });
+      
 
         return (
           <>
             <Table.Summary.Row>
               <Table.Summary.Cell></Table.Summary.Cell>
               <Table.Summary.Cell></Table.Summary.Cell>
-              <Table.Summary.Cell>
-                <Text class="totalScore">{totalScore}</Text>
-              </Table.Summary.Cell>
-              <Table.Summary.Cell>
-                <Text class="totalRanking">{totalRanking}</Text>
-              </Table.Summary.Cell>
+             
             </Table.Summary.Row>
           </>
         );
