@@ -1,5 +1,6 @@
 import React from 'react';
 import 'antd/dist/antd.css';
+import  '../TeamInfo.css';
 
 import { Table, Typography } from 'antd';
 
@@ -9,18 +10,22 @@ const columns = [
   {
     title: 'Event Name',
     dataIndex: 'eventName',
+    className:'column',
   },
   {
     title: 'Date',
     dataIndex: 'date',
+    className:'column',
   },
   {
     title: 'Score',
     dataIndex: 'score',
+    className:'column',
   },
   {
     title: 'Ranking',
     dataIndex: 'ranking',
+    className:'column',
   },
 ];
 
@@ -58,7 +63,8 @@ const data = [
 class TeamInfo extends React.Component {
   render() {
     return(
-<Table
+      <div class="teamScore">
+<Table className='scoreTable'
       columns={columns}
       dataSource={data}
       pagination={false}
@@ -74,19 +80,20 @@ class TeamInfo extends React.Component {
         return (
           <>
             <Table.Summary.Row>
-              <Table.Summary.Cell>Total</Table.Summary.Cell>
+              <Table.Summary.Cell></Table.Summary.Cell>
               <Table.Summary.Cell></Table.Summary.Cell>
               <Table.Summary.Cell>
-                <Text type="danger">{totalScore}</Text>
+                <Text class="totalScore">{totalScore}</Text>
               </Table.Summary.Cell>
               <Table.Summary.Cell>
-                <Text>{totalRanking}</Text>
+                <Text class="totalRanking">{totalRanking}</Text>
               </Table.Summary.Cell>
             </Table.Summary.Row>
           </>
         );
       }}
     />
+    </div>
     );
   }
 }
