@@ -5,41 +5,87 @@ import Login from './Login';
 
 
 
+
  export function EventCard({data,setOrder}){
 
     let history = useHistory();
-    const [Game, dataSet] = useState([])
+    const [Game, dataSet] = useState([]);
+   
+
+    let team_id = parseInt(sessionStorage.getItem("team"),10);
+    let game_id= data.GAME_ID;
+    
+    
+
+
+    const [teamScore, setState] = useState({
+        total_score:0,
+        moves:0,
+        correct_answers:0,
+        team_id:parseInt(sessionStorage.getItem("team"),10),
+        game_id:data.GAME_ID
+    }) ;
   
       useEffect(() => {
       async function fetchMyAPI() {
         let response = await fetch(`/api/get/scenario_game/${data.GAME_ID}`, {
             method:'GET'
             }).then(response => response.json()).then(data => {
-                
+
+               
                 dataSet(data);
-                console.log(data);
+               
             })
   
       }
-  
       fetchMyAPI()
+      checkTeam()
       
     }, [])
  
-
-
-
+    const registerTeam = (teamScore ) => {
+        return fetch('/api/score/posttodb', {
+          body: JSON.stringify(teamScore),
+          method: 'POST',
+          mode: 'cors', // no-cors, *cors, same-origin
+          cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+          credentials: 'same-origin', // include, *same-origin, omit
+          headers: {
+          'Content-Type': 'application/json'
+          // 'Content-Type': 'application/x-www-form-urlencoded',
+          }
+        })
+      };
+      const checkTeam = () => {
+        return fetch('/api/get/getAllScores').then(res=>res.json()).then(data => {
+            if (data.length > 0) {
+                console.log(data)
+                console.log('team exists');
+                
+  
+          
+            } else {
+                console.log(data)
+                console.log("team doesn't exist");
+        
+            }
+          });
+        }
+    
+   
       
     const[infoModalShow,infoSetModalShow] = React.useState(false);
     const[LogInModalShow,LogInSetModalShow] = React.useState(false);
     
     function check (){
 
-        if(sessionStorage.getItem("auth") == "true"){
+        if(sessionStorage.getItem("auth") == "true" || sessionStorage.getItem("team") != "0"){
+          
+          
+         
+            registerTeam(teamScore);
             
-        
-            history.push("/Play")
-            
+            history.push('/Play');
     
 
         }else{
@@ -86,7 +132,7 @@ import Login from './Login';
           <p> {Game.DESCRIPTION}</p>
         </Modal.Body>
         <Modal.Footer>
-        <Button variant="success" onClick={                         ()=>check()                              }>Join Game</Button>
+        <Button variant="success"  onClick={                        ()=>check()                              }>Join Game</Button>
         <Button onClick={() => infoSetModalShow(false)}>Close</Button>
            
         </Modal.Footer>
@@ -99,9 +145,6 @@ import Login from './Login';
     >
        
         <Modal.Header closeButton>
-           
-             
-                {/* <Col ><img src={require('../Images/detectiveLogo.png')} className="App-logo" alt="logo "   /></Col> */}
                 
            <h3 >Log in to your account</h3>
            
