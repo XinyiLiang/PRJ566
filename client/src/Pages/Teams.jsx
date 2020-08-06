@@ -1,20 +1,13 @@
 import React from 'react';
-import { Container, Row,Col} from 'react-bootstrap';
-import FinalScoreBoard from '../components/FinalScoreBoard';
 
-export const Teams = () =>(
-
-        <div className="HomeMain">
-            <Container >
-                  <Row>
-                       <Col md={{ span: 6, offset: 3 }}>
-                             <h2> Teams Page</h2>
-                             <FinalScoreBoard/>
-
-                        </Col>
-                    </Row>
-             </Container>
-            
-         </div>
-    )
-export default Teams;
+import TeamInfo from '../components/TeamInfo';
+import {NavBar} from '../components/NavBar';
+export const Team = () =>(
+    <div className="HomeMain">
+            <NavBar/>
+         <p className="TeamPageTitle">All Teams in <span>Detective</span></p>
+         <TeamInfo/>
+        
+    </div>
+)
+export default Team;

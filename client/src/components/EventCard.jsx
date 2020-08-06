@@ -14,6 +14,7 @@ import Login from './Login';
 
     let team_id = parseInt(sessionStorage.getItem("team"),10);
     let game_id= data.GAME_ID;
+    let auth = sessionStorage.getItem("auth");
     
     
 
@@ -79,7 +80,7 @@ import Login from './Login';
     
     function check (){
 
-        if(sessionStorage.getItem("auth") == "true" || sessionStorage.getItem("team") != "0"){
+        if(auth === "true" && sessionStorage.getItem("team") != "0"){
           
           
          

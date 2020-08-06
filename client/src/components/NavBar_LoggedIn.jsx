@@ -15,7 +15,7 @@ export const NavBarLoggedIn = () => (
                 <Nav.Item><Nav.Link href="./About">About </Nav.Link></Nav.Item>
                 <Nav.Item><Nav.Link href="./Teams">Teams </Nav.Link></Nav.Item>
                 <Nav.Item><Nav.Link href="./Events">Events </Nav.Link></Nav.Item>
-                <Nav.Item><Nav.Link href="./Play"><button id="PlayBtn"  class="btn btn-danger" >Play</button></Nav.Link></Nav.Item>
+
                 <Nav.Item><Nav.Link href="./Profile">Hello! {sessionStorage.getItem("name")} </Nav.Link></Nav.Item>
                 <Nav.Item><Nav.Link href="./"><button id="loginBtn" type="button" class="btn btn-outline-warning" onClick={(e) => sessionStorage.clear()}>Log Out</button></Nav.Link></Nav.Item>
            
