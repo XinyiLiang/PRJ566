@@ -1,55 +1,139 @@
-import React, { Component } from "react";
-import { Button} from "react-bootstrap";
+import React, { useEffect, useState } from 'react';
+import { useHistory } from 'react-router-dom';
+import { Form, Field } from 'react-advanced-form'
+import { Input, Button } from 'react-advanced-form-addons'
+import { FormProvider } from 'react-advanced-form'
 
-export default class ChangePro extends Component {
-    render() {
-        return (
+import rules from '../ValidationRules'
+import messages from '../ValidationMessages'
+
+
+const ChangePro = () => {
+
+        const [user, dataSet] = useState([])
+    
+        const email = sessionStorage.getItem('email');
+        const auth = sessionStorage.getItem('auth');
+         
+        const history = useHistory();
+
+        const [profile_FN, setProfileFN] = useState("");
+        const [profile_LN, setProfileLN] = useState("");  
+
+        useEffect(() => {
+            if(auth == 'true'){
+            async function fetchMyAPI() {
+            let response = await fetch(`/api/get/getPlayer/${email}`, {
+                method:'GET'
+                }).then(response => response.json()).then(data => {
+                    
+                    dataSet(data);
+                    setProfileFN(data.FIRST_NAME);
+                    setProfileLN(data.LAST_NAME);
+                })               
+            }
           
-        <div class="form">
-          
-            <form class="form-box">
+            fetchMyAPI();
+
+    }else{
+        history.push('/Login')
+    }
+}, [])
+
+
+const UpdateProfile = ({ serialized, fields, form }) => {
+    const registerUser = ({ serialized, fields, form }) => {
+        return fetch('/api/user/posttodb', {
+          body: JSON.stringify(serialized),
+          method: 'POST',
+          mode: 'cors', // no-cors, *cors, same-origin
+          cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+          credentials: 'same-origin', // include, *same-origin, omit
+          headers: {
+          'Content-Type': 'application/json'
+          // 'Content-Type': 'application/x-www-form-urlencoded',
+          }
+        }).then(res => res.json()).then(data => {
+          if (data.length == 1) {
+      
+              console.log('user info updates');
+              sessionStorage.setItem("auth", "true");
+              sessionStorage.setItem("email",data[0].EMAIL)
+              sessionStorage.setItem("name",data[0].FIRST_NAME)
+             
               
-
-                <div className="form-group">
-                   
-                    <input type="text" className="form-control" placeholder="First Name" />
-                </div>
-
-                <div className="form-group">
-                    
-                    <input type="text" className="form-control" placeholder="Last Name" />
-                </div>
-
-                <div className="form-group">
-                    
-                    <input type="text" className="form-control" placeholder="Date of Birth" />
-                </div>
-
-                <div className="form-group">
-                   
-                    <input type="email" className="form-control" placeholder="Email" />
-                </div>
-
-                <div className="form-group">
-                    <input type="phone number" className="form-control" placeholder="Phone Number" />
-                </div>
-
-                <div className="form-group">
-                   
-                    <input type="password" className="form-control" placeholder="Enter password" />
-                </div>
-
-                <div className="form-group">
-                   
-                    <input type="password" className="form-control" placeholder="Confirm password" />
-                </div>
-
-                <Button type="submit" className="btn-submit" block bsSize="large">Confirm Changes</Button>
-               
+          //history.push('/');
+          window.location.reload();
             
-            </form>
-            </div>
+          } else {
+              console.log("user doesn't exist");
+          }
+        });
+      };
+  };
+
+        return (
+            
+            <div className="ChangeProfileContainer">
+          <FormProvider rules={rules} messages={messages}>
+            <h1 >Update My Profile</h1>
+          
+        <Form  id="updateProfileForm" onSubmit={UpdateProfile}>
+        
+        <Field.Group name="primaryInfo" >
+          <Input
+            name="email"
+            type="text"
+            label="E-mail"
+            value={email}
+            disabled="true"
+           />
+            <Input
+            name="username"
+            type="text"
+            label="Username"
+            value={user.USERNAME}
+            disabled="true"
+           />
+       </Field.Group>
+
+       
+
+          <Field.Group name="primaryInfo">
+          <Input
+            name="First_Name"
+            label="First Name"
+            value={profile_FN}
+            onChange={(e) => {setProfileFN( e.nextValue);}}
+            required
+            />
+          <Input
+            name="Last_Name"
+            label="Last Name"
+            value={profile_LN}
+            onChange={(e) => {setProfileLN( e.nextValue);}}
+            required />
+        </Field.Group>
+
+            <Input
+          name="password"
+          type="password"
+          label="New Password"
+          required />
+        <Input
+          name="confirmNewPassword"
+          type="password"
+          label="Confirm Password"
+          required
+          skip />
+      
+
+        <Button  primary type="submit">Save</Button>
+        
+      </Form>
+      </FormProvider>
+       </div>
 
         );
-    }
-}
+    };
+    export default ChangePro;
