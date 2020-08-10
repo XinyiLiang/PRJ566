@@ -44,32 +44,54 @@ export function Profile() {
 }, [])
 
 
-   
         return (
+        
             <div className="profile">
-                <div className="row">
-
-                    <div className="col-sm-12 col-md-4 col-lg-12">
-
-                        <ul class="list-group">
-                            <li class="list-item">User Name: {user.USERNAME}</li>
-                            <li class="list-item">Team Name:{team.NAME}</li>
-                            <li class="list-item">Name:{user.FIRST_NAME} {user.LAST_NAME}</li>
-                            <li class="list-item">Phone Number:{user.PHONENUMBER}</li>
-                            <li class="list-item">Email:{user.EMAIL}</li>
-
-                        </ul>
-                        <div class="btn-group p-3 col-lg-5 pull-right">
-                            <button type="button" class="btn btn-primary " onClick={()=>{window.location.href="/ChangeProfile"}} >Change Info</button>
-  
-
-                        </div>
-                    </div>
+            
+            
+             <div className="info">
+                <h4 className="userName" >{user.USERNAME}</h4>
+                 <table className='details' frame='void' >
+                 <tr height="75">
+                     <td> <img className="icon"src={require('../Images/user.png')} alt='icon' /></td>
+                     <td >
+                     <tr className="detail">Name </tr> 
+                     <tr className="value" > {user.FIRST_NAME} {user.LAST_NAME}</tr>
+                     </td>
+                     </tr>
+                     <tr height="75">
+                     <td> <img className="icon"src={require('../Images/emailicon.png')} alt='icon' /></td>
+                     <td >
+                     <tr className="detail" >Email Address </tr> 
+                     <tr className="value" > {user.EMAIL}</tr>
+                     </td>
+                     </tr>
+                     <tr height="75">
+                     <td> <img className="icon"src={require('../Images/teamicon.png')} alt='icon'  /></td>
+                     <td >
+                     <tr className="detail" >Team Name </tr> 
+                     <tr className="value" > {team.NAME}</tr>
+                     </td>
+                     </tr>
+                
+                     <tr height="75">
+                     <td> <img className="icon"src={require('../Images/phone-icon.png')} alt='icon'  /></td>
+                     <td >
+                     <tr className="detail" >Phone Number </tr> 
+                     <tr className="value" > :{user.PHONENUMBER}</tr>
+                     </td>
+                     </tr>
+             
+                 </table>
+                 <div align="center">
+                            <button type="button" class="btn btn-primary " onClick={()=>{window.location.href="/ChangeProfile"}} >UPDATE PROFILE</button>
                 </div>
-            </div>
-
+             </div>
+                                           
+        </div>
+            
         )
-    
+    }
 }
 
 export default Profile;
