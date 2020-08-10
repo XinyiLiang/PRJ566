@@ -15,6 +15,12 @@ export default {
       matches: ({ value, get }) => {
         return value === get(['password', 'value'])
       }
+    },
+    confirmUpdatePassword: {
+      matches: ({ value, get }) => {
+        return value === get(['password', 'value'])
+      }
     }
+
   }
 }

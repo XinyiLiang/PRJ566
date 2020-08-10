@@ -2,10 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { Form, Field } from 'react-advanced-form'
 import { Input, Button } from 'react-advanced-form-addons'
-import { FormProvider } from 'react-advanced-form'
-
-import rules from '../ValidationRules'
-import messages from '../ValidationMessages'
 
 
 const ChangePro = () => {
@@ -42,10 +38,10 @@ const ChangePro = () => {
 
 
 const UpdateProfile = ({ serialized, fields, form }) => {
-    const registerUser = ({ serialized, fields, form }) => {
-        return fetch('/api/user/posttodb', {
+         console.log(serialized);
+        return fetch(`/api/put/post/user/${email}`, {
           body: JSON.stringify(serialized),
-          method: 'POST',
+          method: 'PUT',
           mode: 'cors', // no-cors, *cors, same-origin
           cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
           credentials: 'same-origin', // include, *same-origin, omit
@@ -55,30 +51,26 @@ const UpdateProfile = ({ serialized, fields, form }) => {
           }
         }).then(res => res.json()).then(data => {
           if (data.length == 1) {
-      
-              console.log('user info updates');
-              sessionStorage.setItem("auth", "true");
-              sessionStorage.setItem("email",data[0].EMAIL)
-              sessionStorage.setItem("name",data[0].FIRST_NAME)
-             
-              
+              // console.log('user info updates');
+              // sessionStorage.setItem("auth", "true");
+              // sessionStorage.setItem("email",data[0].EMAIL)
+              // sessionStorage.setItem("name",data[0].FIRST_NAME)
+
           //history.push('/');
-          window.location.reload();
+          window.location.href="/Profile"
             
           } else {
-              console.log("user doesn't exist");
+              console.log("user info updates fails!!");
           }
         });
-      };
+     
   };
 
         return (
             
-            <div className="ChangeProfileContainer">
-          <FormProvider rules={rules} messages={messages}>
-            <h1 >Update My Profile</h1>
           
-        <Form  id="updateProfileForm" onSubmit={UpdateProfile}>
+          
+        <Form  id="updateProfileForm" action={UpdateProfile}>
         
         <Field.Group name="primaryInfo" >
           <Input
@@ -115,24 +107,22 @@ const UpdateProfile = ({ serialized, fields, form }) => {
             required />
         </Field.Group>
 
-            <Input
+        <Input
           name="password"
           type="password"
           label="New Password"
           required />
         <Input
-          name="confirmNewPassword"
+          name="confirmUpdatePassword"
           type="password"
           label="Confirm Password"
           required
           skip />
-      
-
+     
         <Button  primary type="submit">Save</Button>
         
       </Form>
-      </FormProvider>
-       </div>
+     
 
         );
     };
