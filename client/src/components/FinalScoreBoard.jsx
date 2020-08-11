@@ -70,3 +70,4 @@ class FinalScoreBoard extends React.Component {
     );
   }
 }
+export default FinalScoreBoard;

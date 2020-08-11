@@ -20,6 +20,7 @@ const Account = () => {
       // 'Content-Type': 'application/x-www-form-urlencoded',
       }
     }).then(res => res.json()).then(data => {
+      console.log(data)
       if (data.length == 1) {
   
           console.log('user exists');
