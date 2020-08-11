@@ -1,20 +1,60 @@
 .profile {
-    margin: 50px;
-    padding: 10px;
-    border:1px solid #bbb;
-    background:url(./Images/frontImg5.jpg);
+    margin: 2px;
+    padding: 2px;
+    -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  position: relative;
+  height:30em;
+  width:25em;
   
-  height:32em;
-  width:60em;
- position: relative;
- padding: 3em;
- margin: 0 auto;
+
 
 }
 
-li.list-item{
-    line-height:50px;
+.details{
+    width:30em;
+}
+
+
+.userName{
+    font-family: 'Lucida Grande';
+    font-size: 30px;
     color:white;
-    font-size: 1.6em;
-    list-style-type:none;
+    height:55px;
+
+    
+}
+
+
+.info{                   
+    position: relative;    
+
+}
+
+
+.icon{
+    width:35px;
+    height:35px;
+}
+
+.detail{  
+    font-family:Arial, Helvetica, sans-serif;
+    color:rgb(243, 240, 240);
+    font-size:14px;
+}  
+
+
+.value{
+    font-family:fantasy;
+    font-size:18px;
+    color:rgb(88, 87, 87);
+    
+}
+
+.btn{
+    margin:40px;
+    width:220px;
+    text-align: center;
+
 }

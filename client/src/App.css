@@ -82,6 +82,14 @@
         margin: 0 auto;
 }
 
+.ProfileContainer{
+    height:42em;
+    width: 30em;
+   position: relative;
+   padding: 1em;
+   margin: 0 auto;
+}
+
 .LoginPageContainer{ 
  position: absolute;
  z-Index: 100;
@@ -667,3 +675,4 @@ body {
 
 
 /* end of Change User Profile css */
+
