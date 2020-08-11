@@ -1,4 +1,5 @@
 
+
 import React, { useEffect, useState,Prompt } from "react";
 import {BsFillLockFill} from "react-icons/bs";
 import { Form, Field } from 'react-advanced-form'
@@ -160,13 +161,7 @@ function TeamInfo() {
 
                  </div> 
 
-<<<<<<< HEAD
-                
 
-              )}
-=======
-              )
->>>>>>> 815d69bdfb17f50573045dd5ecc0f7e694832755
             }
               )}
            
@@ -179,7 +174,6 @@ function TeamInfo() {
    
     </>
    );
-
 
   }
 
