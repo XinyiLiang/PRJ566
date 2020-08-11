@@ -19,13 +19,17 @@ function PhoneBook() {
      const OpenNPC = () => { setNPCShow(true);
                   
      }
-  
+     const [Score, scoreSet] = useState([])
      const [NPCCall, setState] = useState([]) ;
      const [NPC, dataSet] = useState([])
      
     const id = sessionStorage.getItem("team")
+    const game_id = sessionStorage.getItem("GameID");
 
-
+    const [values,valuesSet]  = useState({
+      team_id : id,
+      game_id : sessionStorage.getItem("GameID")
+  })
     
         useEffect(() => {
         
@@ -40,14 +44,26 @@ function PhoneBook() {
           }, [])
 
     function CallNPC(data){
-      console.log(data);
+      addStep();
       setState(data);
       return(
    
         OpenNPC()
       )
     }
-    
+  
+      const addStep = () => {
+        return fetch(`/api/put/addStep/${id}`, {
+          method: 'PUT',
+          body: JSON.stringify(values),
+          headers: {
+          'Content-Type': 'application/json'
+          }
+        })
+      
+     
+      
+    }
 
  
     return (

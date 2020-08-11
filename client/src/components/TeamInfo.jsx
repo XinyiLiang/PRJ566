@@ -88,7 +88,7 @@ function TeamInfo() {
    
        {Teams.map(data =>{
         
-             if(data.TYPE === 'public'){
+             if(data.TYPE === 'public'&& data.TEAM_ID != '0'){
               return(
                  <div class="row TeamDetailsRow" key={`${data.TEAM_ID}`}> 
                       <div class="col"> 
@@ -102,6 +102,7 @@ function TeamInfo() {
                          >Join</button> </div>
                  </div> 
               )}
+              else if (data.TYPE === 'private' && data.TEAM_ID != '0'){
               return(
                 <div class="row TeamDetailsRow" key={`${data.TEAM_ID}`}> 
                       <div class="col"> 
@@ -116,7 +117,9 @@ function TeamInfo() {
                         >
                                   Join
                         </button> 
+       
                         </div>
+                    
 
                   <Modal show={infoModalShow} onHide={() => infoSetModalShow(false)} size ="sm" aria-labelledby="contained-modal-title-vcenter" centered>
                   <Modal.Header closeButton>
@@ -131,7 +134,7 @@ function TeamInfo() {
                         name="password"
                         type="password"
                         label="Password"
-                        onChange={e =>{setPassword(e.value);console.log(password)}}
+                        onChange={e =>setPassword(e.value)}
                       />
                           <Button bsSize="lg" variant="success" type="submit" primary onClick={()=>passCheck(data,password)}  >Join</Button>  
                     </Field.Group>      
@@ -143,9 +146,9 @@ function TeamInfo() {
 
                  </div> 
 
+                
 
-
-              )
+              )}
             }
               )}
            

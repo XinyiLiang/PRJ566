@@ -42,11 +42,11 @@ router.get('/api/get/scoreTeam', (req, res, next) => {
   //   res.send(rows[0])
   // })
 
-  router.get('/api/get/scoreTeam/:id', async (req, res) => {
-    const team_id  = req.params.id
-
+  router.post('/api/get/scoreTeam/:id', async (req, res) => {
+    const values = [req.body.team_id,
+                    req.body.game_id]
     const { rows } = await pool.query(`SELECT * FROM public."SCORE" 
-                                          WHERE "TEAM_ID"=$1 `, [team_id])
+                                          WHERE "TEAM_ID"=$1 AND "GAME_ID" = $2 `, values)
     res.send(rows[0])
   })
 
@@ -84,6 +84,18 @@ router.get('/api/get/scoreTeam', (req, res, next) => {
                 WHERE SCORE_ID = $1`, values,
                 (q_err, q_res) => {
                   console.log(q_res)
+                  console.log(q_err)
+          })
+  })
+
+  //edit current score
+  router.put(`/api/put/addStep/:team_id`, (req, res, next) => {
+    const values = [ req.body.team_id,
+                     req.body.game_id];
+       
+    pool.query(`UPDATE public."SCORE" SET  "MOVES"=("MOVES"+1)
+                WHERE "TEAM_ID" = $1 AND "GAME_ID" = $2`, values ,
+                (q_err, q_res) => {
                   console.log(q_err)
           })
   })

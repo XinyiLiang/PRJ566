@@ -6,6 +6,8 @@ import Clues from '../components/Clues'
 import Questions from '../components/Questions'
 import Timer from '../components/Timer'
 import {NavBar} from '../components/NavBar';
+import Steps from '../components/Steps';
+import TeamName from '../components/TeamName';
 
 
   
@@ -20,14 +22,15 @@ export const Play = () =>(
                 <Container>
                <Row>
                <Col md={12} xs={12} lg={12}  class="text-center" >
-               <p class="font-weight-bold GroupName">Team: D-squad </p>
+               <p class="font-weight-bold GroupName">Team: <TeamName/> </p>
                </Col>
                </Row>
             <Row>
 
             <Col md={12} xs={12} lg={6}  class="text-center" >
-                <div class="d-inline font-weight-bold score ">Step: 00</div>
-                <div class="d-inline font-weight-bold score ">Score: 00</div>
+                <div class="d-inline font-weight-bold score ">Step: 
+                {/* <Steps/> */}
+                </div>
                 <div class="d-inline font-weight-bold score ">Time Left:<Timer/></div>
                
             </Col>
