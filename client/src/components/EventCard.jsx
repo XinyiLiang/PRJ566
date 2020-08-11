@@ -85,7 +85,7 @@ import Login from './Login';
           
          
             registerTeam(teamScore);
-            
+            sessionStorage.setItem("ScoreId",data.GAME_ID);
             history.push('/Play');
     
 
