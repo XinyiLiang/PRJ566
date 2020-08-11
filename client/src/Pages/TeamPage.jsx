@@ -5,7 +5,7 @@ import {NavBar} from '../components/NavBar';
 export const Team = () =>(
     <div className="HomeMain">
             <NavBar/>
-         <h3>Team Score</h3>
+         <p className="TeamPageTitle">All Teams in <span>Detective</span></p>
          <TeamInfo/>
         
     </div>

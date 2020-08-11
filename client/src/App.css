@@ -412,13 +412,7 @@
   
   min-width: 50vw;
 }
-.ChangeProfileContainer{
-  height:42em;
-  width: 30em;
- position: relative;
- padding: 2em;
- margin: 0 auto;
-}
+
 
 .HowToPlayTitle{
   font-family: 'Playfair Display SC', serif;
@@ -544,6 +538,7 @@ div.sc-bxivhb.eTopIC{
 div.col-lg-7.col-md-12.col-12{
   margin: auto 0;
 }
+
 /* Team Page Css */
 .TeamPageTitle span{
   font-family:  'Metal Mania', cursive;
@@ -596,3 +591,79 @@ div.col-lg-7.col-md-12.col-12{
   right: 1em;
 }
 /* end of Team Page css */
+
+/* change(UPDATED) user profile page css */
+body {
+  background-color: #c4b5a9;
+}
+.ChangeProfileContainer{
+  height:80%;
+  width: 75%;
+  position: relative;
+  padding: 1em;
+  margin: 2em auto;
+  border-radius: 18px;
+  border: 3px solid rgb(65, 60, 47);
+  background-color: #e2dfd2;
+}
+
+.ChangeProfileContainer h1{
+ 
+  text-align: center;
+  border-bottom: 2px solid rgb(42, 43, 38);
+  width: 70%;
+  margin: 1em auto;
+  
+}
+#updateProfileForm{
+ 
+  width: 60vw;
+  margin:  0 auto;
+  padding: auto;
+  
+}
+
+/* below is field for form */
+#updateProfileForm div.sc-bxivhb.eTopIC {
+  display: flex;
+  width: 60%;
+  margin: 0 auto;
+  flex-flow: row wrap;
+  align-items: center;
+ 
+}
+#updateProfileForm div label{
+  color:black;
+  text-align: right;
+  margin: auto 0;
+  padding-right: 1em;
+  font-weight: bold;
+  flex: 0.4;
+}
+
+
+#updateProfileForm div div 
+{
+  flex: 0.8;
+  width: 20%;
+  
+}
+
+#updateProfileForm div div input
+{
+  
+  width: 100%;
+}
+
+#updateProfileForm div p
+{
+  display: flex;
+  align-items: right;
+  padding-left: 13vw;
+  align-self:flex-end ;
+  flex: 1 100%;
+  
+}
+
+
+/* end of Change User Profile css */

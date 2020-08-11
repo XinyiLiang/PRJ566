@@ -23,6 +23,11 @@ export default {
         rule: {
           matches: 'The provided passwords do not match'
         }
+      },
+      confirmUpdatePassword: {
+        rule: {
+          matches: 'The confirm passwords do not match new password'
+        }
       }
     }
   }
