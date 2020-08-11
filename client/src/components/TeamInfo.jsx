@@ -160,13 +160,9 @@ function TeamInfo() {
 
                  </div> 
 
-<<<<<<< HEAD
                 
 
               )}
-=======
-              )
->>>>>>> 815d69bdfb17f50573045dd5ecc0f7e694832755
             }
               )}
            
