@@ -9,12 +9,8 @@ var pool = require('../main/db')
                      req.body.primaryInfo.last_name,
                      req.body.primaryInfo.username,
                      req.body.password,
-                     req.body.primaryInfo.email,
-
-                  ]
-                  
-                   
-    console.log(req.body);              
+                     req.body.primaryInfo.email
+                  ]      
     pool.query(`INSERT INTO public."PLAYER"("FIRST_NAME", "LAST_NAME","USERNAME", "PASSWORD", "EMAIL", "TEAM_ID")
                 VALUES($1, $2, $3, $4, $5 ,'0')`,
              values, (q_err, q_res) => {
@@ -67,10 +63,20 @@ router.get('/api/get/getAllTeamPlayers', (req, res, next ) => {
                   console.log(q_err)
           })
   })
+
+    
+  //edit current player team
+  router.put(`/api/put/userTeam/:email`, (req, res, next) => {
+    const values = [req.body.email,
+                  req.body.team_id]
+     
+    pool.query(`UPDATE public."PLAYER" SET "TEAM_ID" = $2
+                WHERE "EMAIL" = $1`, values, (q_err, q_res) => {
+                  if(q_err) return next(q_err);
+                  res.json(q_res.rows)
+          })
+  })
   
-  router.get('/', function(req, res, next) {
-    res.send('API is working properly');
-});
 
 
 //get players for particular team - added by Xinyi Liang

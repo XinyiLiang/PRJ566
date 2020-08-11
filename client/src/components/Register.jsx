@@ -1,10 +1,13 @@
 import React from "react";
 import { Form, Field } from 'react-advanced-form'
 import { Input, Button } from 'react-advanced-form-addons'
-// import { post } from "../../../server/routes/userRoutes";
+import { useHistory } from "react-router-dom";
 
 
 const Account = () => {
+
+  let history = useHistory();
+  
   const registerUser = ({ serialized, fields, form }) => {
     return fetch('/api/user/posttodb', {
       body: JSON.stringify(serialized),
@@ -26,8 +29,8 @@ const Account = () => {
           sessionStorage.setItem("team",data[0].TEAM_ID)
    
         
-      //history.push('/');
-      window.location.reload();
+      history.push('/');
+    
         
     
       } else {

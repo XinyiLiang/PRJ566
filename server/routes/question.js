@@ -9,15 +9,8 @@ var pool = require('../main/db')
     res.send(rows)
   })
 
-  //get all the questions for particular scenario
-  router.get('/api/get/getAllQuestions', async (req, res) => {
-    const { rows } = await pool.query('SELECT * FROM public."QUESTION" ')
-    res.send(rows)
-  })
-
-
   //get one question
-router.get('/api/get/question', (req, res, next) => {
+router.get('/api/get/question/:id', (req, res, next) => {
     const question_id = req.query.question_id
     pool.query(`SELECT * FROM public."QUESTION"
                 WHERE QUESTION_ID=$1`,[ question_id ],

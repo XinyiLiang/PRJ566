@@ -23,10 +23,11 @@ router.get('/api/get/scenarioGame', (req, res, next) => {
 
   router.get('/api/get/scenario_game/:id', async (req, res) => {
     const game_id  = req.params.id
-    console.log(game_id);
     const { rows } = await pool.query('SELECT * FROM public."SCENARIO"  WHERE "GAMEDAY_ID"=$1', [game_id])
     res.send(rows[0])
   })
+
+
   
   //save new scenario to db
   router.post('/api/scenario/posttodb', (req, res, next) => {

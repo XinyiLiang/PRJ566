@@ -17,7 +17,7 @@ router.get('/api/get/answerTeam', (req, res, next ) => {
     const values = [ req.body.team_id,
                      req.body.question_id,
                      req.body.answer]
-    pool.query(`INSERT INTO public."TEAM_ANSWER"(TEAM_ID, QUESTION_ID, ANSWER)
+    pool.query(`INSERT INTO public."TEAM_ANSWER"("TEAM_ID", "QUESTION_ID", "ANSWER")
                 VALUES($1, $2, $3)`,
              values, (q_err, q_res) => {
             if(q_err) return next(q_err);

@@ -2,8 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Button, Modal,ListGroup,Form} from 'react-bootstrap';
 import {Container,Row,Col} from 'react-bootstrap';
 import {BsBookHalf} from 'react-icons/bs';
-import {Call} from '../components/Call'
-import Login from '../components/Login'
+
 
 
 function PhoneBook() {
@@ -20,32 +19,51 @@ function PhoneBook() {
      const OpenNPC = () => { setNPCShow(true);
                   
      }
-  
+     const [Score, scoreSet] = useState([])
      const [NPCCall, setState] = useState([]) ;
      const [NPC, dataSet] = useState([])
      
-    useEffect(() => {
-      async function fetchMyAPI() {
-        let response = await fetch('/api/get/getAllNpc')
-        response = await response.json()
-        dataSet(response)
-       
-      }
-  
-      fetchMyAPI()
-    
-    }, [])
+    const id = sessionStorage.getItem("team")
+    const game_id = sessionStorage.getItem("GameID");
 
+    const [values,valuesSet]  = useState({
+      team_id : id,
+      game_id : sessionStorage.getItem("GameID")
+  })
     
+        useEffect(() => {
+        
+          async function fetchMyAPI() {
+            let response = await fetch('/api/get/getAllNpc')
+            response = await response.json()
+            dataSet(response)
+        }
+           
+           
+            fetchMyAPI();
+          }, [])
+
     function CallNPC(data){
-      console.log(data);
+      addStep();
       setState(data);
       return(
    
         OpenNPC()
       )
     }
-    
+  
+      const addStep = () => {
+        return fetch(`/api/put/addStep/${id}`, {
+          method: 'PUT',
+          body: JSON.stringify(values),
+          headers: {
+          'Content-Type': 'application/json'
+          }
+        })
+      
+     
+      
+    }
 
  
     return (
