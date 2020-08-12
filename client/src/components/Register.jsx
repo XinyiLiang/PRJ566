@@ -20,13 +20,13 @@ const Account = () => {
       // 'Content-Type': 'application/x-www-form-urlencoded',
       }
     }).then(res => res.json()).then(data => {
-      if (data.length == 1) {
-  
+      if (data.length > 0) {
+        console.log(data);
           console.log('user exists');
           sessionStorage.setItem("auth", "true");
-          sessionStorage.setItem("email",data[0].EMAIL)
-          sessionStorage.setItem("name",data[0].FIRST_NAME)
-          sessionStorage.setItem("team",data[0].TEAM_ID)
+          sessionStorage.setItem("email",data.EMAIL)
+          sessionStorage.setItem("name",data.FIRST_NAME)
+          sessionStorage.setItem("team",data.TEAM_ID)
    
         
       history.push('/');
@@ -34,6 +34,7 @@ const Account = () => {
         
     
       } else {
+        console.log(data);
           console.log("user doesn't exist");
       }
     });

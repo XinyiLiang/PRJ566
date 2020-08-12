@@ -56,17 +56,10 @@ class FinalScoreBoard extends React.Component {
         </>
       )}
     />
-    <Column className='column'
-      title="Action"
-      key="action"
-      render={(text, record) => (
-        <Space size="middle">
-          <a href="./Team">Team Details</a>
-      
-        </Space>
-      )}
-    />
+    
   </Table>
     );
   }
 }
+
+export default FinalScoreBoard

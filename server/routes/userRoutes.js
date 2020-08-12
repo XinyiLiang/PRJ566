@@ -6,17 +6,20 @@ var pool = require('../main/db')
   //create new user
   router.post('/api/user/posttodb', (req, res, next) => {
     const values = [ req.body.primaryInfo.first_name,
-                     req.body.primaryInfo.last_name,
-                     req.body.primaryInfo.username,
-                     req.body.password,
-                     req.body.primaryInfo.email
-                  ]      
+      req.body.primaryInfo.last_name,
+      req.body.primaryInfo.username,
+      req.body.password,
+      req.body.primaryInfo.email
+   ]    
+            
     pool.query(`INSERT INTO public."PLAYER"("FIRST_NAME", "LAST_NAME","USERNAME", "PASSWORD", "EMAIL", "TEAM_ID")
-                VALUES($1, $2, $3, $4, $5 ,'0')`,
+                 SELECT $1, $2, $3, $4, $5 ,0
+                 WHERE NOT EXISTS  
+                 (SELECT * FROM public."PLAYER" WHERE "EMAIL"= $5::varchar(50)) RETURNING *; `,
              values, (q_err, q_res) => {
             if(q_err) return next(q_err);
-            res.json(q_res.rows)
-      });
+            res.json(q_res.rows);
+      })
   })
 
 //get player (using email)
@@ -49,15 +52,12 @@ router.get('/api/get/getAllTeamPlayers', (req, res, next ) => {
 
   
   //edit current player
-  router.put('/api/put/user', (req, res, next) => {
-    const values = [ req.body.player_id,
-                     req.body.username,
+  router.put(`/api/put/user/:email`, (req, res, next) => {
+    const values = [ req.body.username,
                      req.body.password,
-                     req.body.email,
-                     req.body.phonenumber,
-                     req.body.team_id]
-    pool.query(`UPDATE public."PLAYER" SET  USERNAME = $2, PASSWORD = $3, EMAIL = $4, PHONENUMBER = $5, TEAM_ID = $6
-                WHERE PLAYER_ID = $1`, values,
+                     req.body.email]
+    pool.query(`UPDATE public."PLAYER" SET  USERNAME = $2, PASSWORD = $3, EMAIL = $4
+                WHERE "EMAIL" = $1`, values,
                 (q_err, q_res) => {
                   console.log(q_res)
                   console.log(q_err)

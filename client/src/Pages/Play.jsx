@@ -29,7 +29,7 @@ export const Play = () =>(
 
             <Col md={12} xs={12} lg={6}  class="text-center" >
                 <div class="d-inline font-weight-bold score ">Step: 
-                {/* <Steps/> */}
+                 <Steps/> 
                 </div>
                 <div class="d-inline font-weight-bold score ">Time Left:<Timer/></div>
                

@@ -7,3 +7,5 @@ router.get('/api/get/question_answer/:id', async (req, res) => {
     const { rows } = await pool.query('SELECT * FROM public."CORRECT_ANSWER"  WHERE "QUESTION_ID"=$1', [question_id])
     res.send(rows)
   })
+
+  module.exports = router

@@ -11,11 +11,14 @@ export function Questions() {
   const[infoModalShow,infoSetModalShow] = React.useState(false);
   const[answerModalShow,answerSetModalShow] = React.useState(false);
 
-    const [Quest, dataSet] = useState([])
-    const [Answer, setAnswer] = useState([])
-    const [oneQuestion, setOneQuestion] = useState([])
- 
+  const[existed,setExisted] = useState(false);
 
+    const [Quest, dataSet] = useState([])
+    const [oneQuestion, setOneQuestion] = useState([])
+    const [oldAnswer, setOldAnswer] = useState({ANSWER:""})
+    
+ 
+  const team_id = sessionStorage.getItem("team");
   const auth = sessionStorage.getItem("auth");
   
   useEffect(() => {
@@ -26,47 +29,88 @@ export function Questions() {
   
     }
 
-    fetchMyAPI()
+    fetchMyAPI();
   
-  }, [])
+  }, []);
 
     function getAnswer(data){
      
       setOneQuestion(data);
-      return(
-        answerSetModalShow(true)
-      )
-  
+      getOldQuestion(data);
+     
+    answerSetModalShow(true)
+        
     }
-  
 
 
+ 
 
-
-    const saveAnswer = ({ serialized, fields, form }) => {
-      // return fetch('/api/answer/posttodb', {
-      //   body: JSON.stringify(serialized),
-      //   method: 'POST',
-      //   mode: 'cors', // no-cors, *cors, same-origin
-      //   cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
-      //   credentials: 'same-origin', // include, *same-origin, omit
-      //   headers: {
-      //   'Content-Type': 'application/json'
-      //   // 'Content-Type': 'application/x-www-form-urlencoded',
-      //   }
-      // }).then(res => res.json()).then(data => {
-      //   if (data.length == 1) {
-
-      //     answerSetModalShow(false)
+      const getOldQuestion = (data) => {
+         fetch(`/api/get/answerTeam/${team_id}`, {
+          body: JSON.stringify({question_id:data.QUESTION_ID,team_id:team_id}),
+          method: 'POST',
+          mode: 'cors', // no-cors, *cors, same-origin
+          cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+          credentials: 'same-origin', // include, *same-origin, omit
+          headers: {
+          'Content-Type': 'application/json'
+          // 'Content-Type': 'application/x-www-form-urlencoded',
+          }
+        }).then(res => res.json()).then(data => {
+          if (data.length == 1) {
+            setOldAnswer(data[0]);
+            setExisted(true);
+        
+          } else {
+              setOldAnswer({
+                ANSWER:""
+              })
+              setExisted(false);
+              console.log("NON");
+          }
+        });
+      };
       
-      //   } else {
-      //       //console.log("user doesn't exist");
-      //       alert("user doesn't exist!!");
-      //   }
-      // });
-      console.log(JSON.stringify(serialized))
-    }
+    
+  
 
+
+    function saveAnswer () {
+
+      console.log(oldAnswer.ANSWER)
+      if(existed){
+        
+        fetch(`/api/put/answer/${team_id}`, {
+          method: 'PUT',
+          body: JSON.stringify({team_id:team_id,question_id:oneQuestion.QUESTION_ID,answer:oldAnswer.ANSWER}),
+          headers: {
+          'Content-Type': 'application/json'
+          }
+        });
+
+      }else{
+       fetch('/api/answer/posttodb', {
+        body: JSON.stringify({team_id:team_id,question_id:oneQuestion.QUESTION_ID,answer:oldAnswer.ANSWER}),
+        method: 'POST',
+        mode: 'cors', // no-cors, *cors, same-origin
+        cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+        credentials: 'same-origin', // include, *same-origin, omit
+        headers: {
+        'Content-Type': 'application/json'
+        // 'Content-Type': 'application/x-www-form-urlencoded',
+        }
+      }).then(res => res.json()).then(data => {
+        if (data.length == 1) {
+
+          answerSetModalShow(false)
+      
+        } else {
+            console.log("user doesn't exist");
+           
+        }
+      });
+    }
+  }
     return (
       <>
       <Button  variant="outline-info font-weight-bold" onClick={ ()=>infoSetModalShow(true)}>
@@ -111,22 +155,22 @@ export function Questions() {
   
         <Modal.Body>
       
-        <Form actrion={saveAnswer}>
+        <Form >
         <Input
           name="Answer"
-          type="Answer"
-         
-          onChange={e => setAnswer(e.value)}
+          type="Text"
+          value = {oldAnswer.ANSWER}
+          onChange={(e) =>{setOldAnswer({ANSWER:e.nextValue});}}
          />
-                
+          
           </Form>  
                 
         </Modal.Body>
   
   
         <Modal.Footer>
-       <Button bsSize="large" variant="success" type="submit" primary onClick={e=>saveAnswer(e.value)} >Save</Button>
-           
+        <Button bsSize="large" variant="success" type="submit" primary onClick={() => saveAnswer()}>Save</Button>
+       <Button onClick={() => answerSetModalShow(false)}>Close</Button>
         </Modal.Footer>
         </Modal>
   
