@@ -231,7 +231,7 @@ const AddNewTeamToDB = ({ serialized, fields, form }) => {
             }
 
               )}
-               } )}
+               
            
         <div class="col md-auto text-right" > 
            <button type="button" class="btn btn-outline-success btn-sm" 
