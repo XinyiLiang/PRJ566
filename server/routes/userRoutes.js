@@ -40,6 +40,7 @@ router.post('/api/get/PlayerLogin', (req, res, next ) => {
                   res.json(q_res.rows);
   });
 })
+
 //get players for particular team
 router.get('/api/get/getAllTeamPlayers', (req, res, next ) => {
     const team_id = req.body.team_id
@@ -51,20 +52,53 @@ router.get('/api/get/getAllTeamPlayers', (req, res, next ) => {
   
 
   
-  //edit current player
-  router.put(`/api/put/user/:email`, (req, res, next) => {
-    const values = [ req.body.username,
+
+  //edit current player OLD VERSION I just comment out - Xinyi
+  // router.put('/api/put/user', (req, res, next) => {
+  //   const values = [ req.body.player_id,
+  //                    req.body.username,
+  //                    req.body.password,
+  //                    req.body.email,
+  //                    req.body.phonenumber,
+  //                    req.body.team_id]
+  //   pool.query(`UPDATE public."PLAYER" SET  USERNAME = $2, PASSWORD = $3, EMAIL = $4, PHONENUMBER = $5, TEAM_ID = $6
+  //               WHERE PLAYER_ID = $1`, values,
+  //               (q_err, q_res) => {
+  //                 console.log(q_res)
+  //                 console.log(q_err)
+  //         })
+  // })
+
+
+//get player (using email)
+// router.get('/api/get/getPlayer/:email', async (req, res) => {
+//   const email  = req.params.email
+//   const { rows } = await pool.query('SELECT * FROM public."PLAYER" WHERE "EMAIL" = $1 ', [email])
+//   res.send(rows[0])
+// })
+
+    //edit current player BY email added by Xinyi Liang
+  router.put('/api/put/user', (req, res, next) => {
+    
+    const values = [ 
+                     req.body.primaryInfo.username,
                      req.body.password,
-                     req.body.email]
-    pool.query(`UPDATE public."PLAYER" SET  USERNAME = $2, PASSWORD = $3, EMAIL = $4
-                WHERE "EMAIL" = $1`, values,
+                     req.body.primaryInfo.email,
+                     req.body.primaryInfo.First_Name,
+                     req.body.primaryInfo.Last_Name]
+    pool.query(`UPDATE public."PLAYER" SET  "USERNAME" = $1, "PASSWORD" = $2, "EMAIL" = $3, "FIRST_NAME" = $4, "LAST_NAME" = $5
+                WHERE "EMAIL" = $3`, values,
+
                 (q_err, q_res) => {
-                  console.log(q_res)
-                  console.log(q_err)
+                  if(q_err) return next(q_err);
+                               
+                    res.send(q_res);
           })
+    
   })
 
-    
+
+
   //edit current player team
   router.put(`/api/put/userTeam/:email`, (req, res, next) => {
     const values = [req.body.email,

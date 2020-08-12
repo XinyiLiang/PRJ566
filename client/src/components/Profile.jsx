@@ -78,7 +78,7 @@ export function Profile() {
                      <td> <img className="icon"src={require('../Images/phone-icon.png')} alt='icon'  /></td>
                      <td >
                      <tr className="detail" >Phone Number </tr> 
-                     <tr className="value" > :{user.PHONENUMBER}</tr>
+                     <tr className="value" > {user.PHONENUMBER}</tr>
                      </td>
                      </tr>
              

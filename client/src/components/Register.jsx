@@ -20,8 +20,10 @@ const Account = () => {
       // 'Content-Type': 'application/x-www-form-urlencoded',
       }
     }).then(res => res.json()).then(data => {
+
       if (data.length > 0) {
         console.log(data);
+
           console.log('user exists');
           sessionStorage.setItem("auth", "true");
           sessionStorage.setItem("email",data.EMAIL)
