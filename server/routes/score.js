@@ -58,9 +58,7 @@ router.get('/api/get/scoreTeam', (req, res, next) => {
                      req.body.team_id,
                      req.body.game_id
                   ]
-                  console.log(req.body)
-    // pool.query(`INSERT INTO public."SCORE"("TOTAL_SCORE", "MOVES", "CORRECT_ANSWERS", "TEAM_ID", "GAME_ID")
-    //             VALUES($1, $2, $3, $4, $5)`,
+  
     pool.query(`INSERT INTO public."SCORE"("TOTAL_SCORE", "MOVES", "CORRECT_ANSWERS", "TEAM_ID", "GAME_ID")
                  SELECT $1, $2, $3, $4, $5 
                  WHERE NOT EXISTS  

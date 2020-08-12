@@ -3,10 +3,11 @@ var router = express.Router()
 var pool = require('../main/db')
 
 //get entered answer for particular question and team 
-router.get('/api/get/answerTeam', (req, res, next ) => {
-    const values = [ req.query.question_id,
-                     req.query.team_id]
-    pool.query(`SELECT * FROM public."TEAM_ANSWER" WHERE QUESTION_ID = $1 AND TEAM_ID = $2`, values, 
+router.post(`/api/get/answerTeam/:id`, (req, res, next ) => {
+    const values = [ req.body.question_id,
+                     req.body.team_id];
+                     console.log(values);
+    pool.query(`SELECT * FROM public."TEAM_ANSWER" WHERE "QUESTION_ID" = $1 AND "TEAM_ID" = $2`, values, 
               (q_err, q_res) => {
                     res.json(q_res.rows)
     })
@@ -26,13 +27,12 @@ router.get('/api/get/answerTeam', (req, res, next ) => {
   })
   
   //edit current answer
-  router.put('/api/put/answer', (req, res, next) => {
+  router.put(`/api/put/answer/:id`, (req, res, next) => {
     const values = [ req.body.team_id,
                      req.body.question_id,
-                     req.body.answer,
-                     req.body.answer_id]
-    pool.query(`UPDATE public."TEAM_ANSWER" SET TEAM_ID = $1, QUESTION_ID=$2, ANSWER = $3
-                WHERE ANSWER_ID = $4`, values,
+                     req.body.answer]
+    pool.query(`UPDATE public."TEAM_ANSWER" SET "TEAM_ID" = $1, "QUESTION_ID"=$2, "ANSWER" = $3
+                WHERE "TEAM_ID" = $1 AND "QUESTION_ID" = $2 `, values,
                 (q_err, q_res) => {
                   console.log(q_res)
                   console.log(q_err)
