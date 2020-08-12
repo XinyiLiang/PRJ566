@@ -13,18 +13,18 @@ export function Steps() {
 
         useEffect(() => {
 
-            addStep()
-            setInterval(() => {
+           addStep()
+            // setInterval(() => {
 
-                addStep()
-              }, 10000);
+            //    addStep()
+            //   }, 10000);
           
          
         })
 
-        function addStep(){
-           
-            fetch(`/api/get/scoreTeam/${id}`, {
+       async function addStep(){
+            
+            await fetch(`/api/get/scoreTeam/${id}`, {
               body: JSON.stringify(values),
               method: 'POST',
               mode: 'cors', // no-cors, *cors, same-origin
@@ -50,7 +50,7 @@ export function Steps() {
 
     
     return (
-  steps
+steps
     );
 
 

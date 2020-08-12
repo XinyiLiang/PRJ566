@@ -15,6 +15,13 @@ export default {
           oneNumber: 'Please include at least one number',
           minLength: 'Password must be at least 6 characters long'
         }
+      },
+      teamPassword: {
+        rule: {
+          capitalLetter: 'Please include at least one capital letter',
+          oneNumber: 'Please include at least one number',
+          minLength: 'Password must be at least 6 characters long'
+        }
       }
     },
   
@@ -25,6 +32,11 @@ export default {
         }
       },
       confirmUpdatePassword: {
+        rule: {
+          matches: 'The confirm passwords do not match new password'
+        }
+      },
+      confirmTeamPassword: {
         rule: {
           matches: 'The confirm passwords do not match new password'
         }

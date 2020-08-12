@@ -1,6 +1,6 @@
 import React from 'react';
 import 'antd/dist/antd.css';
-import '../App.css'
+import '../scoreBoard.css';
 import { Table, Tag, Space } from 'antd';
 
 const { Column } = Table;
@@ -39,37 +39,28 @@ class FinalScoreBoard extends React.Component {
   render() {
     return(
     <Table dataSource={data}>
-    <Column title="Ranking" dataIndex="ranking" key="ranking" />
-    <Column title="Team Name" dataIndex="teamName" key="teamName" />
-    <Column title="Scores" dataIndex="scores" key="scores" />
-    <Column
-      title="Tags"
+    <Column  className='column'title="Ranking" dataIndex="ranking" key="ranking" />
+    <Column  className='column'title="Team Name" dataIndex="teamName" key="teamName" />
+    <Column className='column'title="Scores" dataIndex="scores" key="scores" />
+    <Column className='column'
+      title="Badge"
       dataIndex="tags"
       key="tags"
       render={tags => (
         <>
           {tags.map(tag => (
-            <Tag color="blue" key={tag}>
+            <Tag color="orange" key={tag}>
               {tag}
             </Tag>
           ))}
         </>
       )}
     />
-    <Column
-      title="Action"
-      key="action"
-      render={(text, record) => (
-        <Space size="middle">
-          <a href="./Team">Team Details</a>
-      
-        </Space>
-      )}
-    />
+    
   </Table>
     );
   }
 }
 
- 
 export default FinalScoreBoard;
+
