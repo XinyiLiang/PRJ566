@@ -26,9 +26,9 @@ const Account = () => {
 
           console.log('user exists');
           sessionStorage.setItem("auth", "true");
-          sessionStorage.setItem("email",data.EMAIL)
-          sessionStorage.setItem("name",data.FIRST_NAME)
-          sessionStorage.setItem("team",data.TEAM_ID)
+          sessionStorage.setItem("email",data[0].EMAIL)
+          sessionStorage.setItem("name",data[0].FIRST_NAME)
+          sessionStorage.setItem("team",data[0].TEAM_ID)
    
         
       history.push('/');

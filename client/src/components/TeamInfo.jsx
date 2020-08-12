@@ -69,6 +69,7 @@ function TeamInfo() {
       editPlayerTeam(data.TEAM_ID,sessionStorage.getItem("email"));
       infoSetModalShow(false);
       console.log("Welcome to the Team (" + data.NAME + ")");
+      sessionStorage.setItem("team",data.TEAM_ID);
       } catch(e) {
         console.log(e);
       }
@@ -168,17 +169,9 @@ function TeamInfo() {
 
 
                  </div> 
-
-
-                
-
               )}
             }
-
-              )}
-          
-            })}
-       
+          )}       
        </div>
     </div>
    

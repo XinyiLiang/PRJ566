@@ -14,10 +14,10 @@ export function Steps() {
         useEffect(() => {
 
            addStep()
-            // setInterval(() => {
+        //    setInterval(() => {
 
-            //    addStep()
-            //   }, 10000);
+        //         addStep()
+        //       }, 10000);
           
          
         })
