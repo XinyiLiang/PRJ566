@@ -659,7 +659,6 @@ body {
 
 #updateProfileForm div div input
 {
-  
   width: 100%;
 }
 
@@ -676,3 +675,21 @@ body {
 
 /* end of Change User Profile css */
 
+/* create team form css */
+#CreateTeamForm div {
+  margin: 0 auto;
+  width: 90%;
+  
+}
+
+#CreateTeamForm div label{
+  margin-top: 1em;
+  
+}
+
+#CreateTeamForm div div div {
+  width: 18%;
+}
+#hiddenInput{
+  height: 0.1em;
+}

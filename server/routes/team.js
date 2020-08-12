@@ -15,16 +15,21 @@ router.get('/api/get/getTeams', async (req, res) => {
     const { rows } = await pool.query('SELECT * FROM public."TEAMS"  WHERE "TEAM_ID"=$1', [id])
     res.send(rows[0])
   })
-    
-  router.post('/api/team/posttodb', async (req, res, next) => {
-    const values = [ req.body.name,
-                     req.body.type, 
-                     req.body.password]
-                     const { rows } = await pool.query('INSERT INTO public."TEAMS"(NAME, TYPE, PASSWORD)VALUES($1, $2, $3)',
+
+
+  //modified by Xinyi Liang
+  router.post('/api/team/posttodb', (req, res, next) => {
+    const values = [ req.body.undefined.TeamName,
+                     req.body.undefined.TeamType, 
+                     req.body.undefined.teamPassword]
+                  
+  pool.query(`INSERT INTO public."TEAMS"("NAME", "TYPE", "PASSWORD") VALUES($1, $2, $3)`,
              values, (q_err, q_res) => {
             if(q_err) return next(q_err);
-            res.json(rows)
-      })
+            res.json(q_res)
+      });
+
+      
   })
   
   router.put('/api/put/post', (req, res, next) => {
