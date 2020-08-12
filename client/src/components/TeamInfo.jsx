@@ -161,13 +161,9 @@ function TeamInfo() {
 
                  </div> 
 
-
-            }
               )}
-           
-
-
-      
+          
+            })}
        
        </div>
     </div>

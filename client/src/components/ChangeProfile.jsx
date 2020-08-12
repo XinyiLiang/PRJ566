@@ -15,6 +15,8 @@ const ChangePro = () => {
 
         const [profile_FN, setProfileFN] = useState("");
         const [profile_LN, setProfileLN] = useState("");  
+        const [profile_password, setPPassword] = useState("");  
+        const [profile_passwordCF, setPPasswordCF] = useState("");  
 
         useEffect(() => {
             if(auth == 'true'){
@@ -26,6 +28,8 @@ const ChangePro = () => {
                     dataSet(data);
                     setProfileFN(data.FIRST_NAME);
                     setProfileLN(data.LAST_NAME);
+                    setPPassword(data.PASSWORD);
+                    setPPasswordCF(data.PASSWORD);
                 })               
             }
           
@@ -38,8 +42,9 @@ const ChangePro = () => {
 
 
 const UpdateProfile = ({ serialized, fields, form }) => {
-         console.log(serialized);
-        return fetch(`/api/put/post/user/${email}`, {
+        
+         
+        return fetch(`/api/put/user`, {
           body: JSON.stringify(serialized),
           method: 'PUT',
           mode: 'cors', // no-cors, *cors, same-origin
@@ -49,12 +54,14 @@ const UpdateProfile = ({ serialized, fields, form }) => {
           'Content-Type': 'application/json'
           // 'Content-Type': 'application/x-www-form-urlencoded',
           }
+          
         }).then(res => res.json()).then(data => {
-          if (data.length == 1) {
-              // console.log('user info updates');
-              // sessionStorage.setItem("auth", "true");
-              // sessionStorage.setItem("email",data[0].EMAIL)
-              // sessionStorage.setItem("name",data[0].FIRST_NAME)
+          
+          if (data.rowCount == 1) {
+               console.log('user info updates!');
+               sessionStorage.setItem("auth", "true");
+               sessionStorage.setItem("email",user.EMAIL)
+               sessionStorage.setItem("name",profile_FN)
 
           //history.push('/');
           window.location.href="/Profile"
@@ -106,15 +113,19 @@ const UpdateProfile = ({ serialized, fields, form }) => {
             onChange={(e) => {setProfileLN( e.nextValue);}}
             required />
         </Field.Group>
-
+       
         <Input
           name="password"
           type="password"
-          label="New Password"
+          label="Password"
+          value={profile_password}
+          onChange={(e) => {setPPassword( e.nextValue);}}
           required />
         <Input
           name="confirmUpdatePassword"
           type="password"
+          value={profile_passwordCF}
+          onChange={(e) => {setPPasswordCF( e.nextValue);}}
           label="Confirm Password"
           required
           skip />
