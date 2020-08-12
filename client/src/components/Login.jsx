@@ -5,9 +5,6 @@ import { useHistory } from "react-router-dom";
 
 export function Login() {
 
-
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
   let history = useHistory();
  
 const loginUser = ({ serialized, fields, form }) => {
@@ -29,8 +26,7 @@ const loginUser = ({ serialized, fields, form }) => {
         sessionStorage.setItem("email",data[0].EMAIL)
         sessionStorage.setItem("name",data[0].FIRST_NAME)
         sessionStorage.setItem("team",data[0].TEAM_ID)
- 
-        
+
         history.push({ 
           pathname: '/',
         })
@@ -60,8 +56,7 @@ const loginUser = ({ serialized, fields, form }) => {
           type="email"
           label="E-mail"
           required
-         
-          onChange={e => setEmail(e.value)}
+
          />
       </Field.Group>
       <Field.Group >
@@ -70,9 +65,9 @@ const loginUser = ({ serialized, fields, form }) => {
         type="password"
         label="Password"
         required
-        onChange={e => setPassword(e.value)} />
+        />
         </Field.Group>
-        
+      
         <Button bsSize="large" variant="success" type="submit" primary  >Login</Button>
        
       </Form>

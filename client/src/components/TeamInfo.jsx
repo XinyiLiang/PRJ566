@@ -19,9 +19,9 @@ function TeamInfo() {
 
   useEffect(() => {
     async function fetchMyAPI() {
-      let response = await fetch('api/get/GetAllTeamInfo')
-      response = await response.json()
-      dataSet(response)
+      let response = await fetch('api/get/GetAllTeamInfo');
+      response = await response.json();
+      dataSet(response);
 
       console.log(response);
     }
@@ -33,13 +33,13 @@ function TeamInfo() {
   }, [])
 
   const editPlayerTeam = (team_id,email) => {
-    return fetch(`/api/put/userTeam/${email}`, {
+    fetch(`/api/put/userTeam/${email}`, {
       method: 'PUT',
       body: JSON.stringify({email:email,team_id:team_id}),
       headers: {
       'Content-Type': 'application/json'
       }
-    })
+    });
   };
 
  function checkPlayer(data){
@@ -47,27 +47,34 @@ function TeamInfo() {
   if(sessionStorage.getItem("auth") == "true"){
       if(data.TYPE === 'public'){
         sessionStorage.setItem("team",data.TEAM_ID);
-        console.log(sessionStorage.getItem("email"))
+        console.log(sessionStorage.getItem("email"));
         editPlayerTeam(data.TEAM_ID,sessionStorage.getItem("email"));
-        alert("Welcome to the Team (" + data.NAME + ")")
+        alert("Welcome to the Team (" + data.NAME + ")");
       }else{
         console.log(data);
-        return(
+      
 
-          infoSetModalShow(true)
+          infoSetModalShow(true);
         
-          )
+          
       }
   }
 
 
  }
-  function passCheck(data,value) {
-      console.log(data,value)
-    if(data.PASSWORD == value){
+  function passCheck(data) {
+ 
+    if(data.PASSWORD == password){
+      try{
       editPlayerTeam(data.TEAM_ID,sessionStorage.getItem("email"));
-    }else{
-      return(alert("Wrong Password"));
+      infoSetModalShow(false);
+      console.log("Welcome to the Team (" + data.NAME + ")");
+      } catch(e) {
+        console.log(e);
+      }
+    
+    } else {
+      console.log("Wrong Password");
     }
 
   }
@@ -124,7 +131,7 @@ function TeamInfo() {
                         <div class="col md-auto text-right"> 
                         <button type="button" class="btn btn-outline-success btn-sm" 
 
-                                onClick={()=>{checkPlayer(data) }}
+                                onClick={()=>checkPlayer(data) }
 
 
 
@@ -143,23 +150,30 @@ function TeamInfo() {
                       </Modal.Title>
                   </Modal.Header>
                   <Modal.Body>
-                  <Form >
+                  <Form action >
                     <Field.Group >
                       <Input
                         name="password"
                         type="password"
                         label="Password"
-                        onChange={e =>setPassword(e.value)}
+                        required
+                        onChange={e =>setPassword(e.nextValue)}
                       />
-                          <Button bsSize="lg" variant="success" type="submit" primary onClick={()=>passCheck(data,password)}  >Join</Button>  
+                           
                     </Field.Group>      
-                    
+                    <Button bsSize="lg" variant="success" type="submit" primary onClick={() => passCheck(data)}  >Join</Button>
                     </Form>
                   </Modal.Body>
               </Modal>
 
 
                  </div> 
+
+
+                
+
+              )}
+            }
 
               )}
           
