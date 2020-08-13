@@ -19,13 +19,13 @@ function TeamInfo() {
   const[infoModalShow,infoSetModalShow] = React.useState(false);
   const[CreateTeamShow,CreateTeamSetModalShow] = React.useState(false);
   const[LogInModalShow,LogInSetModalShow] = React.useState(false);
- 
+  
   const[selectedOption,setTeamOption] = React.useState("");
   const [CreateTeam_password, setTPassword] = useState("");  
-  const [CreateTeam_passwordCF, setTPasswordCF] = useState("");  
+  const [CreateTeam_passwordCF, setTPasswordCF] = useState(""); 
+  const [NewTeamName, setNewTeamName] = useState("");  
   const email = sessionStorage.getItem('email');
-
-
+  
   useEffect(() => {
     async function fetchMyAPI() {
       let response = await fetch('api/get/GetAllTeamInfo');
@@ -34,17 +34,27 @@ function TeamInfo() {
 
       console.log(response);
     }
-  
     
     fetchMyAPI();
-   
-  
+    
   }, [])
+  
 
   const editPlayerTeam = (team_id,email) => {
     fetch(`/api/put/userTeam/${email}`, {
       method: 'PUT',
       body: JSON.stringify({email:email,team_id:team_id}),
+      headers: {
+      'Content-Type': 'application/json'
+      }
+    });
+  };
+
+  //AddPlayerToNewTeam(NewTeamName,sessionStorage.getItem("email"));
+  const AddPlayerToNewTeam = (team_name,email) => {
+    fetch(`/api/put/AdduserToTeam/${team_name}`, {
+      method: 'PUT',
+      body: JSON.stringify({email:email,team_name:team_name}),
       headers: {
       'Content-Type': 'application/json'
       }
@@ -68,6 +78,10 @@ function TeamInfo() {
           
       }
   }
+  else
+  {
+    LogInSetModalShow(true); 
+  }
 
 
  }
@@ -77,13 +91,13 @@ function TeamInfo() {
       try{
       editPlayerTeam(data.TEAM_ID,sessionStorage.getItem("email"));
       infoSetModalShow(false);
-      console.log("Welcome to the Team (" + data.NAME + ")");
+      alert("Welcome to the Team (" + data.NAME + ")");
       } catch(e) {
         console.log(e);
       }
     
     } else {
-      console.log("Wrong Password");
+      alert("Wrong Password");
     }
 
   }
@@ -95,6 +109,7 @@ function TeamInfo() {
     {
       CreateTeamSetModalShow(true);
       setTeamOption("");
+      setNewTeamName("")
      }
     else
     {
@@ -105,7 +120,7 @@ function TeamInfo() {
 }
 
 const AddNewTeamToDB = ({ serialized, fields, form }) => {
-  console.log(JSON.stringify(serialized));
+  
   return fetch(`/api/team/posttodb`, {
     body: JSON.stringify(serialized),
     method: 'POST',
@@ -115,17 +130,18 @@ const AddNewTeamToDB = ({ serialized, fields, form }) => {
     headers: {
     'Content-Type': 'application/json'
     // 'Content-Type': 'application/x-www-form-urlencoded',
-    }
-    
+    } 
   }).then(res => res.json()).then(data => {
     
     if (data.rowCount == 1) {
-      console.log("ok!!");
-          
+      console.log("Now a new team is created!!");
+      AddPlayerToNewTeam(NewTeamName,sessionStorage.getItem("email"));
 
     //history.push('/');
-  // window.location.href="/Teams"
-  CreateTeamSetModalShow(false); 
+    // window.location.href="/Teams"
+     CreateTeamSetModalShow(false); 
+     window.location.reload();
+
     } else {
         console.log("fails!!");
     }
@@ -256,6 +272,7 @@ const AddNewTeamToDB = ({ serialized, fields, form }) => {
                        label="Team Name"
                         name="TeamName"
                         placeholder="Enter Team Name"
+                        onChange={(e) => {setNewTeamName( e.nextValue);}}
                         required
                       />
                        <Select
