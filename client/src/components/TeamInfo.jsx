@@ -1,20 +1,29 @@
 
 
-import React, { useEffect, useState,Prompt } from "react";
+import React, { useEffect, useState,Prompt, useReducer } from "react";
 import {BsFillLockFill} from "react-icons/bs";
-import { Form, Field } from 'react-advanced-form'
-import { Input, Button } from 'react-advanced-form-addons'
+import { Form, Field, FormProvider} from 'react-advanced-form'
+import { Input, Button, Select } from 'react-advanced-form-addons'
 import { Modal } from "react-bootstrap";
-
+import Login from './Login';
+import rules from '../ValidationRules'
+import messages from '../ValidationMessages'
 
 function TeamInfo() {
 
-
+  let auth = sessionStorage.getItem("auth");
   
-
+  
   const [Teams, dataSet] = useState([]);
   const [password, setPassword] = useState("");
   const[infoModalShow,infoSetModalShow] = React.useState(false);
+  const[CreateTeamShow,CreateTeamSetModalShow] = React.useState(false);
+  const[LogInModalShow,LogInSetModalShow] = React.useState(false);
+ 
+  const[selectedOption,setTeamOption] = React.useState("");
+  const [CreateTeam_password, setTPassword] = useState("");  
+  const [CreateTeam_passwordCF, setTPasswordCF] = useState("");  
+  const email = sessionStorage.getItem('email');
 
 
   useEffect(() => {
@@ -80,6 +89,50 @@ function TeamInfo() {
 
   }
 
+ 
+
+  function createTeam(){
+    if(auth === "true")
+    {
+      CreateTeamSetModalShow(true);
+      setTeamOption("");
+     }
+    else
+    {
+      CreateTeamSetModalShow(false); 
+      LogInSetModalShow(true); 
+    }
+
+}
+
+const AddNewTeamToDB = ({ serialized, fields, form }) => {
+  console.log(JSON.stringify(serialized));
+  return fetch(`/api/team/posttodb`, {
+    body: JSON.stringify(serialized),
+    method: 'POST',
+    mode: 'cors', // no-cors, *cors, same-origin
+    cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+    credentials: 'same-origin', // include, *same-origin, omit
+    headers: {
+    'Content-Type': 'application/json'
+    // 'Content-Type': 'application/x-www-form-urlencoded',
+    }
+    
+  }).then(res => res.json()).then(data => {
+    
+    if (data.rowCount == 1) {
+      console.log("ok!!");
+          
+
+    //history.push('/');
+  // window.location.href="/Teams"
+  CreateTeamSetModalShow(false); 
+    } else {
+        console.log("fails!!");
+    }
+  });
+
+};
 
 
     return(
@@ -134,8 +187,6 @@ function TeamInfo() {
 
                                 onClick={()=>checkPlayer(data) }
 
-
-
                         >
                                   Join
                         </button> 
@@ -151,7 +202,9 @@ function TeamInfo() {
                       </Modal.Title>
                   </Modal.Header>
                   <Modal.Body>
+
                   <Form action >
+
                     <Field.Group >
                       <Input
                         name="password"
