@@ -91,7 +91,9 @@ function TeamInfo() {
       try{
       editPlayerTeam(data.TEAM_ID,sessionStorage.getItem("email"));
       infoSetModalShow(false);
-      alert("Welcome to the Team (" + data.NAME + ")");
+
+      console.log("Welcome to the Team (" + data.NAME + ")");
+      sessionStorage.setItem("team",data.TEAM_ID);
       } catch(e) {
         console.log(e);
       }
@@ -237,14 +239,9 @@ const AddNewTeamToDB = ({ serialized, fields, form }) => {
 
 
                  </div> 
-                
-
-
-
-                
-
               )}
             }
+
 
               )}
                
@@ -342,6 +339,7 @@ const AddNewTeamToDB = ({ serialized, fields, form }) => {
            
         </Modal.Footer>
     </Modal>
+
 
 
        </div>
