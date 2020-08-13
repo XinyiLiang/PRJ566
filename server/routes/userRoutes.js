@@ -53,7 +53,7 @@ router.get('/api/get/getAllTeamPlayers', (req, res, next ) => {
 
   
 
-  //edit current player OLD VERSION I just comment out - Xinyi
+  //edit current player comment out by Xinyi Liang
   // router.put('/api/put/user', (req, res, next) => {
   //   const values = [ req.body.player_id,
   //                    req.body.username,
@@ -70,12 +70,6 @@ router.get('/api/get/getAllTeamPlayers', (req, res, next ) => {
   // })
 
 
-//get player (using email)
-// router.get('/api/get/getPlayer/:email', async (req, res) => {
-//   const email  = req.params.email
-//   const { rows } = await pool.query('SELECT * FROM public."PLAYER" WHERE "EMAIL" = $1 ', [email])
-//   res.send(rows[0])
-// })
 
     //edit current player BY email added by Xinyi Liang
   router.put('/api/put/user', (req, res, next) => {
@@ -110,6 +104,19 @@ router.get('/api/get/getAllTeamPlayers', (req, res, next ) => {
                   res.json(q_res.rows)
           })
   })
+
+    //edit the team creator into the new created team
+    router.put(`/api/put/AdduserToTeam/:team_name`, (req, res, next) => {
+      const values = [req.body.email,
+                     req.body.team_name]
+       
+      pool.query(`UPDATE public."PLAYER" SET "TEAM_ID" = 
+                    (SELECT "TEAM_ID" FROM public."TEAMS" WHERE "NAME" = $2)
+                  WHERE "EMAIL" = $1`, values, (q_err, q_res) => {
+                    if(q_err) return next(q_err);
+                    res.json(q_res.rows)
+            })
+    })
   
 
 

@@ -1,3 +1,5 @@
 {
-    "git.ignoreLimitWarning": true
+    "git.ignoreLimitWarning": true,
+    "appService.defaultWebAppToDeploy": "/subscriptions/f1b34c59-1c4f-4487-83da-a2391cf42861/resourceGroups/PRJ666/providers/Microsoft.Web/sites/DetectivePRJ666",
+    "appService.deploySubpath": "."
 }
