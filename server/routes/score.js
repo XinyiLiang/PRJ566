@@ -97,6 +97,18 @@ router.get('/api/get/scoreTeam', (req, res, next) => {
                   console.log(q_err)
           })
   })
+
+//zero steps
+  router.put(`/api/put/zeroStep/:team_id`, (req, res, next) => {
+    const values = [ req.body.team_id,
+                     req.body.game_id];
+       
+    pool.query(`UPDATE public."SCORE" SET  "MOVES"=0
+                WHERE "TEAM_ID" = $1 AND "GAME_ID" = $2`, values ,
+                (q_err, q_res) => {
+                  console.log(q_err)
+          })
+  })
   
   router.delete('/api/delete/score', (req, res, next) => {
     const score_id = req.body.score_id

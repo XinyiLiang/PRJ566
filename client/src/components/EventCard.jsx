@@ -15,7 +15,10 @@ import Login from './Login';
     let team_id = parseInt(sessionStorage.getItem("team"),10);
     let game_id= data.GAME_ID;
     let auth = sessionStorage.getItem("auth");
-    
+    const [values,valuesSet]  = useState({
+        team_id : team_id,
+        game_id : sessionStorage.getItem("GameID")
+    })
     
 
 
@@ -86,6 +89,7 @@ import Login from './Login';
          
             registerTeam(teamScore);
             sessionStorage.setItem("GameID",data.GAME_ID);
+            zeroStep();
             
             history.push('/Play');
     
@@ -96,6 +100,15 @@ import Login from './Login';
 
         }
 
+    }
+    function zeroStep ()  {
+        return fetch(`/api/put/zeroStep/${team_id}`, {
+          method: 'PUT',
+          body: JSON.stringify(values),
+          headers: {
+          'Content-Type': 'application/json'
+          }
+        })    
     }
   
      const date = new Date(data.DATE).toISOString().slice(0,10);
@@ -131,7 +144,7 @@ import Login from './Login';
             </Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <p> {Game.DESCRIPTION}</p>
+          <p> <h5>{Game.DESCRIPTION}</h5></p>
         </Modal.Body>
         <Modal.Footer>
         <Button variant="success"  onClick={                        ()=>check()                              }>Join Game</Button>
