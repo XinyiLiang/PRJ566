@@ -20,8 +20,9 @@ app.use(cookieParser());
 // app.use(express.static(path.join(__dirname, 'public')));
 
 //app.use('/', indexRouter);
+console.log(__dirname);
 app.get('*', (req, res) => {
-  res.sendFile(path.resolve(__dirname, '..', 'build', 'index.html'));
+  res.sendFile(path.resolve('./build', 'index.html'));
 });
 app.use('/', router)
-module.exports = app;
+// module.exports = app;
