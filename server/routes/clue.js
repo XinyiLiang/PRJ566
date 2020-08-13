@@ -3,16 +3,17 @@ var router = express.Router()
 var pool = require('../main/db')
 
 //get clues for particular npc
-router.get('/api/get/getAllNpcClues', (req, res, next ) => {
-    const id = req.query.npc_id
-    pool.query(`SELECT * FROM public."CLUES" WHERE NPC_ID = $1`, [ id ],
-              (q_err, q_res) => {
-                    res.json(q_res.rows)
+router.get('/api/get/getAllNpcClues/:id', async (req, res) => {
+  const  id  = req.params.id
+   const { rows } = await pool.query(`SELECT * FROM public."CLUES" WHERE "NPC_ID" = $1`, [id])
+   res.send(rows)
+   console.log(rows)
+   console.log(id)
     })
-  })
+
 
   //get collected clues for particular team
-router.get('/api/get/getAllTeamClues', (req, res, next ) => {
+router.get('/api/get/getAllTeamClues/:id', (req, res, next ) => {
   const values = [ req.query.team_id,
                    req.query.game_id]
   pool.query(`SELECT DESCRIPTION FROM public."CLUES" c JOIN public."TEAM_SCORE" t ON c.CLUE_ID=t.CLUE_ID WHERE t.TEAM_ID = $1 AND
