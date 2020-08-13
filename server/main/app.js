@@ -25,4 +25,5 @@ app.get('*', (req, res) => {
   res.sendFile(path.resolve('./build', 'index.html'));
 });
 app.use('/', router)
-// module.exports = app;
+
+module.exports = app;
