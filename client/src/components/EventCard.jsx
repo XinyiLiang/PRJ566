@@ -151,7 +151,7 @@ import Login from './Login';
             </Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <p> <h5>{Game.DESCRIPTION}</h5></p>
+           <h5>{Game.DESCRIPTION}</h5>
         </Modal.Body>
         <Modal.Footer>
         <Button variant="success"  onClick={                        ()=>check()                              }>Join Game</Button>

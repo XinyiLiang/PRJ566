@@ -4,7 +4,7 @@ import {Container,Row,Col} from 'react-bootstrap';
 import {BsBookHalf} from 'react-icons/bs';
 import { Zoom } from 'react-slideshow-image';
 import 'react-slideshow-image/dist/styles.css'
-//import '../asset/styles.css'
+
 
 
 function PhoneBook() {
@@ -28,9 +28,9 @@ function PhoneBook() {
      const [Score, scoreSet] = useState([]);
      const [NPCCall, setState] = useState([]) ;
      const [NPC, dataSet] = useState([]);
-     const [Clues, clueSet] = useState([])
-     
-    const id = sessionStorage.getItem("team")
+     const [Clues, clueSet] = useState([]);
+     const[collectClue, collectSet] = useState([]);
+    const id = sessionStorage.getItem("team");
     const game_id = sessionStorage.getItem("GameID");
 
     const [values,valuesSet]  = useState({
@@ -80,9 +80,13 @@ function PhoneBook() {
     }
 
     const collectClues=(data)=>{
-      
-      fetch('/api/team_score_clue/posttodb', {
-        body: JSON.stringify({clue_id:Clues.CLUE_ID}),
+
+      collectSet({ 
+        "clue_id": data.CLUE_ID,
+        "team_id": id
+      })
+      fetch('/api/coll_clue/posttodb', {
+        body: JSON.stringify(collectClue),
         method: 'POST',
         mode: 'cors', // no-cors, *cors, same-origin
         cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
@@ -100,13 +104,13 @@ function PhoneBook() {
         }
       });
       OpenClues()
+      
     }
 
     const zoomOutProperties = {
-      duration: 10000,
       transitionDuration: 500,
-      indicators: true,
-      scale: 0.5,
+      infinite: true,
+      scale: 0.4,
       arrows: true
     };
 
@@ -209,7 +213,7 @@ function PhoneBook() {
           
           <Modal.Header  closeButton>
           
-            <Modal.Title>Evidence</Modal.Title>
+            <Modal.Title>Click on the image to add the clue to your collection</Modal.Title>
            
           </Modal.Header>
          
@@ -218,7 +222,7 @@ function PhoneBook() {
             
             <div className="slide-container"></div>
           <Zoom {...zoomOutProperties}>  
-          {Clues.map(data =>( <img key={data.CLUE_ID} src={data.DESCRIPTION} />))} 
+          {Clues.map(data =>( <img key={data.CLUE_ID} style={{ width: "100%" }} src={data.DESCRIPTION} action onClick={()=>collectClues(data)} />))} 
           </Zoom>
           <div />
              </Modal.Body>
