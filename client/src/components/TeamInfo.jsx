@@ -36,6 +36,9 @@ function TeamInfo() {
     }
     
     fetchMyAPI();
+    if(email){
+    setTeamId();
+    }
     
   }, [])
   
@@ -139,10 +142,13 @@ const AddNewTeamToDB = ({ serialized, fields, form }) => {
       console.log("Now a new team is created!!");
       AddPlayerToNewTeam(NewTeamName,sessionStorage.getItem("email"));
 
-    //history.push('/');
-    // window.location.href="/Teams"
+    
      CreateTeamSetModalShow(false); 
+
+  
+
      window.location.reload();
+
 
     } else {
         console.log("fails!!");
@@ -150,6 +156,14 @@ const AddNewTeamToDB = ({ serialized, fields, form }) => {
   });
 
 };
+async function setTeamId() {
+  let response = await fetch(`/api/get/getTeamId/${sessionStorage.getItem("email")}`);
+  response = await response.json();
+  sessionStorage.setItem("team",response.TEAM_ID);
+
+  console.log(response);
+}
+
 
 
     return(

@@ -94,7 +94,14 @@ import Login from './Login';
             history.push('/Play');
     
 
-        }else{
+        }else if (sessionStorage.getItem("team") == "0"){
+            alert("Must be in the team to join the game!")
+            history.push('/Teams');
+          
+        }
+        
+        else
+        {
             infoSetModalShow(false); 
             LogInSetModalShow(true);
 

@@ -103,11 +103,10 @@ function PhoneBook() {
     }
 
     const zoomOutProperties = {
-      duration: 5000,
+      duration: 10000,
       transitionDuration: 500,
-      infinite: true,
       indicators: true,
-      scale: 0.9,
+      scale: 0.5,
       arrows: true
     };
 
@@ -198,9 +197,11 @@ function PhoneBook() {
         </Modal>
 
 
-        <Modal dialogClassName='custom-dialog'
+        <Modal 
+        size = "lg"
           show={CluesModal}
           onHide={CloseClues}
+          scrollable
           aria-labelledby="contained-modal-title-vcenter"
           centered
           

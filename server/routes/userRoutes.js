@@ -28,6 +28,13 @@ var pool = require('../main/db')
     const { rows } = await pool.query('SELECT * FROM public."PLAYER" WHERE "EMAIL" = $1 ', [email])
     res.send(rows[0])
   })
+
+  //get player (using email)
+  router.get('/api/get/getTeamId/:email', async (req, res) => {
+    const email  = req.params.email
+    const { rows } = await pool.query('SELECT "TEAM_ID" FROM public."PLAYER" WHERE "EMAIL" = $1 ', [email])
+    res.send(rows[0])
+  })
  
 
 //player login(using email)
