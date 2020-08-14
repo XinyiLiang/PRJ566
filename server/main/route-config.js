@@ -9,13 +9,13 @@ var npc  = require('../routes/npc');
  var questions = require('../routes/question');
  var score = require('../routes/score');
  var team_answer = require('../routes/team_answer');
- var team_score = require('../routes/team_score');
  var team_Trophy = require('../routes/team_Trophy');
  var team = require('../routes/team');
 var user = require('../routes/userRoutes');
  var scenario = require('../routes/scenario');
 var trophys = require('../routes/trophy');
 var answers = require('../routes/correct_answers');
+var coll_clues = require('../routes/collected_clues');
 
 
 
@@ -27,13 +27,13 @@ router.use(npc);
 router.use(questions);
  router.use(score);
  router.use(team_answer);
- router.use(team_score);
 router.use(team_Trophy);
 router.use(team);
  router.use(user);
  router.use(scenario);
  router.use(trophys);
  router.use(answers);
+ router.use(coll_clues);
 
 
 module.exports = router;
