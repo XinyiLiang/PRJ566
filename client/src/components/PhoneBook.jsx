@@ -82,8 +82,9 @@ function PhoneBook() {
     const collectClues=(data)=>{
 
       collectSet({ 
-        "clue_id": data.CLUE_ID,
-        "team_id": id
+        "team_id": id,
+        "clue_id": data.CLUE_ID
+     
       })
       fetch('/api/coll_clue/posttodb', {
         body: JSON.stringify(collectClue),

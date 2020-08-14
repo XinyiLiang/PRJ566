@@ -15,22 +15,20 @@ function Clues() {
     const [Clues, dataSet] = useState([])
     const id = sessionStorage.getItem("team");
    
-
-    useEffect(() => {
+    const getClue = () =>{
       async function fetchMyAPI() {
         let response = await fetch(`/api/get/getTeamClues/${id}`)
         response = await response.json()
         dataSet(response)
       }
-  
-      fetchMyAPI()
-      
-    }, [])
+      fetchMyAPI();
+      Open();
+    }
  
     return (
       <>
       
-        <Button  variant="outline-info font-weight-bold" onClick={Open}>
+        <Button  variant="outline-info font-weight-bold" onClick={getClue}>
           Clues <BsFillInfoCircleFill />
         </Button>
       
