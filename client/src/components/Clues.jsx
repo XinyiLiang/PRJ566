@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Button, Modal,ListGroup} from 'react-bootstrap';
 import { BsFillInfoCircleFill } from "react-icons/bs";
+import Carousel from 'react-bootstrap/Carousel'
 
 
 function Clues() {
@@ -12,11 +13,12 @@ function Clues() {
      const Open = () => setShow(true);
 
     const [Clues, dataSet] = useState([])
+    const id = sessionStorage.getItem("team");
    
 
     useEffect(() => {
       async function fetchMyAPI() {
-        let response = await fetch('/api/get/getAllNpcClues')
+        let response = await fetch(`/api/get/getTeamClues/${id}`)
         response = await response.json()
         dataSet(response)
       }
@@ -45,13 +47,11 @@ function Clues() {
           </Modal.Header>
        
             
-              <ListGroup>
+          <Carousel>
               {Clues.map(data =>(
-                   <ListGroup.Item action onClick={Close}  key={data.clue_id}  >
-                       {data.description}
-                    </ListGroup.Item>
+                     <img key={data.CLUE_ID} style={{ width: "100%" }} src = {data.DESCRIPTION}/>
               ))}
-                </ListGroup> 
+               </Carousel>
        
           <Modal.Footer>
             <Button variant="secondary" onClick={Close}>

@@ -39,7 +39,7 @@ export const Play = () =>(
                   <PhoneBook/>&nbsp;&nbsp;                 
 
                   <Questions/>&nbsp;&nbsp;
-                   {/* <Clues/> &nbsp;&nbsp;   */}
+                    <Clues/> &nbsp;&nbsp;   
 
 
                 </Col>
