@@ -3,7 +3,7 @@ var router = express.Router()
 var pool = require('../main/db')
 
 //get clues for particular npc
-router.get('/api/get/getAllNpcClues/:id', async (req, res) => {
+router.get('/get/getAllNpcClues/:id', async (req, res) => {
   const  id  = req.params.id
    const { rows } = await pool.query(`SELECT * FROM public."CLUES" WHERE "NPC_ID" = $1`, [id])
    res.send(rows)
@@ -13,7 +13,7 @@ router.get('/api/get/getAllNpcClues/:id', async (req, res) => {
 
 
   //get collected clues for particular team
-router.get('/api/get/getAllTeamClues/:id', (req, res, next ) => {
+router.get('/get/getAllTeamClues/:id', (req, res, next ) => {
   const values = [ req.query.team_id,
                    req.query.game_id]
   pool.query(`SELECT DESCRIPTION FROM public."CLUES" c JOIN public."TEAM_SCORE" t ON c.CLUE_ID=t.CLUE_ID WHERE t.TEAM_ID = $1 AND
@@ -24,7 +24,7 @@ router.get('/api/get/getAllTeamClues/:id', (req, res, next ) => {
 })
   
   //save new clue to db
-  router.post('/api/clue/posttodb', (req, res, next) => {
+  router.post('/clue/posttodb', (req, res, next) => {
     const values = [ req.body.description,
                      req.body.npc_id]
     pool.query(`INSERT INTO public."CLUES"(DESCRIPTION, NPC_ID)
@@ -36,7 +36,7 @@ router.get('/api/get/getAllTeamClues/:id', (req, res, next ) => {
   })
   
   //edit current clue
-  router.put('/api/put/clue', (req, res, next) => {
+  router.put('/put/clue', (req, res, next) => {
     const values = [ req.body.clue_id,
                      req.body.description,
                      req.body.npc_id]
@@ -48,7 +48,7 @@ router.get('/api/get/getAllTeamClues/:id', (req, res, next ) => {
           })
   })
   
-  router.delete('/api/delete/clue', (req, res, next) => {
+  router.delete('/delete/clue', (req, res, next) => {
     const clue_id = req.body.clue_id
     pool.query(`DELETE FROM public."CLUES" WHERE CLUE_ID = $1`, [ clue_id ],
                 (q_err, q_res) => {
@@ -56,8 +56,5 @@ router.get('/api/get/getAllTeamClues/:id', (req, res, next ) => {
                   console.log(q_err)
          })
   })
-  router.get('/', function(req, res, next) {
-    res.send('API is working properly');
-});
 
 module.exports = router

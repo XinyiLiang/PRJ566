@@ -3,7 +3,7 @@ var router = express.Router()
 var pool = require('../main/db')
 
 //get all the gamedays from database ordered by date (closest first)
-router.get('/api/get/getAllScenarios', (req, res, next ) => {
+router.get('/get/getAllScenarios', (req, res, next ) => {
     pool.query(`SELECT * FROM public."SCENARIO"`, 
               (q_err, q_res) => {
                     res.json(q_res.rows)
@@ -11,7 +11,7 @@ router.get('/api/get/getAllScenarios', (req, res, next ) => {
   })
   
   //get scenario for particular gameday (for events schedule)
-router.get('/api/get/scenarioGame', (req, res, next) => {
+router.get('/get/scenarioGame', (req, res, next) => {
     const game_id = req.query.gameday_id
 
     pool.query(`SELECT * FROM public."SCENARIO"
@@ -21,7 +21,7 @@ router.get('/api/get/scenarioGame', (req, res, next) => {
         })
   } )
 
-  router.get('/api/get/scenario_game/:id', async (req, res) => {
+  router.get('/get/scenario_game/:id', async (req, res) => {
     const game_id  = req.params.id
     const { rows } = await pool.query('SELECT * FROM public."SCENARIO"  WHERE "GAMEDAY_ID"=$1', [game_id])
     res.send(rows[0])
@@ -30,7 +30,7 @@ router.get('/api/get/scenarioGame', (req, res, next) => {
 
   
   //save new scenario to db
-  router.post('/api/scenario/posttodb', (req, res, next) => {
+  router.post('/scenario/posttodb', (req, res, next) => {
     const values = [ req.body.name,
                      req.body.description,
                      req.body.image,
@@ -46,7 +46,7 @@ router.get('/api/get/scenarioGame', (req, res, next) => {
   })
   
   //edit current scenario
-  router.put('/api/put/scenario', (req, res, next) => {
+  router.put('/put/scenario', (req, res, next) => {
     const values = [ req.body.scenario_id,
                      req.body.name,
                      req.body.description,
@@ -62,7 +62,7 @@ router.get('/api/get/scenarioGame', (req, res, next) => {
           })
   })
   
-  router.delete('/api/delete/scenario', (req, res, next) => {
+  router.delete('/delete/scenario', (req, res, next) => {
     const scenario_id = req.body.scenario_id
     pool.query(`DELETE FROM public."SCENARIO" WHERE SCENARIO_ID = $1`, [ scenario_id ],
                 (q_err, q_res) => {
@@ -70,8 +70,5 @@ router.get('/api/get/scenarioGame', (req, res, next) => {
                   console.log(q_err)
          })
   })
-  router.get('/', function(req, res, next) {
-    res.send('API is working properly');
-});
 
 module.exports = router

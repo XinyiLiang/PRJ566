@@ -3,7 +3,7 @@ var router = express.Router()
 var pool = require('../main/db')
 
 
-router.get('/api/get/getAllNpc', (req, res, next ) => {
+router.get('/get/getAllNpc', (req, res, next ) => {
     pool.query(`SELECT * FROM public."NPC"`, 
               (q_err, q_res) => {
                     res.json(q_res.rows)
@@ -11,7 +11,7 @@ router.get('/api/get/getAllNpc', (req, res, next ) => {
   })
 
  
-  router.get('/api/get/NPC', (req, res, next) => {
+  router.get('/get/NPC', (req, res, next) => {
     const npc_id = req.query.npc_id
   
     pool.query(`SELECT * FROM public."NPC"
@@ -22,7 +22,7 @@ router.get('/api/get/getAllNpc', (req, res, next ) => {
   } )
   
   
-  router.post('/api/npc/posttodb', (req, res, next) => {
+  router.post('/npc/posttodb', (req, res, next) => {
     const values = [ req.body.name,
                      req.body.answer,
                      req.body.phoneNum, 
@@ -35,7 +35,7 @@ router.get('/api/get/getAllNpc', (req, res, next ) => {
       })
   })
   
-  router.put('/api/put/npc', (req, res, next) => {
+  router.put('/put/npc', (req, res, next) => {
     const values = [ req.body.npc_id,
                      req.body.name,
                      req.body.answer,
@@ -49,7 +49,7 @@ router.get('/api/get/getAllNpc', (req, res, next ) => {
           })
   })
   
-  router.delete('/api/delete/npc', (req, res, next) => {
+  router.delete('/delete/npc', (req, res, next) => {
     const post_id = req.body.npc_id
     pool.query(`DELETE FROM public."NPC" WHERE NPC_ID = $1`, [ npc_id ],
                 (q_err, q_res) => {
@@ -57,8 +57,6 @@ router.get('/api/get/getAllNpc', (req, res, next ) => {
                   console.log(q_err)
          })
   })
-  router.get('/', function(req, res, next) {
-    res.send('API is working properly');
-});
+
 
 module.exports = router

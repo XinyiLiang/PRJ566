@@ -3,7 +3,7 @@ var router = express.Router()
 var pool = require('../main/db')
   
   //save new collected clue for team to db
-  router.post('/api/team_score_clue/posttodb', (req, res, next) => {
+  router.post('/team_score_clue/posttodb', (req, res, next) => {
     const clue_id = req.query.clue_id
     pool.query(`INSERT INTO public."TEAM_SCORE"("CLUE_ID")
                 VALUES($1)`, [clue_id],
@@ -12,7 +12,7 @@ var pool = require('../main/db')
             res.json(q_res.rows)
       })
   })
-  router.post('/api/team_score_game/posttodb', (req, res, next) => {
+  router.post('/team_score_game/posttodb', (req, res, next) => {
     const team_id = req.query.team_id
     const game_id = req.body.game_id
     pool.query(`INSERT INTO public."TEAM_SCORE"("GAME_ID")
@@ -22,9 +22,5 @@ var pool = require('../main/db')
             res.json(q_res.rows)
       })
   })
-
-  router.get('/', function(req, res, next) {
-    res.send('API is working properly');
-});
 
 module.exports = router

@@ -4,7 +4,7 @@ var pool = require('../main/db')
 
 
   //create new user
-  router.post('/api/user/posttodb', (req, res, next) => {
+  router.post('/user/posttodb', (req, res, next) => {
     const values = [ req.body.primaryInfo.first_name,
       req.body.primaryInfo.last_name,
       req.body.primaryInfo.username,
@@ -23,14 +23,14 @@ var pool = require('../main/db')
   })
 
 //get player (using email)
-  router.get('/api/get/getPlayer/:email', async (req, res) => {
+  router.get('/get/getPlayer/:email', async (req, res) => {
     const email  = req.params.email
     const { rows } = await pool.query('SELECT * FROM public."PLAYER" WHERE "EMAIL" = $1 ', [email])
     res.send(rows[0])
   })
 
   //get player (using email)
-  router.get('/api/get/getTeamId/:email', async (req, res) => {
+  router.get('/get/getTeamId/:email', async (req, res) => {
     const email  = req.params.email
     const { rows } = await pool.query('SELECT "TEAM_ID" FROM public."PLAYER" WHERE "EMAIL" = $1 ', [email])
     res.send(rows[0])
@@ -38,7 +38,7 @@ var pool = require('../main/db')
  
 
 //player login(using email)
-router.post('/api/get/PlayerLogin', (req, res, next ) => {
+router.post('/get/PlayerLogin', (req, res, next ) => {
   const email = req.body.undefined.email;
   const password = req.body.undefined.password;
   pool.query(`SELECT * FROM public."PLAYER" WHERE "EMAIL" = $1 and "PASSWORD" = $2`, [ email,password ],
@@ -49,7 +49,7 @@ router.post('/api/get/PlayerLogin', (req, res, next ) => {
 })
 
 //get players for particular team
-router.get('/api/get/getAllTeamPlayers', (req, res, next ) => {
+router.get('/get/getAllTeamPlayers', (req, res, next ) => {
     const team_id = req.body.team_id
     pool.query(`SELECT * FROM public."PLAYER" WHERE TEAM_ID = $1`, [ team_id ],
               (q_err, q_res) => {
@@ -61,7 +61,7 @@ router.get('/api/get/getAllTeamPlayers', (req, res, next ) => {
   
 
   //edit current player comment out by Xinyi Liang
-  // router.put('/api/put/user', (req, res, next) => {
+  // router.put('/put/user', (req, res, next) => {
   //   const values = [ req.body.player_id,
   //                    req.body.username,
   //                    req.body.password,
@@ -79,7 +79,7 @@ router.get('/api/get/getAllTeamPlayers', (req, res, next ) => {
 
 
     //edit current player BY email added by Xinyi Liang
-  router.put('/api/put/user', (req, res, next) => {
+  router.put('/put/user', (req, res, next) => {
     
     const values = [ 
                      req.body.primaryInfo.username,
@@ -101,7 +101,7 @@ router.get('/api/get/getAllTeamPlayers', (req, res, next ) => {
 
 
   //edit current player team
-  router.put(`/api/put/userTeam/:email`, (req, res, next) => {
+  router.put(`/put/userTeam/:email`, (req, res, next) => {
     const values = [req.body.email,
                   req.body.team_id]
      
@@ -113,7 +113,7 @@ router.get('/api/get/getAllTeamPlayers', (req, res, next ) => {
   })
 
     //edit the team creator into the new created team
-    router.put(`/api/put/AdduserToTeam/:team_name`, (req, res, next) => {
+    router.put(`/put/AdduserToTeam/:team_name`, (req, res, next) => {
       const values = [req.body.email,
                      req.body.team_name]
        
@@ -128,7 +128,7 @@ router.get('/api/get/getAllTeamPlayers', (req, res, next ) => {
 
 
 //get players for particular team - added by Xinyi Liang
-router.get('/api/get/GetAllTeamInfo', (req, res, next ) => {
+router.get('/get/GetAllTeamInfo', (req, res, next ) => {
   pool.query(`SELECT t."TEAM_ID",t."NAME",t."PASSWORD",t."TYPE",
   count(p."TEAM_ID") as "TEAM_MEMBER_COUNT"
   from public."PLAYER" p, public."TEAMS" t

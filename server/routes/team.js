@@ -3,14 +3,14 @@ var router = express.Router()
 var pool = require('../main/db')
 
 
-router.get('/api/get/getTeams', async (req, res) => {
+router.get('/get/getTeams', async (req, res) => {
   const { rows } = await pool.query('SELECT * FROM public."TEAMS"') 
               
                     res.send(rows)
     })
 
   
-  router.get('/api/get/team/:id', async (req, res) => {
+  router.get('/get/team/:id', async (req, res) => {
     const  id  = req.params.id
     const { rows } = await pool.query('SELECT * FROM public."TEAMS"  WHERE "TEAM_ID"=$1', [id])
     res.send(rows[0])
@@ -18,7 +18,7 @@ router.get('/api/get/getTeams', async (req, res) => {
 
 
   //modified by Xinyi Liang
-  router.post('/api/team/posttodb', (req, res, next) => {
+  router.post('/team/posttodb', (req, res, next) => {
     const values = [ req.body.undefined.TeamName,
                      req.body.undefined.TeamType, 
                      req.body.undefined.teamPassword]
@@ -32,7 +32,7 @@ router.get('/api/get/getTeams', async (req, res) => {
       
   })
   
-  router.put('/api/put/post', (req, res, next) => {
+  router.put('/put/post', (req, res, next) => {
     const values = [ req.body.uid, 
                      req.body.name,
                      req.body.type, 
@@ -45,7 +45,7 @@ router.get('/api/get/getTeams', async (req, res) => {
           })
   })
   
-  router.delete('/api/delete/team', (req, res, next) => {
+  router.delete('/delete/team', (req, res, next) => {
     const post_id = req.body.team_id
     pool.query(`DELETE FROM public."TEAMS" WHERE TEAM_ID = $1`, [ team_id ],
                 (q_err, q_res) => {

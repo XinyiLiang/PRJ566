@@ -3,7 +3,7 @@ var router = express.Router()
 var pool = require('../main/db')
 
 //get entered answer for particular question and team 
-router.post(`/api/get/answerTeam/:id`, (req, res, next ) => {
+router.post(`/get/answerTeam/:id`, (req, res, next ) => {
     const values = [ req.body.question_id,
                      req.body.team_id];
                      console.log(values);
@@ -14,7 +14,7 @@ router.post(`/api/get/answerTeam/:id`, (req, res, next ) => {
   })
   
   //save new answer to db
-  router.post('/api/answer/posttodb', (req, res, next) => {
+  router.post('/answer/posttodb', (req, res, next) => {
     const values = [ req.body.team_id,
                      req.body.question_id,
                      req.body.answer]
@@ -27,7 +27,7 @@ router.post(`/api/get/answerTeam/:id`, (req, res, next ) => {
   })
   
   //edit current answer
-  router.put(`/api/put/answer/:id`, (req, res, next) => {
+  router.put(`/put/answer/:id`, (req, res, next) => {
     const values = [ req.body.team_id,
                      req.body.question_id,
                      req.body.answer]
@@ -39,7 +39,7 @@ router.post(`/api/get/answerTeam/:id`, (req, res, next ) => {
           })
   })
   
-  router.delete('/api/delete/answer', (req, res, next) => {
+  router.delete('/delete/answer', (req, res, next) => {
     const answer_id = req.body.answer_id
     pool.query(`DELETE FROM public."TEAM_ANSWER" WHERE ANSWER_ID = $1`, [ answer_id ],
                 (q_err, q_res) => {
@@ -47,8 +47,6 @@ router.post(`/api/get/answerTeam/:id`, (req, res, next ) => {
                   console.log(q_err)
          })
   })
-  router.get('/', function(req, res, next) {
-    res.send('API is working properly');
-});
+
 
 module.exports = router
