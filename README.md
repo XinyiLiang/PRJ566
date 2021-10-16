@@ -1,8 +1,8 @@
 # PRJ566  
 PRJ566 Peoject for group 10 - Detective Game Web Application  
 
-# Live URL
-http://ec2-18-189-145-60.us-east-2.compute.amazonaws.com/
+<!-- # Live URL
+http://ec2-18-189-145-60.us-east-2.compute.amazonaws.com/ -->
 
 # Prerequisites
 Install Node JS    
