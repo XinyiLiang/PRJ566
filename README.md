@@ -4,20 +4,29 @@ PRJ566 Peoject for group 10 - Detective Game Web Application
 <!-- # Live URL
 http://ec2-18-189-145-60.us-east-2.compute.amazonaws.com/ -->
 
-# Prerequisites
-Install Node JS    
-Refer to https://nodejs.org/en/ to install nodejs    
-```Install create-react-app```  
 
-Install create-react-app npm package globally. This will help to easily run the project and also build the source files easily. Use the following command to install create-react-app    
-```npm install -g create-react-app```  
+# Setup instructions to view the GitHub code:
+For running the Github code on local machine, please
+Download the project folder from Github and then open it in Virtual Studio Code.
 
-# Run  
+Go into the project folder, install the npm packages:\
+ ```$ PRJ566> npm i```
 
-Install all the npm packages. Go into the project folder and type the following command to install all npm packages    
-```npm install```  
+Go to client folder and install the npm packages:\
+```$ PRJ566> cd client```\
+```$ PRJ566\client> npm i```
+ 
 
-In order to run the application Type the following command     
-```npm start```   
+Then go to server folder and type the command:\
+```$ PRJ566> cd server```\
+```$ PRJ566\server> npm i```
 
-The Application Runs on localhost:3000
+Run the server:\
+```$ PRJ566\server> npm run dev```
+
+Then run the client:\
+```$ PRJ566\client> npm start```
+
+The Application client end runs on localhost:3000 and server end run on localhost:5000.
+
+
